@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SciKids - Plataforma Educativa</title>
+    
+    
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    
+</head>
+<body>
+
+    <header class="navbar glass-panel" id="navbar">
+        <a href="#" class="logo">
+            <i class="fas fa-rocket"></i>
+            Scikids
+        </a>
+        
+        <ul class="nav-links">
+            <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
+            <li><a href="matematicas.html"><i class="fas fa-calculator"></i> Matemáticas</a></li>
+            <li><a href="español.html"><i class="fas fa-book-open"></i> Español</a></li>
+            <li><a href="ciencias.html"><i class="fas fa-leaf"></i> Ciencias</a></li>
+            <li><a href="juegos.html"><i class="fas fa-gamepad"></i> Juegos</a></li>
+        </ul>
+
+        <div class="search-container">
+            <i class="fas fa-search"></i>
+            <input type="text" id="searchInput" placeholder="Buscar palabras...">
+        </div>
+
+        <div class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <section class="hero" id="inicio">
+        <div class="hero-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+        
+        <div class="hero-container">
+            <div class="hero-content fade-in-up">
+                <h1>Descubre, Juega y <span>Aprende</span></h1>
+                <p>Bienvenido a la plataforma educativa donde la curiosidad no tiene límites. Explora el mundo de las matemáticas, la lectura y las ciencias a través de juegos interactivos y divertidos laboratorios.</p>
+                <a href="#matematicas" class="btn-primary">
+                    Explorar Ahora <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            
+            <div class="hero-image fade-in-up" style="animation-delay: 0.3s;">
+                <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Niños aprendiendo felices">
+            </div>
+        </div>
+    </section>
+
+    <section id="espanol">
+        <div class="section-header fade-in-up">
+            <h2>📖 Español y Lectura</h2>
+            <p>¡Bienvenido al mundo mágico del español! Aquí aprenderás a leer, escribir, jugar con palabras y descubrirás secretos divertidos del idioma.</p>
+        </div>
+
+        <!-- Introducción sencilla -->
+        <section class="intro-esp fade-in-up">
+            <h3>¿Por qué es importante el español?</h3>
+            <p>El español es la llave para comunicarte, imaginar, crear historias y entender el mundo. ¡Vamos a descubrirlo juntos!</p>
+        </section>
+
+        <!-- Subtemas organizados y tarjetas educativas -->
+        <div class="subtemas-esp-grid">
+            <div class="edu-card fade-in-up">
+                <h4>Vocabulario</h4>
+                <ul>
+                    <li>Aprende palabras nuevas cada día.</li>
+                    <li>Descubre sinónimos y antónimos.</li>
+                    <li>Juega a adivinar palabras misteriosas.</li>
+                </ul>
+                <img src="../src/img/espanol/imagen vocabulario.jpeg" alt="Vocabulario divertido" class="edu-img">
+            </div>
+            <div class="edu-card fade-in-up" style="animation-delay:0.2s;">
+                
+                <h4>Ortografía</h4>
+                <ul>
+                    <li>¿Sabías que una tilde puede cambiar el significado de una palabra?</li>
+                    <li>Aprende reglas fáciles para escribir bien.</li>
+                    <li>¡Juega a encontrar el error!</li>
+                </ul>
+                <img src="../src/img/espanol/imagen ortografia.png" alt="Ortografía mágica" class="edu-img">
+            </div>
+            <div class="edu-card fade-in-up" style="animation-delay:0.4s;">
+                
+                <h4>Comprensión de Lectura</h4>
+                <ul>
+                    <li>Lee cuentos cortos y responde preguntas.</li>
+                    <li>Descubre el mensaje secreto de cada historia.</li>
+                </ul>
+                <img src="../src/img/espanol/comprension lectora.jpeg" alt="Comprensión lectora" class="edu-img">
+            </div>
+            <div class="edu-card fade-in-up" style="animation-delay:0.6s;">
+                
+                <h4>Partes de la Oración</h4>
+                <ul>
+                    <li>¿Qué es el sujeto? ¿Y el verbo?</li>
+                    <li>Arma oraciones divertidas con tus palabras favoritas.</li>
+                </ul>
+                <img src="../src/img/espanol/oracion.jpeg" alt="Partes de la oración" class="edu-img">
+            </div>
+        </div>
+
+        <!-- Lectura corta y mini quiz -->
+        <div class="lectura-mini-quiz fade-in-up">
+            <div class="lectura-box">
+                <h4>Lectura Corta: El Gato Saltarín</h4>
+                <p>
+                    Había una vez un gato llamado Tomás que amaba saltar de tejado en tejado. Un día, vio una mariposa y decidió seguirla. Saltó tan alto que casi tocó el cielo. Al final, la mariposa se posó en su nariz y Tomás aprendió que a veces lo mejor es disfrutar el momento.
+                </p>
+            </div>
+            <div class="mini-quiz-box">
+                <h4>Mini Quiz</h4>
+                <form id="miniQuizEsp">
+                    <p>¿Cómo se llamaba el gato?</p>
+                    <label><input type="radio" name="q1" value="Tomás"> Tomás</label><br>
+                    <label><input type="radio" name="q1" value="Miguel"> Miguel</label><br>
+                    <label><input type="radio" name="q1" value="Lucas"> Lucas</label><br>
+                    <p>¿Qué siguió el gato?</p>
+                    <label><input type="radio" name="q2" value="Mariposa"> Mariposa</label><br>
+                    <label><input type="radio" name="q2" value="Ratón"> Ratón</label><br>
+                    <label><input type="radio" name="q2" value="Perro"> Perro</label><br>
+                    <button type="button" class="btn-card" onclick="checkMiniQuizEsp()">Revisar respuestas</button>
+                    <div id="miniQuizEspResult"></div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Video educativo local -->
+        <div class="video-esp fade-in-up">
+            <h4>Video: ¿Qué es un sinónimo?</h4>
+            <video controls width="320" poster="../src/img/espanol/sinonimos.png">
+                <source src="../src/videos/lectura/sinonimos.mp4" type="video/mp4">
+                Tu navegador no soporta el video.
+            </video>
+        </div>
+
+        <!-- Curiosidades de español -->
+        <section id="curiosidades-espanol" class="fade-in-up">
+            <div class="section-header">
+                <h3>💡 Curiosidades del Español</h3>
+                <p>Descubre datos asombrosos sobre el idioma, la escritura y la literatura.</p>
+            </div>
+            <div class="curiosity-box-esp fade-in-up">
+                <div class="curiosity-text-esp" id="curiosityTextEsp">
+                    ¡Haz clic en el botón para descubrir una curiosidad sobre el español!
+                </div>
+                <button class="btn-primary" onclick="generateCuriosityEsp()">
+                    ¡Quiero una curiosidad! <i class="fas fa-random"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- Mini actividad interactiva -->
+        <div class="mini-actividad-esp fade-in-up">
+            <h4>Juego: ¿Cuál es el sinónimo?</h4>
+            <p>Selecciona el sinónimo de la palabra <strong>feliz</strong>:</p>
+            <div style="display: flex; gap: 10px;">
+                <button class="btn-card" onclick="alert('¡Correcto! Alegre es sinónimo de feliz.')">Alegre</button>
+                <button class="btn-card" onclick="alert('Triste es lo contrario, ¡intenta de nuevo!')">Triste</button>
+                <button class="btn-card" onclick="alert('Azul es un color, no un sinónimo de feliz.')">Azul</button>
+            </div>
+        </div>
+
+        <!-- Datos curiosos visuales -->
+        <div class="datos-curiosos-esp-grid fade-in-up">
+            <div class="dato-card">
+                
+                <p>El abecedario español tiene 27 letras. ¿Sabes cuál es la letra más usada? ¡La letra "E"!</p>
+                <img src="../src/img/espanol/abecedario.jpeg" alt="Letras del abecedario">
+            </div>
+            <div class="dato-card">
+                
+                <p>La tilde es como un sombrero mágico que cambia el sonido y el significado de las palabras.</p>
+                <img src="../src/img/espanol/tilde.png" alt="Tilde en español">
+            </div>
+            <div class="dato-card">
+                
+                <p>El libro más traducido después de la Biblia es "El Principito", ¡y fue escrito en francés!</p>
+                <img src="../src/img/espanol/libro.png" alt="Libro abierto">
+            </div>
+        </div>
+
+        <div class="cards-grid">
+            <div class="card fade-in-up">
+                <div class="card-icon"><i class="fas fa-book"></i></div>
+                <h3>Cuentos Infantiles</h3>
+                <div class="card-tags">
+                    <span>Cuentos</span>
+                    <span>Fábulas</span>
+                </div>
+                <p>Lee historias de dragones amigables, princesas valientes y animales que hablan. ¡La aventura te espera!</p>
+                <a href="#" class="btn-card">Leer Cuentos</a>
+            </div>
+
+            <div class="card fade-in-up" style="animation-delay: 0.2s;">
+                <div class="card-icon"><i class="fas fa-brain"></i></div>
+                <h3>Comprensión Lectora</h3>
+                <div class="card-tags">
+                    <span>Preguntas</span>
+                    <span>Análisis</span>
+                </div>
+                <p>¿Qué entendiste de la historia? Responde preguntas divertidas y demuestra que eres un gran detective de libros.</p>
+                <a href="#" class="btn-card">Hacer Test</a>
+            </div>
+
+            <div class="card fade-in-up" style="animation-delay: 0.4s;">
+                <div class="card-icon"><i class="fas fa-spell-check"></i></div>
+                <h3>Súper Vocabulario</h3>
+                <div class="card-tags">
+                    <span>Palabras</span>
+                    <span>Ortografía</span>
+                </div>
+                <p>Aprende palabras nuevas todos los días y descubre cómo se escriben correctamente sin aburrirte.</p>
+                <a href="#juegos" class="btn-card" onclick="openGameTab('words')">Ordenar Palabras</a>
+            </div>
+
+            <div class="card fade-in-up">
+                <div class="card-icon"><i class="fas fa-pen-nib"></i></div>
+                <h3>Formación de Oraciones</h3>
+                <div class="card-tags">
+                    <span>Sujeto</span>
+                    <span>Verbo</span>
+                </div>
+                <p>Une las palabras correctas para formar frases divertidas. El perro azul... ¿vuela en avión?</p>
+                <a href="#" class="btn-card">Armar Frases</a>
+            </div>
+
+            <div class="card fade-in-up" style="animation-delay: 0.2s;">
+                <div class="card-icon"><i class="fas fa-users"></i></div>
+                <h3>Identificar Personajes</h3>
+                <div class="card-tags">
+                    <span>Héroes</span>
+                    <span>Villanos</span>
+                </div>
+                <p>Conoce a los personajes principales de cada fábula y aprende sobre sus valores y emociones.</p>
+                <a href="#" class="btn-card">Ver Personajes</a>
+            </div>
+        </div>
+
+        <div class="content-expansion fade-in-up">
+            <h3><i class="fas fa-glasses" style="color:#ec4899;"></i> Teoría Fácil: Las Partes de un Cuento</h3>
+            <p>Todos los cuentos e historias mágicas que lees tienen tres partes muy importantes, ¡como si fuera una hamburguesa literaria!</p>
+            
+            <div class="example-box" style="border-left-color: #ec4899;">
+                <h4>1. El Inicio (El Pan de arriba) 🍔</h4>
+                <p>Aquí nos presentan a los personajes. Por ejemplo: <em>"Había una vez un osito muy dormilón llamado Tobby..."</em></p>
+                
+                <h4>2. El Nudo (La Carne y el Queso) 🧀</h4>
+                <p>Es donde ocurre el problema o la aventura. <em>"...Un día, Tobby perdió su manta mágica en el bosque encantado."</em></p>
+
+                <h4>3. El Desenlace (El Pan de abajo) 🍔</h4>
+                <p>Es el final, donde todo se resuelve. <em>"...Y gracias a su amigo el conejo, la encontró y durmieron felices."</em></p>
+            </div>
+
+            <div class="sabias-que-inline" style="background: linear-gradient(135deg, #ec4899, #f472b6);">
+                <i class="fas fa-book-reader"></i>
+                <span>¿Sabías que... el cuento infantil más leído y vendido en todo el mundo se llama "El Principito" y fue escrito hace más de 80 años?</span>
+            </div>
+
+            <div class="theory-grid">
+                <div class="theory-card">
+                    <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Libro mágico">
+                    <h4>¿Qué es una Fábula?</h4>
+                    <p>Las fábulas son historias cortitas donde los animales hablan y siempre nos dejan una <strong>moraleja</strong> (una enseñanza buena).</p>
+                </div>
+                <div class="theory-card">
+                    <img src="https://images.unsplash.com/photo-1456406644174-8ddd4cd52a06?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Lápiz y papel">
+                    <h4>La Ortografía es Magia</h4>
+                    <p>Saber escribir bien te da el poder de comunicarte con todo el mundo. ¡Una simple coma puede cambiar todo el sentido de una frase!</p>
+                </div>
+            </div>
+
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/p1qJgZg0448" title="Cuento infantil" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+
+            <div class="mini-activity">
+                <h4>✍️ Mini Reto: Elige el Adjetivo</h4>
+                <p>Completa la frase: "El león corre muy _________ por la selva."</p>
+                <div style="display: flex; justify-content: center; gap: 15px; margin-top: 15px;">
+                    <button class="btn-card" onclick="alert('¡No! Los leones son muy rápidos.')">Lento</button>
+                    <button class="btn-card" style="background-color: var(--color-1); color: white;" onclick="alert('¡Correcto! Rápido es el adjetivo ideal.')">Rápido</button>
+                    <button class="btn-card" onclick="alert('Mmm... azul es un color, no dice cómo corre.')">Azul</button>
+                </div>
+            </div>
+        </div>
+        <div class="lab-container reverse fade-in-up">
+            <div class="lab-image">
+                <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Niña leyendo un libro mágico">
+            </div>
+            <div class="lab-content">
+                <h3>🎭 Laboratorio de Lectura</h3>
+                <p>Conviértete en un autor famoso. En este espacio, tú eres quien crea la historia y decide cómo termina el cuento.</p>
+                <ul class="lab-list">
+                    <li><i class="fas fa-star"></i> <strong>Inventar finales:</strong> Si no te gusta el final de la tortuga y la liebre, ¡cámbialo!</li>
+                    <li><i class="fas fa-star"></i> <strong>Dibujar historias:</strong> Lee un párrafo y dibuja en nuestra pizarra lo que imaginaste.</li>
+                    <li><i class="fas fa-star"></i> <strong>Juegos de rimas:</strong> Crea poemas graciosos uniendo palabras que suenen igual.</li>
+                </ul>
+                <button class="btn-primary">Crear mi Historia <i class="fas fa-magic"></i></button>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="curiosidades">
+        <div class="section-header fade-in-up">
+            <h2>💡 Curiosidades del Día</h2>
+            <p>Descubre datos asombrosos sobre animales, plantas, ciencia y matemáticas que te dejarán con la boca abierta.</p>
+        </div>
+
+        <div class="curiosity-box fade-in-up">
+            <div class="curiosity-text" id="curiosityText">
+                "¿Sabías que los pulpos tienen tres corazones y su sangre es de color azul? ¡Son verdaderos extraterrestres del océano!"
+            </div>
+            <button class="btn-primary" onclick="generateCuriosity()">
+                ¡Quiero saber más! <i class="fas fa-random"></i>
+            </button>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo">
+                    <i class="fas fa-rocket" style="color: var(--color-4);"></i>
+                    Scikids
+                </div>
+                <p>Una plataforma diseñada con amor para despertar la curiosidad y el amor por el aprendizaje en niños de primaria.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h4>Áreas de Estudio</h4>
+                <ul>
+                    <li><a href="#matematicas">Matemáticas Divertidas</a></li>
+                    <li><a href="#espanol">Español y Lectura</a></li>
+                    <li><a href="#ciencias">Ciencias Naturales</a></li>
+                    <li><a href="#juegos">Juegos y Retos</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Recursos</h4>
+                <ul>
+                    <li><a href="#">Guía para Padres</a></li>
+                    <li><a href="#">Material Imprimible</a></li>
+                    <li><a href="#">Laboratorios Virtuales</a></li>
+                    <li><a href="#">Soporte Técnico</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Scikids. Todos los derechos reservados. Educando a los líderes del mañana.</p>
+        </div>
+    </footer>
+
+   <script src="../js/main.js"></script>
+   <script src="../js/buscador.js"></script>
+   <script src="../js/juegos.js"></script>
+   <script src="../js/laboratorios.js"></script>
+</body>
+</html>

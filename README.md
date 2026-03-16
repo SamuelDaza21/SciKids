@@ -171,18 +171,23 @@ REGLAS MUY IMPORTANTES:
 
 SECCIÓN A DESARROLLAR:
 
-[AQUI ESCRIBO LA TEMÁTICA]
+[Sección de español: usar el archivo español.html]
 
-Ejemplo:
-Sistema Solar
-Animales
-Historia
-Cuerpo Humano
-Geografía
-Ecología
-Inventos
-Tecnología
-Universo
+Ejemplo puedes incluir:
+
+-Comprensión de lectura
+
+-Vocabulario
+
+-Ortografía
+
+-Partes de la oración
+
+-Lecturas cortas
+
+-Sinónimos y antónimos
+
+-Descripción de lugares (geografía)
 
 ---
 
@@ -235,15 +240,9 @@ videos/[tema]/video1.mp4
 
 INTERACTIVIDAD (MUY IMPORTANTE)
 
-Incluye al menos 1 elemento interactivo como:
+La sección de curiosidades debe tener curiosaidades aleatorias con efecto fade in y fade out con una duración de 7 segundos para poder leer el contenido de las mismas, requiero ademas que las curiosidades no se repitan, para ello da almenos unas 20 curiosidades variadas sobre español, caligrafia, gramatica, lengua castellana, literatura, y variedades sobre español. 
 
-• mini quiz  
-• juego sencillo  
-• botón de curiosidad  
-• tarjetas que se voltean  
-• preguntas con respuestas  
-
-Todo en JavaScript.
+Todo en JavaScript en el archivo main.js.
 
 ---
 
@@ -283,13 +282,13 @@ Debes entregarme:
 
 CÓDIGO BASE DE MI PÁGINA
 
-[AQUI PEGO MI HTML ACTUAL]
+[usa el archivo español.html]
 
 ---
 
 DESARROLLA AHORA LA SECCIÓN:
 
-[AQUI PONGO LA TEMÁTICA]
+[la temática es sobre español, utiliza todo el contenido que abarque los grados de 0 a 5 de primaria]
 
 ---
 
@@ -297,16 +296,17 @@ DESARROLLA AHORA LA SECCIÓN:
 
 Ejemplos de secciones que se pueden añadir:
 
-- Sistema Solar
-- Animales
-- Cuerpo Humano
-- Historia
-- Geografía
-- Ecología
-- Inventos
-- Tecnología
-- Universo
-- Dinosaurios
-- Océanos
-- Energía
+-Comprensión de lectura
+
+-Vocabulario
+
+-Ortografía
+
+-Partes de la oración
+
+-Lecturas cortas
+
+-Sinónimos y antónimos
+
+-Descripción de lugares (geografía)
 
