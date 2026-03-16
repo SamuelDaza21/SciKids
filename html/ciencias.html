@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SciKids - Plataforma Educativa</title>
+    
+    
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    
+</head>
+<body>
+
+    <header class="navbar glass-panel" id="navbar">
+        <a href="#" class="logo">
+            <i class="fas fa-rocket"></i>
+            Scikids
+        </a>
+        
+        <ul class="nav-links">
+            <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
+            <li><a href="matematicas.html"><i class="fas fa-calculator"></i> Matemáticas</a></li>
+            <li><a href="español.html"><i class="fas fa-book-open"></i> Español</a></li>
+            <li><a href="ciencias.html"><i class="fas fa-leaf"></i> Ciencias</a></li>
+            <li><a href="juegos.html"><i class="fas fa-gamepad"></i> Juegos</a></li>
+        </ul>
+
+        <div class="search-container">
+            <i class="fas fa-search"></i>
+            <input type="text" id="searchInput" placeholder="Buscar palabras...">
+        </div>
+
+        <div class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <section class="hero" id="inicio">
+        <div class="hero-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+        
+        <div class="hero-container">
+            <div class="hero-content fade-in-up">
+                <h1>Descubre, Juega y <span>Aprende</span></h1>
+                <p>Bienvenido a la plataforma educativa donde la curiosidad no tiene límites. Explora el mundo de las matemáticas, la lectura y las ciencias a través de juegos interactivos y divertidos laboratorios.</p>
+                <a href="#ciencias" class="btn-primary">
+                    Explorar Ahora <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            
+            <div class="hero-image fade-in-up" style="animation-delay: 0.3s;">
+                <img src="../src/img/ciencias/principalsci.avif" alt="Niños aprendiendo felices">
+            </div>
+        </div>
+    </section>
+
+
+    <section id="ciencias">
+        <div class="section-header fade-in-up">
+            <h2>🌱 Ciencias Naturales</h2>
+            <p>Explora la naturaleza, descubre el reino animal y aprende cómo proteger nuestro hermoso planeta Tierra.</p>
+        </div>
+
+        <div class="cards-grid">
+            <div class="card fade-in-up">
+                <div class="card-icon"><img src="../src/img/ciencias/jardineria.png" alt="Icono seres vivos" width="48" height="48"></div>
+                <h3>Los Seres Vivos</h3>
+                <div class="card-tags">
+                    <span>Animales</span>
+                    <span>Plantas</span>
+                    <span>Hongos</span>
+                </div>
+                <p>Aprende qué diferencia a una roca de una planta, y descubre los reinos de la naturaleza, incluyendo los misteriosos hongos.</p>
+                <a href="#" class="btn-card">Explorar Vida</a>
+            </div>
+
+            <div class="card fade-in-up" style="animation-delay: 0.2s;">
+                <div class="card-icon"><img src="../src/img/ciencias/reciclaje.png" alt="Icono reciclaje" width="48" height="48"></div>
+                <h3>Cuidado del Planeta</h3>
+                <div class="card-tags">
+                    <span>Reciclaje</span>
+                    <span>Ecología</span>
+                </div>
+                <p>Conviértete en un superhéroe ecológico. Aprende a reciclar, reducir y reutilizar para salvar el mundo.</p>
+                <a href="#" class="btn-card">Misión Eco</a>
+            </div>
+
+            <div class="card fade-in-up" style="animation-delay: 0.4s;">
+                <div class="card-icon"><img src="../src/img/ciencias/agua.png" alt="Icono ciclo del agua" width="48" height="48"></div>
+                <h3>El Agua y la Naturaleza</h3>
+                <div class="card-tags">
+                    <span>Ciclo del agua</span>
+                    <span>Ríos</span>
+                </div>
+                <p>Viaja con una gota de lluvia desde las nubes hasta el mar y entiende por qué el agua es vida.</p>
+                <a href="#" class="btn-card">Ver Ciclo</a>
+            </div>
+
+            <div class="card fade-in-up">
+                <div class="card-icon"><img src="../src/img/ciencias/habitats.png" alt="Icono habitas" width="48" height="48"></div>
+                <h3>Identificar y Relacionar</h3>
+                <div class="card-tags">
+                    <span>Hábitats</span>
+                    <span>Alimentos</span>
+                </div>
+                <p>¿Qué come el león? ¿Dónde vive el pingüino? Relaciona cada animal con su comida y su hogar.</p>
+                <a href="#juegos" class="btn-card" onclick="openGameTab('quiz')">Test de Animales</a>
+            </div>
+
+            <div class="card fade-in-up" style="animation-delay: 0.2s;">
+                <div class="card-icon"><img src="../src/img/ciencias/planeta.png" alt="Icono planeta" width="48" height="48"></div>
+                <h3>Nuestro Planeta</h3>
+                <div class="card-tags">
+                    <span>Tierra</span>
+                    <span>Espacio</span>
+                </div>
+                <p>Descubre las capas de la Tierra, los volcanes y cómo nuestro planeta flota en el inmenso espacio.</p>
+                <a href="#" class="btn-card">Viaje Espacial</a>
+            </div>
+        </div>
+
+        <div class="content-expansion fade-in-up">
+            <article class="ciclo-agua">
+                <h3 style="color: var(--color-1);">
+                    <i class="fas fa-leaf"></i> ¡El Gran Viaje de una Gota de Agua!
+                </h3>
+                
+                <p>¿Alguna vez has pensado que el agua que bebes hoy es la misma que bebían los dinosaurios? ¡Es verdad! El agua no se crea ni se destruye, solo viaja constantemente. Este viaje increíble se llama <strong>El Ciclo del Agua</strong>.</p><div class="contenido-ciclo" style="border-left: 5px solid var(--color-1); padding: 15px; background: #fdfdfd; border-radius: 0 10px 10px 0;">
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 20px;">
+                            <strong>1. Evaporación (El viaje en globo):</strong> ☀️💧<br>
+                            El Sol calienta mares y ríos. El agua se convierte en un vaporcito invisible que sube al cielo como un pequeño fantasmita.
+                        </li>
+                        <li style="margin-bottom: 20px;">
+                            <strong>2. Condensación (¡A formar nubes!):</strong> ☁️<br>
+                            Allá arriba hace frío. Los vaporcitos se abrazan al sentir el frío y se juntan para formar las esponjosas nubes.
+                        </li>
+                        <li style="margin-bottom: 20px;">
+                            <strong>3. Precipitación (¡A jugar a la lluvia!):</strong> 🌧️❄️<br>
+                            Cuando la nube está muy pesada, el agua cae de vuelta a la Tierra como lluvia, nieve o granizo.
+                        </li>
+                        <li>
+                            <strong>4. Acumulación (La gran fiesta del agua):</strong> 🌊🏔️<br>
+                            El agua corre por las montañas y llena los ríos, reuniéndose de nuevo en los mares para empezar el viaje otra vez.
+                        </li>
+                    </ul>
+                </div>
+            <img src="../src/img/ciencias/ciclodelagua.jpg" alt="Ciclo del agua">
+            <aside style="margin-top: 15px; padding: 10px; background: #e7f3fe; border-radius: 8px;">
+                <p><em><strong>¿Sabías qué?</strong></em> Las plantas también "sudan" agua a través de sus hojas. ¡Este proceso ayuda a que el ciclo nunca se detenga!</p>
+            </aside>
+        </article>
+
+            <div class="theory-grid">
+                <div class="theory-card">
+                    <img src="../src/img/ciencias/leopardo.avif" alt="Leopardo en la naturaleza">
+                    <h4>Animales Carnívoros vs Herbívoros</h4>
+                    <p>Los <strong>carnívoros</strong> como el león comen carne, mientras que los <strong>herbívoros</strong> como las vacas y jirafas comen plantitas y hojas.</p>
+                </div>
+                <div class="theory-card">
+                    <img src="../src/img/ciencias/sistema solar.avif" alt="El espacio y los planetas">
+                    <h4>El Sistema Solar</h4>
+                    <p>Vivimos en un vecindario espacial. Tenemos una estrella gigante llamada Sol y 8 planetas girando a su alrededor. ¡La Tierra es el tercero!</p>
+                </div>
+            </div>
+
+            <div class="video-container">
+                <iframe src="../src/videos/ciencias/sistema solar.mp4" title="Ciencia para niños" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+
+            <div class="mini-activity">
+                <h4>🌍 Clasifica la Basura</h4>
+                <p>¿En qué caneca tirarías una cáscara de plátano?</p>
+                <div style="display: flex; justify-content: center; gap: 15px; margin-top: 15px;">
+                    <button class="btn-card" onclick="alert('¡No! El plástico va en otra caneca (azul o blanca).')">Plástico</button>
+                    <button class="btn-card" onclick="alert('Incorrecto. El papel y cartón van en la gris o blanca.')">Papel</button>
+                    <button class="btn-card" style="background-color: var(--color-1); color: white;" onclick="alert('¡Excelente! Es un residuo orgánico y va en la caneca verde para hacer abono.')">Orgánico (Verde)</button>
+                </div>
+            </div>
+        </div>
+        <div class="lab-container fade-in-up">
+            <div class="lab-image">
+                <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Niños investigando la naturaleza con microscopio">
+            </div>
+            <div class="lab-content">
+                <h3>🔬 Laboratorio Natural</h3>
+                <p>¡Manos a la tierra! Convierte tu casa en un verdadero centro de investigación científica con experimentos fáciles y seguros.</p>
+                <ul class="lab-list">
+                    <li><i class="fas fa-seedling"></i> <strong>Germinar una planta:</strong> Mira cómo crece un frijolito en un frasco de vidrio.</li>
+                    <li><i class="fas fa-search-plus"></i> <strong>Observar insectos:</strong> Aprende a clasificar hormigas y mariposas en el jardín.</li>
+                    <li><i class="fas fa-tint"></i> <strong>Experimentos con agua:</strong> Descubre la densidad creando un arcoíris líquido en un vaso.</li>
+                </ul>
+                <button class="btn-primary">Ver Experimentos <i class="fas fa-vial"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <section id="mas-ciencias" class="fade-in-up">
+        <div class="cards-grid">
+            <div class="card fade-in-up">
+                <div class="card-icon"><i class="fas fa-sun"></i></div>
+                <h3>Sistema Solar</h3>
+                <p>Conoce los planetas, el Sol, los asteroides y cómo giran en el espacio.</p>
+                <ul>
+                    <li>Mercurio a Plutón</li>
+                    <li>¿Qué es una luna?</li>
+                    <li>¿Qué significa gravedad?</li>
+                </ul>
+            </div>
+
+            <div class="card fade-in-up" style="animation-delay: 0.2s;">
+                <div class="card-icon"><i class="fas fa-heart"></i></div>
+                <h3>Cuerpo Humano</h3>
+                <p>Descubre cómo funcionan el corazón, los pulmones, el esqueleto y el sistema digestivo.</p>
+                <ul>
+                    <li>La sangre viaja por las venas</li>
+                    <li>Los huesos hacen posible moverse</li>
+                    <li>Los órganos trabajan en equipo</li>
+                </ul>
+            </div>
+
+            <div class="card fade-in-up" style="animation-delay: 0.4s;">
+                <div class="card-icon"><i class="fas fa-seedling"></i></div>
+                <h3>Plantas & Ecología</h3>
+                <p>Aprende cómo crecen las plantas, por qué son importantes y cómo cuidar el planeta.</p>
+                <ul>
+                    <li>Fotosíntesis</li>
+                    <li>Cadena alimenticia</li>
+                    <li>Cuida los bosques</li>
+                </ul>
+            </div>
+
+            <div class="card fade-in-up" style="animation-delay: 0.6s;">
+                <div class="card-icon"><i class="fas fa-robot"></i></div>
+                <h3>Inventos & Tecnología</h3>
+                <p>Explora las máquinas, la electricidad y los inventos que cambian el mundo.</p>
+                <ul>
+                    <li>La rueda</li>
+                    <li>La bombilla</li>
+                    <li>Robots y microscopios</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="video-container" style="margin-top: 1.5rem;">
+            <h3 style="text-align: center; color: #2f7c58;">🎬 Video educativo local</h3>
+            <video controls width="100%" style="max-width: 900px; border-radius: 14px; border: 3px solid #8ccc96;">
+                <source src="../src/videos/ciencias/video1.mp4" type="video/mp4">
+                Tu navegador no soporta video local. Usa otro navegador para ver el contenido.
+            </video>
+        </div>
+
+        <div class="content-expansion" style="margin-top: 1.5rem;">
+            <h3>🧪 Mini Experimento en casa</h3>
+            <p>Observa cómo se mueve el agua con un arcoíris de densidades.</p>
+            <ol>
+                <li>Llena un vaso con agua.</li>
+                <li>Añade gotas de colorante azul y rojo.</li>
+                <li>Usa una cuchara para no mezclar mucho y observa cómo se separan.</li>
+            </ol>
+            <p class="sabias-que-inline" style="background: #ffeec2; color: #5a4a00; border: 2px dashed #ffbc00; border-radius: 10px; padding: 10px;">
+                💡 Sabías que: El hielo flota porque es menos denso que el agua líquida. ¡Una propiedad muy especial del agua!
+            </p>
+        </div>
+    </section>
+
+    <section id="curiosidades">
+        <div class="section-header fade-in-up">
+            <h2>💡 Curiosidades del Día</h2>
+            <p>Descubre datos asombrosos sobre animales, plantas, ciencia y tecnología que te dejarán con la boca abierta.</p>
+        </div>
+
+        <div class="curiosity-box fade-in-up">
+            <div class="curiosity-text" id="curiosityText">
+                "¿Sabías que los pulpos tienen tres corazones y su sangre es de color azul? ¡Son verdaderos extraterrestres del océano!"
+            </div>
+            <button class="btn-primary" onclick="generateCuriosity()">
+                ¡Quiero saber más! <i class="fas fa-random"></i>
+            </button>
+        </div>
+
+        <div class="quiz-box fade-in-up" style="margin-top: 1.5rem;">
+            <h3>❓ Mini Quiz de Ciencias</h3>
+            <p>Selecciona la respuesta correcta y comprueba cuánto aprendiste.</p>
+            <div style="display: grid; gap: 10px; max-width: 620px; margin: 0 auto;">
+                <div>
+                    <p>1. ¿Cuál es el planeta más cercano al Sol?</p>
+                    <button class="btn-card" onclick="checkQuiz('Mercurio')">Mercurio</button>
+                    <button class="btn-card" onclick="checkQuiz('Venus')">Venus</button>
+                    <button class="btn-card" onclick="checkQuiz('Tierra')">Tierra</button>
+                </div>
+                <div>
+                    <p>2. ¿Qué órgano bombea la sangre en nuestro cuerpo?</p>
+                    <button class="btn-card" onclick="checkQuiz('Pulmones')">Pulmones</button>
+                    <button class="btn-card" onclick="checkQuiz('Corazón')">Corazón</button>
+                    <button class="btn-card" onclick="checkQuiz('Hígado')">Hígado</button>
+                </div>
+                <div>
+                    <p>3. ¿Qué proceso usan las plantas para producir su alimento?</p>
+                    <button class="btn-card" onclick="checkQuiz('Fotosíntesis')">Fotosíntesis</button>
+                    <button class="btn-card" onclick="checkQuiz('Evaporación')">Evaporación</button>
+                    <button class="btn-card" onclick="checkQuiz('Condensación')">Condensación</button>
+                </div>
+            </div>
+            <p id="quizResult" style="margin-top: 12px; font-weight: bold;"></p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo">
+                    <i class="fas fa-rocket" style="color: var(--color-4);"></i>
+                    Scikids
+                </div>
+                <p>Una plataforma diseñada con amor para despertar la curiosidad y el amor por el aprendizaje en niños de primaria.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h4>Áreas de Estudio</h4>
+                <ul>
+                    <li><a href="#matematicas">Matemáticas Divertidas</a></li>
+                    <li><a href="#espanol">Español y Lectura</a></li>
+                    <li><a href="#ciencias">Ciencias Naturales</a></li>
+                    <li><a href="#juegos">Juegos y Retos</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Recursos</h4>
+                <ul>
+                    <li><a href="#">Guía para Padres</a></li>
+                    <li><a href="#">Material Imprimible</a></li>
+                    <li><a href="#">Laboratorios Virtuales</a></li>
+                    <li><a href="#">Soporte Técnico</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Scikids. Todos los derechos reservados. Educando a los líderes del mañana.</p>
+        </div>
+    </footer>
+
+   <script src="../js/main.js"></script>
+   <script src="../js/buscador.js"></script>
+   <script src="../js/juegos.js"></script>
+   <script src="../js/laboratorios.js"></script>
+</body>
+</html>

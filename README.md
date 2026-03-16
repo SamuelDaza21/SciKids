@@ -171,6 +171,7 @@ REGLAS MUY IMPORTANTES:
 
 SECCIÓN A DESARROLLAR:
 
+<<<<<<< HEAD
 [Sección de español: usar el archivo español.html]
 
 Ejemplo puedes incluir:
@@ -188,6 +189,19 @@ Ejemplo puedes incluir:
 -Sinónimos y antónimos
 
 -Descripción de lugares (geografía)
+=======
+[Seccion de ciencias: usar el archivo ciencias.html]
+
+Ejemplo puedes incluir:
+Sistema Solar
+Animales
+Cuerpo Humano
+plantas
+Ecología
+Inventos
+Tecnología
+Universo
+>>>>>>> d3d0993ef00def7c622c44d37e3998d12b609650
 
 ---
 
@@ -240,9 +254,15 @@ videos/[tema]/video1.mp4
 
 INTERACTIVIDAD (MUY IMPORTANTE)
 
+<<<<<<< HEAD
 La sección de curiosidades debe tener curiosaidades aleatorias con efecto fade in y fade out con una duración de 7 segundos para poder leer el contenido de las mismas, requiero ademas que las curiosidades no se repitan, para ello da almenos unas 20 curiosidades variadas sobre español, caligrafia, gramatica, lengua castellana, literatura, y variedades sobre español. 
 
 Todo en JavaScript en el archivo main.js.
+=======
+La seccion de Curiosidades debe tener curiosidades aleatorias con efecto fade in y fade out con una duracion de 7 segundos para poder leer el contenido de las mismas, requiero ademas que las curiosidades no se repitan para ello da al menos unas 20 curiosidades variadas sobre Ciencias naturales, fisica, Sistema solar, Cuerpo humano y variedades sobre ciencias.
+
+Todo en JavaScript en el archivo main.js
+>>>>>>> d3d0993ef00def7c622c44d37e3998d12b609650
 
 ---
 
@@ -282,13 +302,21 @@ Debes entregarme:
 
 CÓDIGO BASE DE MI PÁGINA
 
+<<<<<<< HEAD
 [usa el archivo español.html]
+=======
+[usa el archivo ciencias.html]
+>>>>>>> d3d0993ef00def7c622c44d37e3998d12b609650
 
 ---
 
 DESARROLLA AHORA LA SECCIÓN:
 
+<<<<<<< HEAD
 [la temática es sobre español, utiliza todo el contenido que abarque los grados de 0 a 5 de primaria]
+=======
+[la tematica es sobre ciencias, utiliza todo el contenido que abarque los grados de 0 a 5 de primaria]
+>>>>>>> d3d0993ef00def7c622c44d37e3998d12b609650
 
 ---
 
