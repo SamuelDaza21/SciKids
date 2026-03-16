@@ -171,14 +171,13 @@ REGLAS MUY IMPORTANTES:
 
 SECCIÓN A DESARROLLAR:
 
-[AQUI ESCRIBO LA TEMÁTICA]
+[Seccion de ciencias: usar el archivo ciencias.html]
 
-Ejemplo:
+Ejemplo puedes incluir:
 Sistema Solar
 Animales
-Historia
 Cuerpo Humano
-Geografía
+plantas
 Ecología
 Inventos
 Tecnología
@@ -235,15 +234,9 @@ videos/[tema]/video1.mp4
 
 INTERACTIVIDAD (MUY IMPORTANTE)
 
-Incluye al menos 1 elemento interactivo como:
+La seccion de Curiosidades debe tener curiosidades aleatorias con efecto fade in y fade out con una duracion de 7 segundos para poder leer el contenido de las mismas, requiero ademas que las curiosidades no se repitan para ello da al menos unas 20 curiosidades variadas sobre Ciencias naturales, fisica, Sistema solar, Cuerpo humano y variedades sobre ciencias.
 
-• mini quiz  
-• juego sencillo  
-• botón de curiosidad  
-• tarjetas que se voltean  
-• preguntas con respuestas  
-
-Todo en JavaScript.
+Todo en JavaScript en el archivo main.js
 
 ---
 
@@ -283,13 +276,13 @@ Debes entregarme:
 
 CÓDIGO BASE DE MI PÁGINA
 
-[AQUI PEGO MI HTML ACTUAL]
+[usa el archivo ciencias.html]
 
 ---
 
 DESARROLLA AHORA LA SECCIÓN:
 
-[AQUI PONGO LA TEMÁTICA]
+[la tematica es sobre ciencias, utiliza todo el contenido que abarque los grados de 0 a 5 de primaria]
 
 ---
 

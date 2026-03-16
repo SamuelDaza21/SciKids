@@ -23,32 +23,103 @@
         // 2. CURIOSIDADES DEL DÍA
         // ----------------------------------------------------------------------
         const curiositiesList = [
-            "¿Sabías que los pulpos tienen tres corazones y su sangre es de color azul? ¡Son verdaderos extraterrestres del océano!",
-            "Las abejas se comunican bailando. Dependiendo de cómo se muevan, le dicen a sus compañeras dónde hay flores.",
-            "¡Un día en Venus dura más que un año en Venus! Gira sobre sí mismo muy, muy lento.",
-            "El hueso más pequeño del cuerpo humano está en la oreja y se llama 'estribo'. Es del tamaño de un grano de arroz.",
-            "Si estiraras todo el ADN de una sola de tus células, mediría unos 2 metros de largo. ¡Increíble!",
-            "Las mariposas saborean con sus patas. Al posarse sobre una flor, saben si es deliciosa.",
-            "Los árboles se comunican entre sí a través de una red subterránea de hongos llamada micelio.",
-            "El número cero (0) fue inventado en la India hace miles de años. Antes de eso, ¡era muy difícil hacer matemáticas grandes!",
-            "El Sol es tan grande que cabrían más de un millón de planetas Tierra en su interior."
+            "Los pulpos tienen tres corazones y su sangre es azul.",
+            "Las abejas se comunican en una danza especial para decir dónde están las flores.",
+            "Un día en Venus dura más que un año en Venus.",
+            "El hueso más pequeño del cuerpo humano está en el oído y se llama estribo.",
+            "El ADN de una célula estirado mide unos 2 metros.",
+            "Las mariposas saborean con sus patas.",
+            "Los árboles hablan entre sí con hongos en las raíces.",
+            "El cero fue inventado en la India.",
+            "El Sol podría albergar más de un millón de Tierras adentro.",
+            "La Tierra no es una esfera perfecta, está un poco achatada en los polos.",
+            "Los animales que caminan en cuatro patas se llaman cuadrúpedos.",
+            "El corazón de un bebé late a más de 120 pulsaciones por minuto.",
+            "Las plantas usan luz del sol para crear comida: fotosíntesis.",
+            "Un rayo eléctrico puede ser cinco veces más caliente que la superficie del sol.",
+            "El sonido viaja más rápido en agua que en aire.",
+            "La Luna ya no se está formando; se aleja unos 4 cm cada año.",
+            "Los dinosaurios vivieron hace más de 65 millones de años.",
+            "Los canguros no pueden caminar hacia atrás.",
+            "La luz tarda unos 8 minutos en viajar del Sol a la Tierra.",
+            "Las tortugas pueden respirar a través de su cola "
         ];
 
-        function generateCuriosity() {
+        let curiosityQueue = [];
+        let currentCuriosityIndex = 0;
+        let curiosityIntervalId = null;
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        function ensureCuriosityQueue() {
+            if (curiosityQueue.length === 0) {
+                curiosityQueue = shuffleArray([...curiositiesList]);
+                currentCuriosityIndex = 0;
+            }
+        }
+
+        function getNextCuriosity() {
+            ensureCuriosityQueue();
+            const next = curiosityQueue[currentCuriosityIndex];
+            currentCuriosityIndex++;
+            if (currentCuriosityIndex >= curiosityQueue.length) {
+                curiosityQueue = [];
+            }
+            return next;
+        }
+
+        function showCuriosity(text) {
             const textElement = document.getElementById('curiosityText');
-            // Animación de salida
+            textElement.style.transition = 'all 0.8s ease';
             textElement.style.opacity = '0';
             textElement.style.transform = 'scale(0.95)';
-            
+
             setTimeout(() => {
-                const randomFact = curiositiesList[Math.floor(Math.random() * curiositiesList.length)];
-                textElement.innerText = `"${randomFact}"`;
-                
-                // Animación de entrada
-                textElement.style.transition = 'all 0.5s ease';
+                textElement.innerText = `"${text}"`;
                 textElement.style.opacity = '1';
                 textElement.style.transform = 'scale(1)';
-            }, 300);
+            }, 700);
+        }
+
+        function generateCuriosity() {
+            const seleccion = getNextCuriosity();
+            showCuriosity(seleccion);
+        }
+
+        function startCuriosityCycle() {
+            if (curiosityIntervalId) clearInterval(curiosityIntervalId);
+            generateCuriosity();
+            curiosityIntervalId = setInterval(() => {
+                generateCuriosity();
+            }, 7000);
+        }
+
+        function checkQuiz(answer) {
+            const result = document.getElementById('quizResult');
+            const correctAnswers = {
+                1: 'Mercurio',
+                2: 'Corazón',
+                3: 'Fotosíntesis'
+            };
+
+            // Determine question by answer set
+            let feedback = '¡Buena idea! Intenta otra vez.';
+
+            if (answer === 'Mercurio') feedback = '¡Correcto! Mercurio está más cerca del Sol.';
+            if (answer === 'Corazón') feedback = '¡Correcto! El corazón bombea sangre.';
+            if (answer === 'Fotosíntesis') feedback = '¡Correcto! Las plantas hacen su comida con la luz del sol.';
+            if (answer === 'Venus' || answer === 'Tierra' || answer === 'Pulmones' || answer === 'Hígado' || answer === 'Evaporación' || answer === 'Condensación') {
+                feedback = 'Casi. Vuelve a intentarlo y recuerda lo aprendido.';
+            }
+
+            result.innerText = feedback;
+            result.style.color = feedback.startsWith('¡Correcto') ? '#196f3d' : '#8b1a1a';
         }
 
         // ----------------------------------------------------------------------
@@ -56,6 +127,7 @@
         // ----------------------------------------------------------------------
         window.onload = () => {
             initMathGame(); // Iniciar primer juego por defecto
+            startCuriosityCycle();
         };
 
         // Soporte tecla enter en input math y words
