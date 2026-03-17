@@ -157,12 +157,12 @@
         </article>
 
             <div class="theory-grid">
-                <div class="theory-card">
+                <div class="theory-card" onclick="mostrarVideo(this)" data-video="../src/videos/ciencias/cadenaalimenticia.mp4">
                     <img src="../src/img/ciencias/leopardo.avif" alt="Leopardo en la naturaleza">
                     <h4>Animales Carnívoros vs Herbívoros</h4>
                     <p>Los <strong>carnívoros</strong> como el león comen carne, mientras que los <strong>herbívoros</strong> como las vacas y jirafas comen plantitas y hojas.</p>
                 </div>
-                <div class="theory-card">
+                <div class="theory-card" onclick="mostrarVideo(this)" data-video="../src/videos/ciencias/UNIVERSO.mp4">
                     <img src="../src/img/ciencias/sistema solar.avif" alt="El espacio y los planetas">
                     <h4>El Sistema Solar</h4>
                     <p>Vivimos en un vecindario espacial. Tenemos una estrella gigante llamada Sol y 8 planetas girando a su alrededor. ¡La Tierra es el tercero!</p>
@@ -195,7 +195,7 @@
                     <li><i class="fas fa-search-plus"></i> <strong>Observar insectos:</strong> Aprende a clasificar hormigas y mariposas en el jardín.</li>
                     <li><i class="fas fa-tint"></i> <strong>Experimentos con agua:</strong> Descubre la densidad creando un arcoíris líquido en un vaso.</li>
                 </ul>
-                <button class="btn-primary">Ver Experimentos <i class="fas fa-vial"></i></button>
+                <button class="btn-primary" onclick="abrirlab()">Ver Experimentos <i class="fas fa-vial"></i></button>
             </div>
         </div>
     </section>
@@ -352,9 +352,25 @@
         </div>
     </footer>
 
+
+    <div id="videoModal" class="modal-overlay" onclick="cerrarVideo()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            
+            <!-- BOTÓN ROJO CON X BLANCA -->
+            <div class="btn-cerrar-modal" onclick="cerrarVideo()">
+                <span>×</span>
+            </div>
+
+            <div id="contenedorVideoModal">
+                <!-- Aquí entra el video -->
+            </div>
+            
+        </div>
+    </div>
+
    <script src="../js/main.js"></script>
    <script src="../js/buscador.js"></script>
    <script src="../js/juegos.js"></script>
-   <script src="../js/laboratorios.js"></script>
+   <script src="../js/laboratorio.js"></script>
 </body>
 </html>

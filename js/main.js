@@ -226,3 +226,43 @@ function checkMiniQuizEsp() {
         document.getElementById('wordAnswer').addEventListener('keypress', function (e) {
             if (e.key === 'Enter') checkWord();
         });
+
+// ----------------------------------------------------------------------
+// 5. VIDEOS INTERACTIVOS DE CIENCIAS
+// ----------------------------------------------------------------------
+
+function mostrarVideo(elemento) {
+    const rutaVideo = elemento.getAttribute('data-video');
+    const modal = document.getElementById('videoModal');
+    const contenedor = document.getElementById('contenedorVideoModal');
+    const contenidoCaja = modal.querySelector('.modal-content');
+
+    // 1. Inyectamos el video
+    contenedor.innerHTML = `
+        <video width="100%" controls autoplay>
+            <source src="${rutaVideo}" type="video/mp4">
+        </video>`;
+
+    // 2. Aplicamos tus animaciones
+    modal.style.display = "flex";
+    modal.style.animation = "fadeIn 0.5s ease forwards"; // Tu animación de fondo
+    contenidoCaja.style.animation = "bounceIn 0.8s ease forwards"; // Tu animación de rebote
+}
+
+function cerrarVideo() {
+    const modal = document.getElementById('videoModal');
+    
+    // Animación rápida de salida (opcional, o solo ocultar)
+    modal.style.opacity = "0";
+    modal.style.transition = "opacity 0.3s ease";
+
+    setTimeout(() => {
+        modal.style.display = "none";
+        modal.style.opacity = "1"; // Reset para la próxima vez
+        document.getElementById('contenedorVideoModal').innerHTML = "";
+    }, 300);
+}
+
+// ----------------------------------------------------------------------
+// 6. TRIVIAS VARIADAS
+// ----------------------------------------------------------------------
