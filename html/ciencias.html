@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SciKids - Plataforma Educativa</title>
     
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/animations.css">
     <link rel="stylesheet" href="../css/responsive.css">
@@ -20,7 +20,7 @@
         </a>
         
         <ul class="nav-links">
-            <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
+            <li><a href="../index.html"><i class="fas fa-home"></i> Inicio</a></li>
             <li><a href="matematicas.html"><i class="fas fa-calculator"></i> Matemáticas</a></li>
             <li><a href="español.html"><i class="fas fa-book-open"></i> Español</a></li>
             <li><a href="ciencias.html"><i class="fas fa-leaf"></i> Ciencias</a></li>
@@ -310,7 +310,26 @@
             <p id="quizResult" style="margin-top: 12px; font-weight: bold;"></p>
         </div>
     </section>
-
+    <section class="biomas-selector">
+        <div class="section-header">
+            <h2><i class="fas fa-globe-americas"></i> ¡Viaja por el Mundo!</h2>
+            <p>Haz clic en un bioma para ver quién vive allí.</p>
+        </div>
+        <div class="bioma-grid" style="display: flex; justify-content: center; gap: 20px;">
+            <div class="bioma-item" onclick="mostrarInfo('desierto')">
+                <i class="fas fa-sun" style="color: #edbb33; font-size: 3rem;"></i>
+                <span>Desierto</span>
+            </div>
+            <div class="bioma-item" onclick="mostrarInfo('oceano')">
+                <i class="fas fa-water" style="color: #33a8ed; font-size: 3rem;"></i>
+                <span>Océano</span>
+            </div>
+            <div class="bioma-item" onclick="mostrarInfo('selva')">
+                <i class="fas fa-tree" style="color: #2e7d32; font-size: 3rem;"></i>
+                <span>Selva</span>
+            </div>
+        </div>
+    </section>
     <footer>
         <div class="footer-content">
             <div class="footer-brand">

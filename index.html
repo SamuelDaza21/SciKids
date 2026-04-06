@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SciKids - Plataforma Educativa</title>
     
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"> 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/responsive.css">
@@ -13,18 +13,17 @@
 </head>
 <body>
 
-    <header class="navbar glass-panel" id="navbar">
+    <header class="navbar glass-panel" id="navbar"> 
         <a href="#" class="logo">
             <i class="fas fa-rocket"></i>
             Pequeños Científicos
         </a>
-        
         <ul class="nav-links">
-            <li><a href="#inicio"><i class="fas fa-home"></i> Inicio</a></li>
-            <li><a href="#matematicas"><i class="fas fa-calculator"></i> Matemáticas</a></li>
-            <li><a href="#espanol"><i class="fas fa-book-open"></i> Español</a></li>
-            <li><a href="#ciencias"><i class="fas fa-leaf"></i> Ciencias</a></li>
-            <li><a href="#juegos"><i class="fas fa-gamepad"></i> Juegos</a></li>
+            <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
+            <li><a href="html/matematicas.html"><i class="fas fa-calculator"></i> Matemáticas</a></li>
+            <li><a href="html/español.html"><i class="fas fa-book-open"></i> Español</a></li>
+            <li><a href="html/ciencias.html"><i class="fas fa-leaf"></i> Ciencias</a></li>
+            <li><a href="html/juegos.html"><i class="fas fa-gamepad"></i> Juegos</a></li>
         </ul>
 
         <div class="search-container">
@@ -58,442 +57,41 @@
             </div>
         </div>
     </section>
-
-    <section id="matematicas">
-        <div class="section-header fade-in-up">
-            <h2>🔢 Matemáticas Divertidas</h2>
-            <p>Aprende a jugar con los números, resolver problemas del día a día y convertirte en un genio calculador.</p>
+    <section id="explorar" class="container">
+        <div class="section-header">
+            <h2>¿Qué quieres aprender hoy?</h2>
+            <p>Elige una aventura y comienza a descubrir el mundo.</p>
         </div>
 
         <div class="cards-grid">
             <div class="card fade-in-up">
-                <div class="card-icon"><i class="fas fa-plus"></i></div>
-                <h3>Sumas y Restas Mágicas</h3>
-                <div class="card-tags">
-                    <span>Sumas</span>
-                    <span>Restas</span>
-                    <span>Cálculo</span>
-                </div>
-                <p>Descubre los secretos para sumar y restar más rápido que una calculadora usando trucos mentales.</p>
-                <a href="#juegos" class="btn-card" onclick="openGameTab('math')">Jugar Sumas</a>
+                <div class="card-icon"><img src="src/img/iconos/matematicas.png"alt="Icono matematicas" width="48" height="48"></div>
+                <h3>Matemáticas</h3>
+                <p>Números, formas y retos lógicos para mentes brillantes.</p>
+                <a href="html/matematicas.html" class="btn-card">¡Vamos allá!</a>
             </div>
 
             <div class="card fade-in-up" style="animation-delay: 0.2s;">
-                <div class="card-icon"><i class="fas fa-times"></i></div>
-                <h3>Multiplicaciones Súper</h3>
-                <div class="card-tags">
-                    <span>Tablas</span>
-                    <span>Series</span>
-                </div>
-                <p>Aprende las tablas de multiplicar cantando y relacionando números con dibujos asombrosos.</p>
-                <a href="#juegos" class="btn-card">Ver Ejercicios</a>
+                <div class="card-icon"><img src="src/img/iconos/español.png"alt="Icono español" width="48" height="48"></div>
+                <h3>Español</h3>
+                <p>Cuentos mágicos y aventuras entre letras y palabras.</p>
+                <a href="html/espanol.html" class="btn-card">¡A leer!</a>
             </div>
 
             <div class="card fade-in-up" style="animation-delay: 0.4s;">
-                <div class="card-icon"><i class="fas fa-shapes"></i></div>
-                <h3>Formas y Geometría</h3>
-                <div class="card-tags">
-                    <span>Figuras</span>
-                    <span>Espacio</span>
-                </div>
-                <p>Triángulos, círculos, cubos... Construye el mundo identificando las formas geométricas a tu alrededor.</p>
-                <a href="#" class="btn-card">Explorar Formas</a>
+                <div class="card-icon"><img src="src/img/iconos/ciencias.png"alt="Icono ciencias" width="48" height="48"></div>
+                <h3>Ciencias</h3>
+                <p>Explora la naturaleza y conviértete en un gran investigador.</p>
+                <a href="html/ciencias.html" class="btn-card">¡Explorar!</a>
             </div>
-
-            <div class="card fade-in-up">
-                <div class="card-icon"><i class="fas fa-pencil-ruler"></i></div>
-                <h3>Resolución de Problemas</h3>
-                <div class="card-tags">
-                    <span>Lógica</span>
-                    <span>Análisis</span>
-                </div>
-                <p>Ayuda a nuestros personajes a resolver acertijos matemáticos para encontrar tesoros escondidos.</p>
-                <a href="#" class="btn-card">Resolver Retos</a>
-            </div>
-
-            <div class="card fade-in-up" style="animation-delay: 0.2s;">
-                <div class="card-icon"><i class="fas fa-sort-numeric-up"></i></div>
-                <h3>Números y Conteo</h3>
-                <div class="card-tags">
-                    <span>Secuencias</span>
-                    <span>Orden</span>
-                </div>
-                <p>Aprende a contar hasta el infinito, ordenar números de mayor a menor y descubrir patrones numéricos.</p>
-                <a href="#juegos" class="btn-card" onclick="openGameTab('memory')">Juego de Memoria</a>
-            </div>
-        </div>
-
-        <div class="content-expansion fade-in-up">
-            <h3><i class="fas fa-lightbulb" style="color:#f0946e;"></i> Teoría Fácil: ¿Qué es Sumar y Restar?</h3>
-            <p><strong>Sumar</strong> es juntar cosas y contarlas todas juntas. ¡Es como invitar amigos a tu fiesta! Si tienes 2 globos y te regalan 3 más, ahora tienes más globos.</p>
-            
-            <div class="example-box">
-                <h4>Ejemplo de Suma Visual</h4>
-                <div class="visual-math">
-                    🍎🍎 + 🍎🍎🍎 = 🍎🍎🍎🍎🍎
-                </div>
-                <p style="text-align: center; font-size: 1.5rem; color: var(--color-1); font-weight: bold;">2 + 3 = 5</p>
-            </div>
-
-            <p><strong>Restar</strong> es lo contrario, es cuando quitas cosas. Si tienes 5 galletas y te comes 2, ¡te quedan menos galletas! (Pero tu estómago está feliz).</p>
-            
-            <div class="example-box">
-                <h4>Ejemplo de Resta Visual</h4>
-                <div class="visual-math">
-                    🍪🍪🍪🍪 - 🍪 = 🍪🍪🍪
-                </div>
-                <p style="text-align: center; font-size: 1.5rem; color: var(--color-1); font-weight: bold;">4 - 1 = 3</p>
-            </div>
-
-            <div class="sabias-que-inline">
-                <i class="fas fa-star"></i>
-                <span>¿Sabías que... el número 0 fue inventado en la India hace muchísimo tiempo? Antes de eso, ¡era muy difícil contar cosas que no existían!</span>
-            </div>
-
-            <div class="theory-grid">
-                <div class="theory-card">
-                    <img src="https://images.unsplash.com/photo-1596495577943-7f2122616231?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Geometría con bloques">
-                    <h4>Aprende las Figuras</h4>
-                    <p>Todo en el mundo tiene forma. Tu pelota es una <strong>esfera</strong> y tu libro es un <strong>rectángulo</strong>.</p>
-                </div>
-                <div class="theory-card">
-                    <img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Niños sumando con ábaco">
-                    <h4>Multiplicar es sumar rápido</h4>
-                    <p>En lugar de decir 2+2+2, decimos "3 veces 2", o lo que es igual: <strong>3 x 2 = 6</strong>.</p>
-                </div>
-            </div>
-
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/aZq5o9s-h8o" title="Aprender a sumar" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-
-            <div class="mini-activity">
-                <h4>🧠 Reto Rápido de Mente</h4>
-                <p>Imagina que tienes 10 dulces y le das 5 a tu mejor amigo. ¿Cuántos te quedan?</p>
-                <button class="btn-primary" onclick="alert('¡Te quedan 5 dulces! 10 - 5 = 5. ¡Eres genial!')">Ver Respuesta Secreta</button>
-            </div>
-        </div>
-        <div class="lab-container fade-in-up">
-            <div class="lab-image">
-                <img src="https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Niño con rompecabezas matemáticos">
-            </div>
-            <div class="lab-content">
-                <h3>🧮 Laboratorio Matemático</h3>
-                <p>¡Ponte tu bata de científico de los números! Aquí no solo leemos, sino que construimos matemáticas con nuestras manos.</p>
-                <ul class="lab-list">
-                    <li><i class="fas fa-check-circle"></i> <strong>Contar objetos:</strong> Usa manzanas y juguetes para sumar.</li>
-                    <li><i class="fas fa-check-circle"></i> <strong>Retos con fichas:</strong> Organiza patrones de colores lógicos.</li>
-                    <li><i class="fas fa-check-circle"></i> <strong>Rompecabezas numéricos:</strong> Arma el cubo de Rubik virtual.</li>
-                </ul>
-                <button class="btn-primary">Entrar al Laboratorio <i class="fas fa-flask"></i></button>
-            </div>
-        </div>
-    </section>
-
-    <section id="espanol">
-        <div class="section-header fade-in-up">
-            <h2>📖 Español y Lectura</h2>
-            <p>Descubre historias divertidas, viaja a mundos fantásticos y aprende a comprender y escribir todo lo que imaginas.</p>
-        </div>
-
-        <div class="cards-grid">
-            <div class="card fade-in-up">
-                <div class="card-icon"><i class="fas fa-book"></i></div>
-                <h3>Cuentos Infantiles</h3>
-                <div class="card-tags">
-                    <span>Cuentos</span>
-                    <span>Fábulas</span>
-                </div>
-                <p>Lee historias de dragones amigables, princesas valientes y animales que hablan. ¡La aventura te espera!</p>
-                <a href="#" class="btn-card">Leer Cuentos</a>
-            </div>
-
-            <div class="card fade-in-up" style="animation-delay: 0.2s;">
-                <div class="card-icon"><i class="fas fa-brain"></i></div>
-                <h3>Comprensión Lectora</h3>
-                <div class="card-tags">
-                    <span>Preguntas</span>
-                    <span>Análisis</span>
-                </div>
-                <p>¿Qué entendiste de la historia? Responde preguntas divertidas y demuestra que eres un gran detective de libros.</p>
-                <a href="#" class="btn-card">Hacer Test</a>
-            </div>
-
             <div class="card fade-in-up" style="animation-delay: 0.4s;">
-                <div class="card-icon"><i class="fas fa-spell-check"></i></div>
-                <h3>Súper Vocabulario</h3>
-                <div class="card-tags">
-                    <span>Palabras</span>
-                    <span>Ortografía</span>
-                </div>
-                <p>Aprende palabras nuevas todos los días y descubre cómo se escriben correctamente sin aburrirte.</p>
-                <a href="#juegos" class="btn-card" onclick="openGameTab('words')">Ordenar Palabras</a>
-            </div>
-
-            <div class="card fade-in-up">
-                <div class="card-icon"><i class="fas fa-pen-nib"></i></div>
-                <h3>Formación de Oraciones</h3>
-                <div class="card-tags">
-                    <span>Sujeto</span>
-                    <span>Verbo</span>
-                </div>
-                <p>Une las palabras correctas para formar frases divertidas. El perro azul... ¿vuela en avión?</p>
-                <a href="#" class="btn-card">Armar Frases</a>
-            </div>
-
-            <div class="card fade-in-up" style="animation-delay: 0.2s;">
-                <div class="card-icon"><i class="fas fa-users"></i></div>
-                <h3>Identificar Personajes</h3>
-                <div class="card-tags">
-                    <span>Héroes</span>
-                    <span>Villanos</span>
-                </div>
-                <p>Conoce a los personajes principales de cada fábula y aprende sobre sus valores y emociones.</p>
-                <a href="#" class="btn-card">Ver Personajes</a>
-            </div>
-        </div>
-
-        <div class="content-expansion fade-in-up">
-            <h3><i class="fas fa-glasses" style="color:#ec4899;"></i> Teoría Fácil: Las Partes de un Cuento</h3>
-            <p>Todos los cuentos e historias mágicas que lees tienen tres partes muy importantes, ¡como si fuera una hamburguesa literaria!</p>
-            
-            <div class="example-box" style="border-left-color: #ec4899;">
-                <h4>1. El Inicio (El Pan de arriba) 🍔</h4>
-                <p>Aquí nos presentan a los personajes. Por ejemplo: <em>"Había una vez un osito muy dormilón llamado Tobby..."</em></p>
-                
-                <h4>2. El Nudo (La Carne y el Queso) 🧀</h4>
-                <p>Es donde ocurre el problema o la aventura. <em>"...Un día, Tobby perdió su manta mágica en el bosque encantado."</em></p>
-
-                <h4>3. El Desenlace (El Pan de abajo) 🍔</h4>
-                <p>Es el final, donde todo se resuelve. <em>"...Y gracias a su amigo el conejo, la encontró y durmieron felices."</em></p>
-            </div>
-
-            <div class="sabias-que-inline" style="background: linear-gradient(135deg, #ec4899, #f472b6);">
-                <i class="fas fa-book-reader"></i>
-                <span>¿Sabías que... el cuento infantil más leído y vendido en todo el mundo se llama "El Principito" y fue escrito hace más de 80 años?</span>
-            </div>
-
-            <div class="theory-grid">
-                <div class="theory-card">
-                    <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Libro mágico">
-                    <h4>¿Qué es una Fábula?</h4>
-                    <p>Las fábulas son historias cortitas donde los animales hablan y siempre nos dejan una <strong>moraleja</strong> (una enseñanza buena).</p>
-                </div>
-                <div class="theory-card">
-                    <img src="https://images.unsplash.com/photo-1456406644174-8ddd4cd52a06?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Lápiz y papel">
-                    <h4>La Ortografía es Magia</h4>
-                    <p>Saber escribir bien te da el poder de comunicarte con todo el mundo. ¡Una simple coma puede cambiar todo el sentido de una frase!</p>
-                </div>
-            </div>
-
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/p1qJgZg0448" title="Cuento infantil" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-
-            <div class="mini-activity">
-                <h4>✍️ Mini Reto: Elige el Adjetivo</h4>
-                <p>Completa la frase: "El león corre muy _________ por la selva."</p>
-                <div style="display: flex; justify-content: center; gap: 15px; margin-top: 15px;">
-                    <button class="btn-card" onclick="alert('¡No! Los leones son muy rápidos.')">Lento</button>
-                    <button class="btn-card" style="background-color: var(--color-1); color: white;" onclick="alert('¡Correcto! Rápido es el adjetivo ideal.')">Rápido</button>
-                    <button class="btn-card" onclick="alert('Mmm... azul es un color, no dice cómo corre.')">Azul</button>
-                </div>
-            </div>
-        </div>
-        <div class="lab-container reverse fade-in-up">
-            <div class="lab-image">
-                <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Niña leyendo un libro mágico">
-            </div>
-            <div class="lab-content">
-                <h3>🎭 Laboratorio de Lectura</h3>
-                <p>Conviértete en un autor famoso. En este espacio, tú eres quien crea la historia y decide cómo termina el cuento.</p>
-                <ul class="lab-list">
-                    <li><i class="fas fa-star"></i> <strong>Inventar finales:</strong> Si no te gusta el final de la tortuga y la liebre, ¡cámbialo!</li>
-                    <li><i class="fas fa-star"></i> <strong>Dibujar historias:</strong> Lee un párrafo y dibuja en nuestra pizarra lo que imaginaste.</li>
-                    <li><i class="fas fa-star"></i> <strong>Juegos de rimas:</strong> Crea poemas graciosos uniendo palabras que suenen igual.</li>
-                </ul>
-                <button class="btn-primary">Crear mi Historia <i class="fas fa-magic"></i></button>
+                <div class="card-icon"><img src="src/img/iconos/juegos.png"alt="Icono juegos" width="48" height="48"></div>
+                <h3>Juegos</h3>
+                <p>Explora la variedad de dinamicas que tenemos para ti.</p>
+                <a href="html/ciencias.html" class="btn-card">¡Explorar!</a>
             </div>
         </div>
     </section>
-
-    <section id="ciencias">
-        <div class="section-header fade-in-up">
-            <h2>🌱 Ciencias Naturales</h2>
-            <p>Explora la naturaleza, descubre el reino animal y aprende cómo proteger nuestro hermoso planeta Tierra.</p>
-        </div>
-
-        <div class="cards-grid">
-            <div class="card fade-in-up">
-                <div class="card-icon"><i class="fas fa-bug"></i></div>
-                <h3>Los Seres Vivos</h3>
-                <div class="card-tags">
-                    <span>Animales</span>
-                    <span>Plantas</span>
-                    <span>Hongos</span>
-                </div>
-                <p>Aprende qué diferencia a una roca de una planta, y descubre los reinos de la naturaleza, incluyendo los misteriosos hongos.</p>
-                <a href="#" class="btn-card">Explorar Vida</a>
-            </div>
-
-            <div class="card fade-in-up" style="animation-delay: 0.2s;">
-                <div class="card-icon"><i class="fas fa-recycle"></i></div>
-                <h3>Cuidado del Planeta</h3>
-                <div class="card-tags">
-                    <span>Reciclaje</span>
-                    <span>Ecología</span>
-                </div>
-                <p>Conviértete en un superhéroe ecológico. Aprende a reciclar, reducir y reutilizar para salvar el mundo.</p>
-                <a href="#" class="btn-card">Misión Eco</a>
-            </div>
-
-            <div class="card fade-in-up" style="animation-delay: 0.4s;">
-                <div class="card-icon"><i class="fas fa-water"></i></div>
-                <h3>El Agua y la Naturaleza</h3>
-                <div class="card-tags">
-                    <span>Ciclo del agua</span>
-                    <span>Ríos</span>
-                </div>
-                <p>Viaja con una gota de lluvia desde las nubes hasta el mar y entiende por qué el agua es vida.</p>
-                <a href="#" class="btn-card">Ver Ciclo</a>
-            </div>
-
-            <div class="card fade-in-up">
-                <div class="card-icon"><i class="fas fa-paw"></i></div>
-                <h3>Identificar y Relacionar</h3>
-                <div class="card-tags">
-                    <span>Hábitats</span>
-                    <span>Alimentos</span>
-                </div>
-                <p>¿Qué come el león? ¿Dónde vive el pingüino? Relaciona cada animal con su comida y su hogar.</p>
-                <a href="#juegos" class="btn-card" onclick="openGameTab('quiz')">Test de Animales</a>
-            </div>
-
-            <div class="card fade-in-up" style="animation-delay: 0.2s;">
-                <div class="card-icon"><i class="fas fa-globe-americas"></i></div>
-                <h3>Nuestro Planeta</h3>
-                <div class="card-tags">
-                    <span>Tierra</span>
-                    <span>Espacio</span>
-                </div>
-                <p>Descubre las capas de la Tierra, los volcanes y cómo nuestro planeta flota en el inmenso espacio.</p>
-                <a href="#" class="btn-card">Viaje Espacial</a>
-            </div>
-        </div>
-
-        <div class="content-expansion fade-in-up">
-            <h3><i class="fas fa-leaf" style="color:var(--color-1);"></i> Teoría Fácil: El Ciclo del Agua</h3>
-            <p>¿Te has preguntado de dónde viene la lluvia? El agua de nuestro planeta siempre está viajando en un gran círculo mágico llamado <strong>El Ciclo del Agua</strong>.</p>
-            
-            <div class="example-box" style="border-left-color: var(--color-1);">
-                <ul style="list-style-type: disc; padding-left: 20px; font-size: 1.2rem; color: #444;">
-                    <li style="margin-bottom: 10px;"><strong>Evaporación:</strong> El sol calienta el agua de los ríos y mares, convirtiéndola en un vapor invisible que sube al cielo. ☀️💧⬆️</li>
-                    <li style="margin-bottom: 10px;"><strong>Condensación:</strong> Allá arriba hace frío, así que el vapor se junta y forma ¡las nubes! ☁️</li>
-                    <li><strong>Precipitación:</strong> Cuando las nubes están muy pesadas, el agua cae en forma de lluvia o nieve. 🌧️❄️</li>
-                </ul>
-            </div>
-
-            <div class="sabias-que-inline" style="background: linear-gradient(135deg, var(--color-1), #365e26);">
-                <i class="fas fa-seedling"></i>
-                <span>¿Sabías que... el agua que bebes hoy es la misma agua que bebieron los dinosaurios hace millones de años? ¡El planeta la recicla!</span>
-            </div>
-
-            <div class="theory-grid">
-                <div class="theory-card">
-                    <img src="https://images.unsplash.com/photo-1456926631375-92c8ce872def?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Leopardo en la naturaleza">
-                    <h4>Animales Carnívoros vs Herbívoros</h4>
-                    <p>Los <strong>carnívoros</strong> como el león comen carne, mientras que los <strong>herbívoros</strong> como las vacas y jirafas comen plantitas y hojas.</p>
-                </div>
-                <div class="theory-card">
-                    <img src="https://images.unsplash.com/photo-1464802686167-b939a6910659?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="El espacio y los planetas">
-                    <h4>El Sistema Solar</h4>
-                    <p>Vivimos en un vecindario espacial. Tenemos una estrella gigante llamada Sol y 8 planetas girando a su alrededor. ¡La Tierra es el tercero!</p>
-                </div>
-            </div>
-
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/ZykXgSqet6A" title="Ciencia para niños" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-
-            <div class="mini-activity">
-                <h4>🌍 Clasifica la Basura</h4>
-                <p>¿En qué caneca tirarías una cáscara de plátano?</p>
-                <div style="display: flex; justify-content: center; gap: 15px; margin-top: 15px;">
-                    <button class="btn-card" onclick="alert('¡No! El plástico va en otra caneca (azul o blanca).')">Plástico</button>
-                    <button class="btn-card" onclick="alert('Incorrecto. El papel y cartón van en la gris o blanca.')">Papel</button>
-                    <button class="btn-card" style="background-color: var(--color-1); color: white;" onclick="alert('¡Excelente! Es un residuo orgánico y va en la caneca verde para hacer abono.')">Orgánico (Verde)</button>
-                </div>
-            </div>
-        </div>
-        <div class="lab-container fade-in-up">
-            <div class="lab-image">
-                <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Niños investigando la naturaleza con microscopio">
-            </div>
-            <div class="lab-content">
-                <h3>🔬 Laboratorio Natural</h3>
-                <p>¡Manos a la tierra! Convierte tu casa en un verdadero centro de investigación científica con experimentos fáciles y seguros.</p>
-                <ul class="lab-list">
-                    <li><i class="fas fa-seedling"></i> <strong>Germinar una planta:</strong> Mira cómo crece un frijolito en un frasco de vidrio.</li>
-                    <li><i class="fas fa-search-plus"></i> <strong>Observar insectos:</strong> Aprende a clasificar hormigas y mariposas en el jardín.</li>
-                    <li><i class="fas fa-tint"></i> <strong>Experimentos con agua:</strong> Descubre la densidad creando un arcoíris líquido en un vaso.</li>
-                </ul>
-                <button class="btn-primary">Ver Experimentos <i class="fas fa-vial"></i></button>
-            </div>
-        </div>
-    </section>
-
-    <section id="juegos">
-        <div class="section-header fade-in-up">
-            <h2>🎮 Juegos Educativos</h2>
-            <p>¡La mejor forma de aprender es jugando! Selecciona un minijuego y pon a prueba tus conocimientos científicos, matemáticos y lingüísticos.</p>
-        </div>
-
-        <div class="games-wrapper fade-in-up">
-            <div class="games-nav">
-                <button class="game-tab active" onclick="switchGame('math', this)"><i class="fas fa-plus-circle"></i> Sumas Rápidas</button>
-                <button class="game-tab" onclick="switchGame('memory', this)"><i class="fas fa-th-large"></i> Memoria Numérica</button>
-                <button class="game-tab" onclick="switchGame('words', this)"><i class="fas fa-font"></i> Ordenar Palabras</button>
-                <button class="game-tab" onclick="switchGame('quiz', this)"><i class="fas fa-flask"></i> Test de Ciencias</button>
-            </div>
-
-            <div id="game-math" class="game-area active">
-                <h3>¡Resuelve la suma lo más rápido posible!</h3>
-                <div class="math-problem" id="mathProblem">5 + 3</div>
-                <input type="number" id="mathAnswer" class="math-input" placeholder="?" autocomplete="off">
-                <br>
-                <button class="game-btn" onclick="checkMath()">Verificar <i class="fas fa-check"></i></button>
-                <div id="mathFeedback" class="game-feedback"></div>
-            </div>
-
-            <div id="game-memory" class="game-area">
-                <h3>¡Encuentra las parejas de números iguales!</h3>
-                <div class="memory-grid" id="memoryGrid">
-                    </div>
-                <button class="game-btn" onclick="initMemoryGame()" style="margin-top: 30px;">Reiniciar Juego <i class="fas fa-redo"></i></button>
-            </div>
-
-            <div id="game-words" class="game-area">
-                <h3>¡Ordena las letras para descubrir la palabra secreta!</h3>
-                <div class="word-hint" id="wordHint">Pista: Animal que da leche</div>
-                <div class="word-scramble" id="wordScramble">ACVA</div>
-                <input type="text" id="wordAnswer" class="math-input" style="width: 250px; font-size: 2rem;" placeholder="Tu respuesta" autocomplete="off" style="text-transform: uppercase;">
-                <br>
-                <button class="game-btn" onclick="checkWord()">Verificar Palabra <i class="fas fa-check"></i></button>
-                <div id="wordFeedback" class="game-feedback"></div>
-            </div>
-
-            <div id="game-quiz" class="game-area">
-                <h3>¡Demuestra lo que sabes sobre la naturaleza!</h3>
-                <div class="quiz-question" id="quizQuestion">¿Cuál de estos NO es un planeta?</div>
-                <div class="quiz-options" id="quizOptions">
-                    </div>
-                <div id="quizFeedback" class="game-feedback"></div>
-                <button class="game-btn" id="nextQuizBtn" style="display: none;" onclick="loadNextQuiz()">Siguiente Pregunta <i class="fas fa-arrow-right"></i></button>
-            </div>
-
-        </div>
-    </section>
-
     <section id="curiosidades">
         <div class="section-header fade-in-up">
             <h2>💡 Curiosidades del Día</h2>
@@ -529,22 +127,14 @@
             <div class="footer-links">
                 <h4>Áreas de Estudio</h4>
                 <ul>
-                    <li><a href="#matematicas">Matemáticas Divertidas</a></li>
-                    <li><a href="#espanol">Español y Lectura</a></li>
-                    <li><a href="#ciencias">Ciencias Naturales</a></li>
-                    <li><a href="#juegos">Juegos y Retos</a></li>
+                    <li><a href="html/matematicas.html">Matemáticas Divertidas</a></li>
+                    <li><a href="html/español">Español y Lectura</a></li>
+                    <li><a href="html/ciencias.html">Ciencias Naturales</a></li>
+                    <li><a href="html/juegos.html">Juegos y Retos</a></li>
                 </ul>
             </div>
 
-            <div class="footer-links">
-                <h4>Recursos</h4>
-                <ul>
-                    <li><a href="#">Guía para Padres</a></li>
-                    <li><a href="#">Material Imprimible</a></li>
-                    <li><a href="#">Laboratorios Virtuales</a></li>
-                    <li><a href="#">Soporte Técnico</a></li>
-                </ul>
-            </div>
+            
         </div>
         <div class="footer-bottom">
             <p>&copy; 2026 Pequeños Científicos. Todos los derechos reservados. Educando a los líderes del mañana.</p>
