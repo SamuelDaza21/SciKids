@@ -13,6 +13,7 @@
 
         searchInput.addEventListener('input', function(e) {
             const term = e.target.value.toLowerCase().trim();
+            localStorage.setItem('scikidsSearchTerm', term);
             
             searchableElements.forEach(el => {
                 const id = el.getAttribute('data-search-id');
@@ -24,10 +25,13 @@
                     if (text.toLowerCase().includes(term)) {
                         const regex = new RegExp(`(${term})`, 'gi');
                         el.innerHTML = text.replace(regex, '<span class="highlight">$1</span>');
-                        
-                        // Scroll al primer elemento encontrado (opcional, lo omitimos para no marear, 
-                        // pero la plataforma pide "mostrar o resaltar". El resaltado ya lo hace.)
                     }
                 }
             });
         });
+
+        const previousSearch = localStorage.getItem('scikidsSearchTerm');
+        if (previousSearch) {
+            searchInput.value = previousSearch;
+            searchInput.dispatchEvent(new Event('input'));
+        }

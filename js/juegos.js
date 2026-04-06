@@ -9,6 +9,9 @@
             // Añadir active al seleccionado
             tabElement.classList.add('active');
             document.getElementById('game-' + gameId).classList.add('active');
+            if (typeof saveStoredState === 'function') {
+                saveStoredState({ currentGameTab: gameId });
+            }
 
             // Inicializar el juego correspondiente si es necesario
             if (gameId === 'math') initMathGame();

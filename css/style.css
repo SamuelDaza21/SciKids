@@ -701,6 +701,90 @@
         #espanol .card:hover .card-icon { background: #ec4899; color: white; }
         #espanol .section-header h2::after { background: #ec4899; }
 
+        .status-banner {
+            max-width: 1200px;
+            margin: 0 auto 1.5rem;
+            padding: 16px 24px;
+            background: rgba(255, 255, 255, 0.88);
+            border: 2px solid rgba(236, 72, 153, 0.25);
+            border-radius: 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 16px 30px rgba(0, 0, 0, 0.08);
+            color: #1f2937;
+        }
+
+        .status-banner span {
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .status-banner.offline {
+            background: #ffe3e3;
+            border-color: #f87171;
+            color: #7f1d1d;
+        }
+
+        .learning-grid,
+        .practice-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .sentence-builder {
+            display: grid;
+            gap: 18px;
+            padding: 22px;
+            background: #fff;
+            border-radius: 24px;
+            border: 2px solid rgba(236, 72, 153, 0.15);
+            box-shadow: 0 10px 24px rgba(236, 72, 153, 0.08);
+        }
+
+        .sentence-builder label {
+            font-weight: 700;
+            color: #111827;
+        }
+
+        .sentence-builder select,
+        .sentence-builder button {
+            width: 100%;
+            padding: 14px 18px;
+            border-radius: 18px;
+            border: 1px solid #d1d5db;
+            font-size: 1rem;
+            font-family: var(--font-ui);
+            transition: all 0.25s ease;
+        }
+
+        .sentence-builder select:focus,
+        .sentence-builder button:hover {
+            border-color: #ec4899;
+            box-shadow: 0 10px 20px rgba(236, 72, 153, 0.18);
+        }
+
+        .sentence-preview {
+            font-size: 1.4rem;
+            line-height: 1.6;
+            color: #111827;
+            min-height: 70px;
+            background: #f9fafb;
+            padding: 18px 20px;
+            border-radius: 18px;
+            border: 1px dashed rgba(236, 72, 153, 0.25);
+        }
+
+        @media (max-width: 900px) {
+            .learning-grid,
+            .practice-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         /* ==========================================================================
            SECCIÓN CIENCIAS NATURALES
            ========================================================================== */

@@ -1,0 +1,22 @@
+{
+  "name": "SciKids Plataforma Educativa",
+  "short_name": "SciKids",
+  "description": "Plataforma educativa offline para niños de 4 a 10 años.",
+  "start_url": "/html/español.html",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#38bdf8",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/src/img/iconos/español.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/src/img/iconos/español.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

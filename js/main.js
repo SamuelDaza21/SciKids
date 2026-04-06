@@ -19,6 +19,71 @@
                 }
             });
         });
+
+        const STORAGE_KEY = 'scikidsPageState';
+
+        function getStoredState() {
+            try {
+                return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+            } catch (error) {
+                return {};
+            }
+        }
+
+        function saveStoredState(update) {
+            const currentState = getStoredState();
+            const newState = { ...currentState, ...update };
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(newState));
+        }
+
+        function updateOfflineIndicator() {
+            const statusElement = document.getElementById('offlineStatus');
+            if (!statusElement) return;
+            if (navigator.onLine) {
+                statusElement.innerText = '¡Conexión activa! Puedes seguir aprendiendo offline. ✅';
+                statusElement.classList.remove('offline');
+            } else {
+                statusElement.innerText = 'Modo offline activo. Sigue explorando sin internet. 📚';
+                statusElement.classList.add('offline');
+            }
+        }
+
+        function registerServiceWorker() {
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('../service-worker.js').then(() => {
+                    console.log('Service worker registrado');
+                }).catch(error => {
+                    console.warn('Service worker no se pudo registrar:', error);
+                });
+            }
+        }
+
+        function restoreSpanishProgress() {
+            const state = getStoredState();
+            if (state.currentGameTab) {
+                const tab = document.querySelector(`.game-tab[data-game="${state.currentGameTab}"]`);
+                if (tab) switchGame(state.currentGameTab, tab);
+            }
+            if (state.miniQuizResult) {
+                const resultContainer = document.getElementById('miniQuizEspResult');
+                if (resultContainer) resultContainer.innerHTML = state.miniQuizResult;
+            }
+            if (state.sentenceDraft) {
+                const draft = state.sentenceDraft;
+                const selections = draft.split('|');
+                if (selections.length === 3) {
+                    const subject = document.getElementById('sentenceSubject');
+                    const verb = document.getElementById('sentenceVerb');
+                    const object = document.getElementById('sentenceObject');
+                    if (subject) subject.value = selections[0];
+                    if (verb) verb.value = selections[1];
+                    if (object) object.value = selections[2];
+                    updateSentencePreview();
+                }
+            }
+            updateOfflineIndicator();
+        }
+
         // ----------------------------------------------------------------------
         // 2. CURIOSIDADES DEL DÍA
         // ----------------------------------------------------------------------
@@ -197,6 +262,10 @@
         window.onload = () => {
             initMathGame(); // Iniciar primer juego por defecto
             startCuriosityCycle();
+            restoreSpanishProgress();
+            registerServiceWorker();
+            window.addEventListener('online', updateOfflineIndicator);
+            window.addEventListener('offline', updateOfflineIndicator);
         };
 
 // ----------------------------------------------------------------------
@@ -217,6 +286,19 @@ function checkMiniQuizEsp() {
         result = '<span style="color:red;font-weight:bold;">¡Intenta de nuevo! Relee la historia y prueba otra vez.</span>';
     }
     document.getElementById('miniQuizEspResult').innerHTML = result;
+    saveStoredState({ miniQuizResult: result });
+}
+
+function updateSentencePreview() {
+    const subject = document.getElementById('sentenceSubject');
+    const verb = document.getElementById('sentenceVerb');
+    const object = document.getElementById('sentenceObject');
+    const preview = document.getElementById('sentencePreview');
+    if (!subject || !verb || !object || !preview) return;
+
+    const sentence = `${subject.value} ${verb.value} ${object.value}.`;
+    preview.innerText = sentence;
+    saveStoredState({ sentenceDraft: `${subject.value}|${verb.value}|${object.value}` });
 }
 
         // Soporte tecla enter en input math y words
