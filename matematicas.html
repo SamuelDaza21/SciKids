@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scikids - Matemáticas Divertidas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+
+    <header class="navbar glass-panel" id="navbar">
+        <a href="index.html" class="logo">
+            <i class="fas fa-rocket"></i> Scikids
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
+            <li><a href="matematicas.html"><i class="fas fa-calculator"></i> Matemáticas</a></li>
+            <li><a href="espanol.html"><i class="fas fa-book-open"></i> Español</a></li>
+            <li><a href="ciencias.html"><i class="fas fa-leaf"></i> Ciencias</a></li>
+            <li><a href="juegos.html"><i class="fas fa-gamepad"></i> Juegos</a></li>
+        </ul>
+        <div class="search-container">
+            <i class="fas fa-search"></i>
+            <input type="text" id="searchInput" placeholder="Buscar...">
+        </div>
+        <div class="mobile-menu-btn"><i class="fas fa-bars"></i></div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+        <div class="hero-container">
+            <div class="hero-content fade-in-up">
+                <h1>El Poder de los <span>Números</span></h1>
+                <p>Suma, resta, multiplica y resuelve problemas del día a día. ¡Las matemáticas son un superpoder!</p>
+                <a href="#contenido-mate" class="btn-primary">Explorar <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="hero-image fade-in-up">
+                <img src="img/matematicas/numeros.webp" alt="Números divertidos" onerror="this.src='https://placehold.co/600x400?text=Matematicas'">
+            </div>
+        </div>
+    </section>
+
+    <section id="contenido-mate">
+        <div class="section-header">
+            <h2>➕ Sumas, Restas y Multiplicaciones ➖</h2>
+            <p>Aprende paso a paso con ejemplos que entiendes.</p>
+        </div>
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-plus-circle"></i></div>
+                <h3>Sumar es juntar</h3>
+                <p>Si tienes 3 manzanas y te regalan 2, ¿cuántas tienes? ¡3 + 2 = 5!</p>
+                <div class="example-box">🍎🍎🍎 + 🍎🍎 = 🍎🍎🍎🍎🍎</div>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-minus-circle"></i></div>
+                <h3>Restar es quitar</h3>
+                <p>Tenías 7 globos y se volaron 3. Te quedan 4. 7 - 3 = 4.</p>
+                <div class="example-box">🎈🎈🎈🎈🎈🎈🎈 - 🎈🎈🎈 = 🎈🎈🎈🎈</div>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-times-circle"></i></div>
+                <h3>Multiplicar es sumar varias veces</h3>
+                <p>3 cajas con 4 chocolates cada una → 3 × 4 = 12 chocolates.</p>
+                <div class="example-box">📦📦📦 (cada una con 🍫🍫🍫🍫) = 🍫×12</div>
+            </div>
+        </div>
+
+        <div class="content-expansion fade-in-up">
+            <h3>✨ Problema del día: La fiesta de cumpleaños</h3>
+            <p>En una fiesta hay 8 niños. Cada niño come 2 rebanadas de pizza. ¿Cuántas rebanadas se comen en total?</p>
+            <div class="mini-activity">
+                <button class="btn-card" onclick="checkPartyProblem(16)">16 rebanadas</button>
+                <button class="btn-card" onclick="checkPartyProblem(10)">10 rebanadas</button>
+                <button class="btn-card" onclick="checkPartyProblem(8)">8 rebanadas</button>
+                <div id="partyFeedback" class="game-feedback"></div>
+            </div>
+            <script>
+                function checkPartyProblem(answer) {
+                    let fb = document.getElementById('partyFeedback');
+                    if(answer === 16) {
+                        fb.innerHTML = '✅ ¡Correcto! 8 × 2 = 16. ¡Ganas 10 puntos!';
+                        addPoints(10);
+                        playSound('correcto');
+                    } else {
+                        fb.innerHTML = '❌ Vuelve a intentarlo. Recuerda multiplicar niños × rebanadas.';
+                        playSound('incorrecto');
+                    }
+                }
+            </script>
+        </div>
+    </section>
+
+    <!-- ZONA DE JUEGOS (IDS EXACTOS) -->
+    <section id="juegos-mate" class="fade-in-up">
+        <div class="section-header">
+            <h2>🎮 Juegos Matemáticos</h2>
+            <p>Pon a prueba tus habilidades y gana puntos.</p>
+        </div>
+        <div class="games-wrapper">
+            <div class="games-nav">
+                <button class="game-tab active" onclick="showGame('quiz')">Quiz con temporizador</button>
+                <button class="game-tab" onclick="showGame('drag')">Suma arrastrando números</button>
+            </div>
+            <div id="quiz" class="game-area active">
+                <div id="mathQuizContainer"></div>
+            </div>
+            <div id="drag" class="game-area">
+                <div id="dragDropNumbers"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LABORATORIO DE MATEMÁTICAS: CONTADOR INTERACTIVO -->
+    <section id="lab-mate" class="fade-in-up">
+        <div class="section-header">
+            <h2>🔬 Laboratorio de Conteo</h2>
+            <p>Manipula objetos y descubre cantidades.</p>
+        </div>
+        <div class="lab-container">
+            <div class="lab-content">
+                <h3>Contador mágico</h3>
+                <p>Haz clic en los botones para sumar o restar manzanas. Cuando llegues a 10, ¡ganarás puntos!</p>
+                <div id="contadorLab" style="text-align: center; padding: 20px;">
+                    <div style="font-size: 4rem;" id="contadorValor">0</div>
+                    <button class="btn-card" onclick="contadorSumar()"><i class="fas fa-plus-circle"></i> +1 manzana</button>
+                    <button class="btn-card" onclick="contadorRestar()"><i class="fas fa-minus-circle"></i> -1 manzana</button>
+                    <div id="contadorFeedback" class="game-feedback"></div>
+                </div>
+            </div>
+            <div class="lab-image">
+                <img src="img/matematicas/contador.webp" alt="Manzanas contando" onerror="this.src='https://placehold.co/400x300?text=Conteo'">
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo"><i class="fas fa-rocket"></i> Scikids</div>
+                <p>Aprender es divertido</p>
+            </div>
+            <div class="footer-links"><h4>Áreas</h4><ul><li><a href="matematicas.html">Matemáticas</a></li><li><a href="espanol.html">Español</a></li><li><a href="ciencias.html">Ciencias</a></li></ul></div>
+        </div>
+        <div class="footer-bottom"><p>© 2026 Scikids</p></div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/juegos.js"></script>
+    <script src="assets/js/laboratorio.js"></script>
+    <script>
+        function showGame(gameId) {
+            document.querySelectorAll('#juegos-mate .game-area').forEach(area => area.classList.remove('active'));
+            if(gameId === 'quiz') {
+                document.getElementById('quiz').classList.add('active');
+                if(typeof startMathQuiz === 'function') startMathQuiz();
+            } else {
+                document.getElementById('drag').classList.add('active');
+                if(typeof initDragDropNumbers === 'function') initDragDropNumbers();
+            }
+        }
+        // Contador interactivo
+        let contador = 0;
+        function contadorSumar() {
+            contador++;
+            document.getElementById('contadorValor').innerText = contador;
+            if(contador === 10) {
+                document.getElementById('contadorFeedback').innerHTML = '🎉 ¡Llegaste a 10 manzanas! +15 puntos. 🎉';
+                addPoints(15);
+                playSound('correcto');
+                contador = 0;
+                setTimeout(() => document.getElementById('contadorValor').innerText = contador, 1000);
+            } else {
+                playSound('correcto');
+            }
+        }
+        function contadorRestar() {
+            if(contador > 0) contador--;
+            document.getElementById('contadorValor').innerText = contador;
+            playSound('incorrecto');
+        }
+        window.onload = () => {
+            if(typeof startMathQuiz === 'function') startMathQuiz();
+            if(typeof initDragDropNumbers === 'function') initDragDropNumbers();
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scikids - Español y Lectura</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+    <header class="navbar glass-panel" id="navbar"><!-- mismo header que index --></header>
+
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content fade-in-up">
+                <h1>Cuentos y <span>Palabras</span> Mágicas</h1>
+                <p>Lee, escribe y juega con el lenguaje. Descubre nuevas historias cada día.</p>
+                <a href="#cuento" class="btn-primary">Leer cuento <i class="fas fa-book"></i></a>
+            </div>
+            <div class="hero-image"><img src="img/espanol/lectura.webp" alt="Niño leyendo" onerror="this.src='https://placehold.co/600x400?text=Lectura'"></div>
+        </div>
+    </section>
+
+    <!-- CUENTO ORIGINAL CON PREGUNTAS -->
+    <section id="cuento" class="fade-in-up">
+        <div class="section-header">
+            <h2>📖 El secreto del jardín parlante</h2>
+            <p>Un cuento para soñar y aprender.</p>
+        </div>
+        <div class="content-expansion">
+            <p>En un pequeño pueblo, una niña llamada <strong>Luna</strong> encontró una flor que susurraba palabras. La flor le dijo: "Cada vez que digas una palabra bonita, crecerá una nueva flor en mi jardín". Luna empezó a decir "gracias", "amistad", "alegría"… y pronto el jardín se llenó de colores. Los animales del bosque llegaron a escuchar las palabras mágicas. Desde ese día, Luna aprendió que las palabras tienen poder para transformar el mundo.</p>
+            <div class="mini-activity">
+                <h4>Preguntas de comprensión</h4>
+                <p>1. ¿Cómo se llamaba la niña?</p>
+                <button class="btn-card" onclick="checkCuento('Luna')">Luna</button>
+                <button class="btn-card" onclick="checkCuento('Sofia')">Sofia</button>
+                <button class="btn-card" onclick="checkCuento('Maria')">Maria</button>
+                <p>2. ¿Qué hace crecer las flores en el jardín?</p>
+                <button class="btn-card" onclick="checkFlores('palabras bonitas')">Palabras bonitas</button>
+                <button class="btn-card" onclick="checkFlores('agua')">Agua</button>
+                <div id="cuentoFeedback" class="game-feedback"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JUEGO DE ORACIONES (ID EXACTO) -->
+    <section id="juego-oraciones" class="fade-in-up">
+        <div class="section-header">
+            <h2>🧩 Forma oraciones</h2>
+            <p>Arrastra las palabras y construye frases con sentido.</p>
+        </div>
+        <div id="sentenceDragArea"></div>
+    </section>
+
+    <!-- LABORATORIO CREATIVO (ESCRIBIR FINAL ALTERNATIVO) -->
+    <section id="lab-creativo" class="fade-in-up">
+        <div class="section-header">
+            <h2>✍️ Laboratorio de escritura</h2>
+            <p>Cambia el final del cuento y gana puntos.</p>
+        </div>
+        <div class="lab-container reverse">
+            <div class="lab-content">
+                <h3>Inventa un nuevo final</h3>
+                <p>El jardín parlante ahora tiene un invitado especial… ¿Qué animal llega? ¿Qué palabras mágicas descubre?</p>
+                <textarea id="nuevoFinal" rows="4" cols="50" placeholder="Escribe aquí tu final alternativo..." style="width:100%; border-radius:20px; padding:10px;"></textarea>
+                <button class="btn-primary" onclick="enviarFinal()">Enviar y ganar puntos</button>
+                <div id="finalFeedback"></div>
+            </div>
+            <div class="lab-image"><img src="img/espanol/escritura.webp" alt="Escribir cuento" onerror="this.src='https://placehold.co/400x300?text=Escritura'"></div>
+        </div>
+    </section>
+
+    <footer><!-- mismo footer --></footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/juegos.js"></script>
+    <script src="assets/js/laboratorio.js"></script>
+    <script>
+        function checkCuento(nombre) {
+            let fb = document.getElementById('cuentoFeedback');
+            if(nombre === 'Luna') {
+                fb.innerHTML = '✅ ¡Correcto! La niña se llama Luna. +5 puntos';
+                addPoints(5);
+                playSound('correcto');
+            } else {
+                fb.innerHTML = '❌ Intenta de nuevo, lee el cuento con atención.';
+                playSound('incorrecto');
+            }
+        }
+        function checkFlores(respuesta) {
+            let fb = document.getElementById('cuentoFeedback');
+            if(respuesta === 'palabras bonitas') {
+                fb.innerHTML = '✅ ¡Excelente! Las palabras bonitas hacen crecer las flores. +5 puntos';
+                addPoints(5);
+                playSound('correcto');
+            } else {
+                fb.innerHTML = '❌ No es el agua, son las palabras mágicas.';
+                playSound('incorrecto');
+            }
+        }
+        function enviarFinal() {
+            let texto = document.getElementById('nuevoFinal').value.trim();
+            if(texto.length > 10) {
+                document.getElementById('finalFeedback').innerHTML = '🎉 ¡Final creativo! +20 puntos por tu imaginación. 🎉';
+                addPoints(20);
+                playSound('correcto');
+                document.getElementById('nuevoFinal').value = '';
+            } else {
+                document.getElementById('finalFeedback').innerHTML = 'Escribe un final más largo (mínimo 10 caracteres)';
+                playSound('incorrecto');
+            }
+        }
+        window.onload = () => { if(typeof initSentenceDragDrop === 'function') initSentenceDragDrop(); };
+    </script>
+</body>
+</html>

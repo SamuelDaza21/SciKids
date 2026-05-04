@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Scikids - Zona de Juegos</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <header class="navbar glass-panel"><!-- mismo header que index --></header>
+    <section class="hero" style="min-height: 40vh;"><h1>🎮 Todos los juegos</h1><p>Practica y gana puntos</p></section>
+    <section id="juegosContainer">
+        <div class="games-wrapper">
+            <div class="games-nav">
+                <button class="game-tab active" onclick="showGame('mathQuiz')">Quiz Matemático</button>
+                <button class="game-tab" onclick="showGame('dragDropNumbers')">Suma con arrastre</button>
+                <button class="game-tab" onclick="showGame('sentenceDrag')">Forma oraciones</button>
+                <button class="game-tab" onclick="showGame('classifyAnimals')">Clasifica animales</button>
+            </div>
+            <div id="mathQuiz" class="game-area active"><div id="mathQuizContainer"></div></div>
+            <div id="dragDropNumbers" class="game-area"><div id="dragDropNumbers"></div></div>
+            <div id="sentenceDrag" class="game-area"><div id="sentenceDragArea"></div></div>
+            <div id="classifyAnimals" class="game-area"><div id="animalClassify"></div></div>
+        </div>
+    </section>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/juegos.js"></script>
+    <script>
+        function showGame(id) {
+            document.querySelectorAll('.game-area').forEach(area => area.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            if(id === 'mathQuiz') startMathQuiz();
+            if(id === 'dragDropNumbers') initDragDropNumbers();
+            if(id === 'sentenceDrag') initSentenceDragDrop();
+            if(id === 'classifyAnimals') initAnimalClassification();
+        }
+        window.onload = () => { startMathQuiz(); };
+    </script>
+</body>
+</html>

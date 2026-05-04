@@ -3,147 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SciKids - Plataforma Educativa</title>
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"> 
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/animations.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    
+    <title>Scikids - Aprende Jugando</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
 </head>
 <body>
-
-    <header class="navbar glass-panel" id="navbar"> 
-        <a href="#" class="logo">
-            <i class="fas fa-rocket"></i>
-            Scikids
+    <header class="navbar glass-panel" id="navbar">
+        <a href="index.html" class="logo">
+            <i class="fas fa-rocket"></i> Scikids
         </a>
         <ul class="nav-links">
             <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
-            <li><a href="html/matematicas.html"><i class="fas fa-calculator"></i> Matemáticas</a></li>
-            <li><a href="html/español.html"><i class="fas fa-book-open"></i> Español</a></li>
-            <li><a href="html/ciencias.html"><i class="fas fa-leaf"></i> Ciencias</a></li>
-            <li><a href="html/juegos.html"><i class="fas fa-gamepad"></i> Juegos</a></li>
+            <li><a href="matematicas.html"><i class="fas fa-calculator"></i> Matemáticas</a></li>
+            <li><a href="español.html"><i class="fas fa-book-open"></i> Español</a></li>
+            <li><a href="ciencias.html"><i class="fas fa-leaf"></i> Ciencias</a></li>
+            <li><a href="juegos.html"><i class="fas fa-gamepad"></i> Juegos</a></li>
         </ul>
-
         <div class="search-container">
             <i class="fas fa-search"></i>
-            <input type="text" id="searchInput" placeholder="Buscar palabras...">
+            <input type="text" id="searchInput" placeholder="Buscar...">
         </div>
-
-        <div class="mobile-menu-btn">
-            <i class="fas fa-bars"></i>
-        </div>
+        <div class="mobile-menu-btn"><i class="fas fa-bars"></i></div>
     </header>
 
-    <section class="hero" id="inicio">
+    <section class="hero">
         <div class="hero-shapes">
             <div class="shape shape-1"></div>
             <div class="shape shape-2"></div>
             <div class="shape shape-3"></div>
         </div>
-        
         <div class="hero-container">
             <div class="hero-content fade-in-up">
                 <h1>Descubre, Juega y <span>Aprende</span></h1>
-                <p>Bienvenido a la plataforma educativa donde la curiosidad no tiene límites. Explora el mundo de las matemáticas, la lectura y las ciencias a través de juegos interactivos y divertidos laboratorios.</p>
-                <a href="#matematicas" class="btn-primary">
-                    Explorar Ahora <i class="fas fa-arrow-right"></i>
-                </a>
+                <p>¡Bienvenido a Scikids! La plataforma donde las matemáticas, el español y las ciencias se convierten en una aventura.</p>
+                <a href="#areas" class="btn-primary">Explorar Ahora <i class="fas fa-arrow-right"></i></a>
             </div>
-            
-            <div class="hero-image fade-in-up" style="animation-delay: 0.3s;">
-                <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Niños aprendiendo felices">
+            <div class="hero-image fade-in-up">
+                <img src="img/fondo/principal.webp" alt="Niños aprendiendo" onerror="this.src='https://placehold.co/600x400?text=Scikids'">
             </div>
         </div>
     </section>
-    <section id="explorar" class="container">
+
+    <section id="areas">
         <div class="section-header">
-            <h2>¿Qué quieres aprender hoy?</h2>
-            <p>Elige una aventura y comienza a descubrir el mundo.</p>
+            <h2>🌟 Áreas de Aprendizaje</h2>
+            <p>Elige una aventura y comienza a ganar puntos</p>
         </div>
-
         <div class="cards-grid">
-            <div class="card fade-in-up">
-                <div class="card-icon"><img src="src/img/iconos/matematicas.png"alt="Icono matematicas" width="48" height="48"></div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-calculator"></i></div>
                 <h3>Matemáticas</h3>
-                <p>Números, formas y retos lógicos para mentes brillantes.</p>
-                <a href="html/matematicas.html" class="btn-card">¡Vamos allá!</a>
+                <p>Sumas, restas, multiplicaciones y problemas divertidos.</p>
+                <div class="card-tags"><span>Números</span><span>Operaciones</span></div>
+                <a href="matematicas.html" class="btn-card">Jugar ahora</a>
             </div>
-
-            <div class="card fade-in-up" style="animation-delay: 0.2s;">
-                <div class="card-icon"><img src="src/img/iconos/español.png"alt="Icono español" width="48" height="48"></div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-book"></i></div>
                 <h3>Español</h3>
-                <p>Cuentos mágicos y aventuras entre letras y palabras.</p>
-                <a href="html/español.html" class="btn-card">¡A leer!</a>
+                <p>Cuentos, fábulas, ortografía y creación de historias.</p>
+                <div class="card-tags"><span>Lectura</span><span>Vocabulario</span></div>
+                <a href="espanol.html" class="btn-card">Leer y jugar</a>
             </div>
-
-            <div class="card fade-in-up" style="animation-delay: 0.4s;">
-                <div class="card-icon"><img src="src/img/iconos/ciencias.png"alt="Icono ciencias" width="48" height="48"></div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-leaf"></i></div>
                 <h3>Ciencias</h3>
-                <p>Explora la naturaleza y conviértete en un gran investigador.</p>
-                <a href="html/ciencias.html" class="btn-card">¡Explorar!</a>
-            </div>
-            <div class="card fade-in-up" style="animation-delay: 0.4s;">
-                <div class="card-icon"><img src="src/img/iconos/juegos.png"alt="Icono juegos" width="48" height="48"></div>
-                <h3>Juegos</h3>
-                <p>Explora la variedad de dinamicas que tenemos para ti.</p>
-                <a href="html/ciencias.html" class="btn-card">¡Explorar!</a>
+                <p>Animales, plantas, el agua y el espacio exterior.</p>
+                <div class="card-tags"><span>Seres vivos</span><span>Planeta</span></div>
+                <a href="ciencias.html" class="btn-card">Explorar ciencia</a>
             </div>
         </div>
     </section>
-    <section id="curiosidades">
-        <div class="section-header fade-in-up">
-            <h2>💡 Curiosidades del Día</h2>
-            <p>Descubre datos asombrosos sobre animales, plantas, ciencia y matemáticas que te dejarán con la boca abierta.</p>
-        </div>
 
-        <div class="curiosity-box fade-in-up">
-            <div class="curiosity-text" id="curiosityText">
-                "¿Sabías que los pulpos tienen tres corazones y su sangre es de color azul? ¡Son verdaderos extraterrestres del océano!"
-            </div>
-            <button class="btn-primary" onclick="generateCuriosity()">
-                ¡Quiero saber más! <i class="fas fa-random"></i>
-            </button>
-        </div>
-    </section>
+    <div class="global-score-panel glass-panel">
+        <i class="fas fa-star"></i> Tus puntos: <span id="globalScore">0</span>
+        <button id="resetScoreBtn" class="btn-card" style="margin-left: 15px;">Reiniciar puntaje</button>
+    </div>
 
     <footer>
         <div class="footer-content">
             <div class="footer-brand">
-                <div class="logo">
-                    <i class="fas fa-rocket" style="color: var(--color-4);"></i>
-                    Pequeños Científicos
-                </div>
-                <p>Una plataforma diseñada con amor para despertar la curiosidad y el amor por el aprendizaje en niños de primaria.</p>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                </div>
+                <div class="logo"><i class="fas fa-rocket"></i> Scikids</div>
+                <p>Aprender es una aventura sin límites</p>
             </div>
-
             <div class="footer-links">
-                <h4>Áreas de Estudio</h4>
-                <ul>
-                    <li><a href="html/matematicas.html">Matemáticas Divertidas</a></li>
-                    <li><a href="html/español">Español y Lectura</a></li>
-                    <li><a href="html/ciencias.html">Ciencias Naturales</a></li>
-                    <li><a href="html/juegos.html">Juegos y Retos</a></li>
-                </ul>
+                <h4>Recursos</h4>
+                <ul><li><a href="#">Guía para padres</a></li><li><a href="#">Modo offline</a></li></ul>
             </div>
-
-            
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Pequeños Científicos. Todos los derechos reservados. Educando a los líderes del mañana.</p>
-        </div>
+        <div class="footer-bottom"><p>© 2026 Scikids – Todos los derechos reservados</p></div>
     </footer>
 
-   <script src="js/main.js"></script>
-   <script src="js/buscador.js"></script>
-   <script src="js/juegos.js"></script>
-   <script src="js/laboratorios.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/buscador.js"></script>
+    <script src="assets/js/juegos.js"></script>
+    <script src="assets/js/laboratorio.js"></script>
 </body>
 </html>

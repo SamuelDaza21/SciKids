@@ -1,0 +1,19 @@
+@media (max-width: 992px) {
+    .hero-container { flex-direction: column; text-align: center; }
+    .hero-content h1 { font-size: 3rem; }
+    .lab-container, .lab-container.reverse { flex-direction: column; padding: 30px; }
+}
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .mobile-menu-btn { display: block; }
+    .search-container { display: none; }
+    .hero-content h1 { font-size: 2.5rem; }
+    .section-header h2 { font-size: 2.2rem; }
+    .math-problem { font-size: 3rem; }
+    .memory-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 480px) {
+    .hero-content h1 { font-size: 2rem; }
+    .btn-primary { padding: 12px 25px; font-size: 1rem; }
+    .memory-grid { grid-template-columns: repeat(2, 1fr); }
+}

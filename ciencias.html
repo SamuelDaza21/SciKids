@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scikids - Ciencias Naturales</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+    <header class="navbar glass-panel" id="navbar"><!-- mismo header que index --></header>
+
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content fade-in-up">
+                <h1>Explora el <span>Mundo</span> Natural</h1>
+                <p>Animales, plantas, el agua y el planeta. ¡Conviértete en un pequeño científico!</p>
+                <a href="#ecosistemas" class="btn-primary">Descubrir <i class="fas fa-leaf"></i></a>
+            </div>
+            <div class="hero-image"><img src="img/ciencias/planeta.webp" alt="Planeta Tierra" onerror="this.src='https://placehold.co/600x400?text=Ciencias'"></div>
+        </div>
+    </section>
+
+    <!-- CONTENIDO EDUCATIVO -->
+    <section id="ecosistemas" class="fade-in-up">
+        <div class="section-header">
+            <h2>🦁 Animales y sus hábitats</h2>
+            <p>Cada animal vive donde mejor se adapta. ¡Conócelos!</p>
+        </div>
+        <div class="theory-grid">
+            <div class="theory-card"><img src="img/ciencias/selva.webp" alt="Selva" onerror="this.src='https://placehold.co/300x200?text=Selva'"><h4>Selva</h4><p>Jaguares, monos, guacamayas.</p></div>
+            <div class="theory-card"><img src="img/ciencias/desierto.webp" alt="Desierto" onerror="this.src='https://placehold.co/300x200?text=Desierto'"><h4>Desierto</h4><p>Camellos, serpientes, escorpiones.</p></div>
+            <div class="theory-card"><img src="img/ciencias/oceano.webp" alt="Océano" onerror="this.src='https://placehold.co/300x200?text=Oceano'"><h4>Océano</h4><p>Ballenas, tiburones, peces de colores.</p></div>
+        </div>
+    </section>
+
+    <!-- JUEGO DE CLASIFICACIÓN (ID EXACTO) -->
+    <section id="juego-ciencias" class="fade-in-up">
+        <div class="section-header">
+            <h2>🐘 Clasifica los animales</h2>
+            <p>Arrastra cada animal al grupo correcto.</p>
+        </div>
+        <div id="animalClassify"></div>
+    </section>
+
+    <!-- LABORATORIOS: GERMINACIÓN Y AGUA -->
+    <section id="laboratorios" class="fade-in-up">
+        <div class="section-header">
+            <h2>🧪 Laboratorios científicos</h2>
+            <p>Experimentos interactivos para aprender en casa.</p>
+        </div>
+        <div class="lab-container">
+            <div class="lab-content">
+                <h3>🌱 Germinación de un frijol</h3>
+                <div id="germinationLab"></div>
+            </div>
+            <div class="lab-content">
+                <h3>💧 Estados del agua</h3>
+                <div id="waterLab"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer><!-- mismo footer --></footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/juegos.js"></script>
+    <script src="assets/js/laboratorio.js"></script>
+    <script>
+        window.onload = () => {
+            if(typeof initAnimalClassification === 'function') initAnimalClassification();
+            if(typeof initGerminationLab === 'function') initGerminationLab();
+            if(typeof initWaterLab === 'function') initWaterLab();
+        };
+    </script>
+</body>
+</html>
