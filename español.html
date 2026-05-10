@@ -10,7 +10,23 @@
     <link rel="stylesheet" href="assets/css/responsive.css">
 </head>
 <body>
-    <header class="navbar glass-panel" id="navbar"><!-- mismo header que index --></header>
+    <header class="navbar glass-panel" id="navbar">
+        <a href="index.html" class="logo">
+            <i class="fas fa-rocket"></i> Scikids
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
+            <li><a href="matematicas.html"><i class="fas fa-calculator"></i> Matemáticas</a></li>
+            <li><a href="español.html"><i class="fas fa-book-open"></i> Español</a></li>
+            <li><a href="ciencias.html"><i class="fas fa-leaf"></i> Ciencias</a></li>
+            <li><a href="juegos.html"><i class="fas fa-gamepad"></i> Juegos</a></li>
+        </ul>
+        <div class="search-container">
+            <i class="fas fa-search"></i>
+            <input type="text" id="searchInput" placeholder="Buscar...">
+        </div>
+        <div class="mobile-menu-btn"><i class="fas fa-bars"></i></div>
+    </header>
 
     <section class="hero">
         <div class="hero-container">
@@ -44,6 +60,74 @@
             </div>
         </div>
     </section>
+    <!-- FÁBULA: LA LIEBRE Y LA TORTUGA -->
+    <section id="fabula" class="fade-in-up">
+        <div class="section-header">
+            <h2>🐢 La liebre y la tortuga 🐇</h2>
+            <p>Una fábula clásica que nos enseña una valiosa lección.</p>
+        </div>
+        <div class="content-expansion">
+            <div style="display: flex; gap: 30px; flex-wrap: wrap; align-items: center;">
+                <div style="flex: 1; text-align: center;">
+                    <i class="fas fa-frog" style="font-size: 5rem; color: var(--color-4);"></i>
+                    <i class="fas fa-tachometer-alt" style="font-size: 5rem; color: var(--color-1);"></i>
+                    <i class="fas fa-trophy" style="font-size: 5rem; color: gold;"></i>
+                </div>
+                <div style="flex: 3;">
+                    <p>En un hermoso bosque, vivían una liebre muy veloz y una tortuga muy tranquila. La liebre siempre se burlaba de la tortuga porque caminaba muy lento.</p>
+                    <p>— ¡Ja, ja, ja! Nunca podrás ganarme en una carrera — decía la liebre.</p>
+                    <p>— Acepto el desafío — respondió la tortuga con calma.</p>
+                    <p>Todos los animales del bosque se reunieron para ver la carrera. La liebre salió disparada y muy pronto llevaba una gran ventaja. Creyendo que ganaría fácilmente, la liebre decidió descansar bajo un árbol y se quedó dormida.</p>
+                    <p>La tortuga, sin rendirse, siguió caminando paso a paso, sin parar. Cuando la liebre despertó, la tortuga estaba cruzando la meta.</p>
+                    <p><strong>Moral:</strong> <em>"El que persevera y nunca se rinde, alcanza la victoria. No hay que burlarse de los demás."</em></p>
+                </div>
+            </div>
+            
+            <div class="mini-activity">
+                <h4>📖 Preguntas de comprensión</h4>
+                <p><strong>1. ¿Quiénes son los personajes principales de esta historia?</strong></p>
+                <button class="btn-card" onclick="checkFabulaPersonajes('liebre y tortuga')">La liebre y la tortuga</button>
+                <button class="btn-card" onclick="checkFabulaPersonajes('leon y raton')">El león y el ratón</button>
+                <button class="btn-card" onclick="checkFabulaPersonajes('perro y gato')">El perro y el gato</button>
+                
+                <p style="margin-top: 15px;"><strong>2. ¿Por qué perdió la liebre la carrera?</strong></p>
+                <button class="btn-card" onclick="checkFabulaRazon('se durmió')">Se durmió</button>
+                <button class="btn-card" onclick="checkFabulaRazon('era lenta')">Era más lenta</button>
+                <button class="btn-card" onclick="checkFabulaRazon('se rindió')">Se rindió</button>
+                
+                <p style="margin-top: 15px;"><strong>3. ¿Qué enseñanza nos deja esta fábula?</strong></p>
+                <button class="btn-card" onclick="checkFabulaEnsenanza('perseverancia')">La perseverancia y no rendirse</button>
+                <button class="btn-card" onclick="checkFabulaEnsenanza('velocidad')">Siempre gana el más rápido</button>
+                <button class="btn-card" onclick="checkFabulaEnsenanza('suerte')">Gana el que tiene más suerte</button>
+                
+                <div id="fabulaFeedback" class="game-feedback" style="margin-top: 15px;"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JUEGO: ORDENAR LA HISTORIA -->
+    <section id="ordenar-historia" class="fade-in-up">
+        <div class="section-header">
+            <h2>📚 Ordena la historia</h2>
+            <p>Arrastra los eventos en el orden correcto para reconstruir la fábula.</p>
+        </div>
+        <div class="games-wrapper">
+            <div id="ordenarHistoriaContainer">
+                <div class="drag-container" id="eventosContainer">
+                    <div class="drag-item" draggable="true" data-order="2">🐢 La tortuga comenzó a caminar lentamente</div>
+                    <div class="drag-item" draggable="true" data-order="4">🐇 La liebre se durmió bajo un árbol</div>
+                    <div class="drag-item" draggable="true" data-order="1">🏁 La liebre se burló de la tortuga y retó a una carrera</div>
+                    <div class="drag-item" draggable="true" data-order="5">🏆 La tortuga llegó primero y ganó la carrera</div>
+                    <div class="drag-item" draggable="true" data-order="3">⚡ La liebre salió rápido y tomó ventaja</div>
+                </div>
+                <div class="drop-zone" id="ordenDropZone" style="min-height: 200px;">
+                    📍 Suelta aquí los eventos en orden (del 1 al 5)
+                </div>
+                <button class="btn-primary" onclick="verificarOrdenHistoria()" style="margin-top: 20px;">Verificar orden</button>
+                <div id="ordenFeedback" class="game-feedback"></div>
+            </div>
+        </div>
+    </section>
 
     <!-- JUEGO DE ORACIONES (ID EXACTO) -->
     <section id="juego-oraciones" class="fade-in-up">
@@ -72,7 +156,16 @@
         </div>
     </section>
 
-    <footer><!-- mismo footer --></footer>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo"><i class="fas fa-rocket"></i> Scikids</div>
+                <p>Aprender es divertido</p>
+            </div>
+            <div class="footer-links"><h4>Áreas</h4><ul><li><a href="matematicas.html">Matemáticas</a></li><li><a href="español.html">Español</a></li><li><a href="ciencias.html">Ciencias</a></li></ul></div>
+        </div>
+        <div class="footer-bottom"><p>© 2026 Scikids</p></div>
+    </footer>
 
     <script src="assets/js/main.js"></script>
     <script src="assets/js/juegos.js"></script>
@@ -111,6 +204,140 @@
                 document.getElementById('finalFeedback').innerHTML = 'Escribe un final más largo (mínimo 10 caracteres)';
                 playSound('incorrecto');
             }
+        }
+
+        // ========== FÁBULA: LA LIEBRE Y LA TORTUGA ==========
+        function checkFabulaPersonajes(answer) {
+            let fb = document.getElementById('fabulaFeedback');
+            if (answer === 'liebre y tortuga') {
+                fb.innerHTML = '✅ ¡Correcto! Los personajes principales son la liebre y la tortuga. +5 puntos';
+                fb.style.color = 'green';
+                addPoints(5);
+                playSound('correcto');
+            } else {
+                fb.innerHTML = '❌ Intenta de nuevo. Lee la historia con atención.';
+                fb.style.color = 'red';
+                playSound('incorrecto');
+            }
+        }
+
+        function checkFabulaRazon(answer) {
+            let fb = document.getElementById('fabulaFeedback');
+            if (answer === 'se durmió') {
+                fb.innerHTML = '✅ ¡Correcto! La liebre perdió porque se durmió confiada. +5 puntos';
+                fb.style.color = 'green';
+                addPoints(5);
+                playSound('correcto');
+            } else {
+                fb.innerHTML = '❌ No es correcto. Recuerda lo que hizo la liebre mientras la tortuga seguía caminando.';
+                fb.style.color = 'red';
+                playSound('incorrecto');
+            }
+        }
+
+        function checkFabulaEnsenanza(answer) {
+            let fb = document.getElementById('fabulaFeedback');
+            if (answer === 'perseverancia') {
+                fb.innerHTML = '✅ ¡Excelente! La enseñanza es que la perseverancia y no rendirse nos lleva a la victoria. +10 puntos';
+                fb.style.color = 'green';
+                addPoints(10);
+                playSound('correcto');
+            } else {
+                fb.innerHTML = '❌ Revisa la moraleja de la historia. ¡La tortuga ganó por no rendirse!';
+                fb.style.color = 'red';
+                playSound('incorrecto');
+            }
+        }
+
+        // ========== ORDENAR LA HISTORIA ==========
+        let eventosOrdenados = [];
+
+        function initOrdenarHistoria() {
+            eventosOrdenados = [];
+            const dropZone = document.getElementById('ordenDropZone');
+            if (dropZone) {
+                dropZone.innerHTML = '📍 Suelta aquí los eventos en orden (del 1 al 5)';
+                dropZone.style.background = 'var(--color-2)';
+            }
+            document.getElementById('ordenFeedback').innerHTML = '';
+            
+            // Configurar drag & drop
+            document.querySelectorAll('#eventosContainer .drag-item').forEach(item => {
+                item.setAttribute('draggable', 'true');
+                item.removeEventListener('dragstart', handleDragStart);
+                item.removeEventListener('dragend', handleDragEnd);
+                item.addEventListener('dragstart', handleDragStart);
+                item.addEventListener('dragend', handleDragEnd);
+            });
+            
+            const dropZoneElement = document.getElementById('ordenDropZone');
+            dropZoneElement.removeEventListener('dragover', handleDragOver);
+            dropZoneElement.removeEventListener('drop', handleDrop);
+            dropZoneElement.addEventListener('dragover', handleDragOver);
+            dropZoneElement.addEventListener('drop', handleDrop);
+        }
+
+        let draggedItem = null;
+        let draggedOrder = null;
+
+        function handleDragStart(e) {
+            draggedItem = this;
+            draggedOrder = parseInt(this.getAttribute('data-order'));
+            e.dataTransfer.setData('text/plain', this.innerHTML);
+            this.style.opacity = '0.5';
+        }
+
+        function handleDragEnd(e) {
+            if (draggedItem) draggedItem.style.opacity = '1';
+            draggedItem = null;
+        }
+
+        function handleDragOver(e) {
+            e.preventDefault();
+            this.style.background = 'var(--color-5)';
+        }
+
+        function handleDrop(e) {
+            e.preventDefault();
+            this.style.background = 'var(--color-2)';
+            
+            if (draggedItem) {
+                const ordenActual = eventosOrdenados.length + 1;
+                
+                if (draggedOrder === ordenActual) {
+                    // Orden correcto
+                    eventosOrdenados.push(draggedItem.cloneNode(true));
+                    this.innerHTML = eventosOrdenados.map((item, idx) => 
+                        `<div style="background: var(--color-6); margin: 5px; padding: 10px; border-radius: 10px;">${idx + 1}. ${item.innerHTML}</div>`
+                    ).join('');
+                    draggedItem.remove();
+                    playSound('correcto');
+                    
+                    if (eventosOrdenados.length === 5) {
+                        document.getElementById('ordenFeedback').innerHTML = '🎉 ¡Excelente! Ordenaste toda la historia. +30 puntos 🎉';
+                        document.getElementById('ordenFeedback').style.color = 'green';
+                        addPoints(30);
+                        setTimeout(() => {
+                            if (confirm('¿Quieres jugar de nuevo?')) {
+                                location.reload();
+                            }
+                        }, 1000);
+                    } else {
+                        document.getElementById('ordenFeedback').innerHTML = `✅ ¡Bien! Evento ${ordenActual} correcto. Sigue así.`;
+                        document.getElementById('ordenFeedback').style.color = 'green';
+                    }
+                } else {
+                    document.getElementById('ordenFeedback').innerHTML = `❌ El evento ${ordenActual} no es correcto. El orden debe ser el de la historia.`;
+                    document.getElementById('ordenFeedback').style.color = 'red';
+                    playSound('incorrecto');
+                }
+            }
+            draggedItem = null;
+        }
+
+        // Inicializar al cargar
+        if (document.getElementById('ordenar-historia')) {
+            initOrdenarHistoria();
         }
         window.onload = () => { if(typeof initSentenceDragDrop === 'function') initSentenceDragDrop(); };
     </script>

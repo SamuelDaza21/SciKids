@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="assets/css/responsive.css">
 </head>
 <body>
-
     <header class="navbar glass-panel" id="navbar">
         <a href="index.html" class="logo">
             <i class="fas fa-rocket"></i> Scikids
@@ -18,7 +17,7 @@
         <ul class="nav-links">
             <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
             <li><a href="matematicas.html"><i class="fas fa-calculator"></i> Matemáticas</a></li>
-            <li><a href="espanol.html"><i class="fas fa-book-open"></i> Español</a></li>
+            <li><a href="español.html"><i class="fas fa-book-open"></i> Español</a></li>
             <li><a href="ciencias.html"><i class="fas fa-leaf"></i> Ciencias</a></li>
             <li><a href="juegos.html"><i class="fas fa-gamepad"></i> Juegos</a></li>
         </ul>
@@ -108,12 +107,20 @@
             <div class="games-nav">
                 <button class="game-tab active" onclick="showGame('quiz')">Quiz con temporizador</button>
                 <button class="game-tab" onclick="showGame('drag')">Suma arrastrando números</button>
+                <button class="game-tab" onclick="showGame('complete')">Completa la operación</button>
+                <button class="game-tab" onclick="showGame('multi')">Multiplicación 🎲</button>
             </div>
             <div id="quiz" class="game-area active">
                 <div id="mathQuizContainer"></div>
             </div>
             <div id="drag" class="game-area">
                 <div id="dragDropNumbers"></div>
+            </div>
+            <div id="complete" class="game-area">
+                <div id="completeOperationContainer"></div>
+            </div>
+            <div id="multi" class="game-area">
+                <div id="multiplicationGameContainer"></div>
             </div>
         </div>
     </section>
@@ -141,13 +148,44 @@
         </div>
     </section>
 
+    <!-- LABORATORIO DE RETOS CON FICHAS -->
+    <section id="lab-fichas" class="fade-in-up">
+        <div class="section-header">
+            <h2>🎲 Retos con Fichas</h2>
+            <p>Resuelve los desafíos manipulando las fichas. ¡Cada reto completado suma puntos!</p>
+        </div>
+        <div class="lab-container">
+            <div class="lab-content">
+                <div id="fichasLab" style="text-align: center;">
+                    <div style="font-size: 3rem; letter-spacing: 15px; margin-bottom: 20px;" id="fichasDisplay">🟢🟢🟢🟢🟢</div>
+                    <div style="font-size: 1.5rem; margin-bottom: 20px;">Fichas: <span id="fichasCount">5</span></div>
+                    <div style="display: flex; gap: 20px; justify-content: center; margin-bottom: 20px;">
+                        <button class="btn-card" onclick="fichasSumar()"><i class="fas fa-plus-circle"></i> +1 ficha</button>
+                        <button class="btn-card" onclick="fichasRestar()"><i class="fas fa-minus-circle"></i> -1 ficha</button>
+                        <button class="btn-card" onclick="fichasReset()"><i class="fas fa-undo-alt"></i> Reiniciar</button>
+                    </div>
+                    <div id="retoActual" class="game-feedback" style="background: var(--color-2); padding: 20px; border-radius: 20px;">
+                        🎯 <strong>Desafío actual:</strong> Tener exactamente 10 fichas
+                    </div>
+                    <div id="fichasFeedback" class="game-feedback" style="margin-top: 15px;"></div>
+                </div>
+            </div>
+            <div class="lab-image">
+                <img src="img/matematicas/fichas.webp" alt="Fichas de conteo" onerror="this.src='https://placehold.co/400x300?text=Retos+con+Fichas'">
+                <div style="margin-top: 15px; text-align: center;">
+                    <p>💡 <strong>Consejo:</strong> Usa los botones para sumar o restar fichas hasta alcanzar el número del desafío.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer>
         <div class="footer-content">
             <div class="footer-brand">
                 <div class="logo"><i class="fas fa-rocket"></i> Scikids</div>
                 <p>Aprender es divertido</p>
             </div>
-            <div class="footer-links"><h4>Áreas</h4><ul><li><a href="matematicas.html">Matemáticas</a></li><li><a href="espanol.html">Español</a></li><li><a href="ciencias.html">Ciencias</a></li></ul></div>
+            <div class="footer-links"><h4>Áreas</h4><ul><li><a href="matematicas.html">Matemáticas</a></li><li><a href="español.html">Español</a></li><li><a href="ciencias.html">Ciencias</a></li></ul></div>
         </div>
         <div class="footer-bottom"><p>© 2026 Scikids</p></div>
     </footer>
@@ -158,12 +196,18 @@
     <script>
         function showGame(gameId) {
             document.querySelectorAll('#juegos-mate .game-area').forEach(area => area.classList.remove('active'));
-            if(gameId === 'quiz') {
+            if (gameId === 'quiz') {
                 document.getElementById('quiz').classList.add('active');
-                if(typeof startMathQuiz === 'function') startMathQuiz();
-            } else {
+                if (typeof startMathQuiz === 'function') startMathQuiz();
+            } else if (gameId === 'drag') {
                 document.getElementById('drag').classList.add('active');
-                if(typeof initDragDropNumbers === 'function') initDragDropNumbers();
+                if (typeof initDragDropNumbers === 'function') initDragDropNumbers();
+            } else if (gameId === 'complete') {
+                document.getElementById('complete').classList.add('active');
+                if (typeof initCompleteOperation === 'function') initCompleteOperation();
+            } else if (gameId === 'multi') {
+                document.getElementById('multi').classList.add('active');
+                if (typeof initMultiplicationGame === 'function') initMultiplicationGame();
             }
         }
         // Contador interactivo
@@ -186,9 +230,112 @@
             document.getElementById('contadorValor').innerText = contador;
             playSound('incorrecto');
         }
+
+        // ========== LABORATORIO DE RETOS CON FICHAS ==========
+        let fichas = 5;
+        let retoActualIndex = 0;
+        let retoCompletado = false;
+
+        const retos = [
+            { objetivo: 10, puntos: 20, mensaje: "🎯 Llegar a 10 fichas" },
+            { objetivo: 3, puntos: 20, mensaje: "🎯 Llegar a 3 fichas" },
+            { objetivo: 15, puntos: 20, mensaje: "🎯 Llegar a 15 fichas" },
+            { objetivo: 7, puntos: 20, mensaje: "🎯 Llegar a 7 fichas" },
+            { objetivo: 0, puntos: 30, mensaje: "🎯 EXPERTO: Llegar a 0 fichas" }
+        ];
+
+        function actualizarDisplayFichas() {
+            let emojis = '';
+            for (let i = 0; i < fichas; i++) {
+                emojis += '🟢';
+            }
+            if (fichas === 0) {
+                emojis = '⚪ (sin fichas)';
+            } else if (fichas > 20) {
+                emojis = '🟢🟢🟢🟢🟢... ¡muchas!';
+            }
+            document.getElementById('fichasDisplay').innerHTML = emojis || '🟢';
+            document.getElementById('fichasCount').innerText = fichas;
+            
+            // Verificar si se completó el reto actual
+            if (!retoCompletado && fichas === retos[retoActualIndex].objetivo) {
+                retoCompletado = true;
+                const puntosGanados = retos[retoActualIndex].puntos;
+                addPoints(puntosGanados, `🎉 ¡Desafío completado! +${puntosGanados} puntos`);
+                
+                document.getElementById('fichasFeedback').innerHTML = `✅ ¡Felicidades! Completaste "${retos[retoActualIndex].mensaje}" y ganaste ${puntosGanados} puntos. 🎉`;
+                document.getElementById('fichasFeedback').style.color = 'green';
+                playSound('correcto');
+                
+                // Pasar al siguiente reto
+                if (retoActualIndex + 1 < retos.length) {
+                    retoActualIndex++;
+                    retoCompletado = false;
+                    setTimeout(() => {
+                        document.getElementById('retoActual').innerHTML = `🎯 <strong>Nuevo desafío:</strong> ${retos[retoActualIndex].mensaje}`;
+                        document.getElementById('fichasFeedback').innerHTML = `📋 ¡Siguiente nivel! ${retos[retoActualIndex].mensaje}. ¡Continúa!`;
+                        document.getElementById('fichasFeedback').style.color = '#4a7d35';
+                        playSound('correcto');
+                    }, 1500);
+                } else {
+                    setTimeout(() => {
+                        document.getElementById('retoActual').innerHTML = '🏆 <strong>¡CAMPEÓN!</strong> Completaste todos los desafíos. 🏆';
+                        document.getElementById('fichasFeedback').innerHTML = '🌟 ¡Eres un maestro de las matemáticas! 🌟';
+                    }, 1500);
+                }
+            }
+        }
+
+        function fichasSumar() {
+            if (fichas < 25) {
+                fichas++;
+                actualizarDisplayFichas();
+                playSound('correcto');
+                document.getElementById('fichasFeedback').innerHTML = `➕ Sumaste una ficha. Ahora tienes ${fichas}. ${!retoCompletado ? `Te faltan ${retos[retoActualIndex].objetivo - fichas} para el desafío.` : ''}`;
+                document.getElementById('fichasFeedback').style.color = '#555';
+            } else {
+                document.getElementById('fichasFeedback').innerHTML = '⚠️ Llegaste al límite de 25 fichas. Usa el botón de reiniciar si quieres comenzar de nuevo.';
+                document.getElementById('fichasFeedback').style.color = 'orange';
+                playSound('incorrecto');
+            }
+        }
+
+        function fichasRestar() {
+            if (fichas > 0) {
+                fichas--;
+                actualizarDisplayFichas();
+                playSound('correcto');
+                const diferencia = retos[retoActualIndex].objetivo - fichas;
+                if (!retoCompletado && fichas !== retos[retoActualIndex].objetivo) {
+                    document.getElementById('fichasFeedback').innerHTML = `➖ Quitaste una ficha. Ahora tienes ${fichas}. ${diferencia > 0 ? `Te faltan ${diferencia} fichas.` : diferencia < 0 ? `Te pasaste por ${Math.abs(diferencia)} fichas.` : ''}`;
+                } else if (!retoCompletado && fichas === retos[retoActualIndex].objetivo) {
+                    // El reto se completará en actualizarDisplayFichas()
+                } else {
+                    document.getElementById('fichasFeedback').innerHTML = `➖ Quitaste una ficha. Ahora tienes ${fichas}.`;
+                }
+                document.getElementById('fichasFeedback').style.color = '#555';
+            } else {
+                document.getElementById('fichasFeedback').innerHTML = '⚠️ No puedes quitar más fichas (estás en 0). Reinicia para empezar de nuevo.';
+                document.getElementById('fichasFeedback').style.color = 'orange';
+                playSound('incorrecto');
+            }
+        }
+
+        function fichasReset() {
+            fichas = 5;
+            retoActualIndex = 0;
+            retoCompletado = false;
+            actualizarDisplayFichas();
+            document.getElementById('retoActual').innerHTML = `🎯 <strong>Desafío actual:</strong> ${retos[0].mensaje}`;
+            document.getElementById('fichasFeedback').innerHTML = '🔄 Todo reiniciado. ¡Comienza desde el primer desafío!';
+            document.getElementById('fichasFeedback').style.color = '#4a7d35';
+            playSound('correcto');
+        }
         window.onload = () => {
             if(typeof startMathQuiz === 'function') startMathQuiz();
             if(typeof initDragDropNumbers === 'function') initDragDropNumbers();
+            if(typeof initCompleteOperation === 'function') initCompleteOperation();
+            if(typeof initMultiplicationGame === 'function') initMultiplicationGame();
         };
     </script>
 </body>

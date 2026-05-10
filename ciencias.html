@@ -10,7 +10,23 @@
     <link rel="stylesheet" href="assets/css/responsive.css">
 </head>
 <body>
-    <header class="navbar glass-panel" id="navbar"><!-- mismo header que index --></header>
+    <header class="navbar glass-panel" id="navbar">
+        <a href="index.html" class="logo">
+            <i class="fas fa-rocket"></i> Scikids
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
+            <li><a href="matematicas.html"><i class="fas fa-calculator"></i> Matemáticas</a></li>
+            <li><a href="español.html"><i class="fas fa-book-open"></i> Español</a></li>
+            <li><a href="ciencias.html"><i class="fas fa-leaf"></i> Ciencias</a></li>
+            <li><a href="juegos.html"><i class="fas fa-gamepad"></i> Juegos</a></li>
+        </ul>
+        <div class="search-container">
+            <i class="fas fa-search"></i>
+            <input type="text" id="searchInput" placeholder="Buscar...">
+        </div>
+        <div class="mobile-menu-btn"><i class="fas fa-bars"></i></div>
+    </header>
 
     <section class="hero">
         <div class="hero-container">
@@ -63,7 +79,16 @@
         </div>
     </section>
 
-    <footer><!-- mismo footer --></footer>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo"><i class="fas fa-rocket"></i> Scikids</div>
+                <p>Aprender es divertido</p>
+            </div>
+            <div class="footer-links"><h4>Áreas</h4><ul><li><a href="matematicas.html">Matemáticas</a></li><li><a href="español.html">Español</a></li><li><a href="ciencias.html">Ciencias</a></li></ul></div>
+        </div>
+        <div class="footer-bottom"><p>© 2026 Scikids</p></div>
+    </footer>
 
     <script src="assets/js/main.js"></script>
     <script src="assets/js/juegos.js"></script>

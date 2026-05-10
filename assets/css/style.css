@@ -289,7 +289,7 @@ header.navbar.scrolled {
 }
 .hero-content { flex: 1; max-width: 600px; }
 .hero-content h1 { font-size: 4rem; line-height: 1.1; margin-bottom: 20px; color: var(--color-1); }
-.hero-content h1 span { color: var(--color-4); display: inline-block; animation: bounceIn 2s ease; }
+.hero-content h1 span { font-size: 4rem; color: var(--color-4); display: inline-block; animation: bounceIn 2s ease; }
 .hero-content p { font-size: 1.3rem; font-weight: 500; color: #555; margin-bottom: 40px; }
 .btn-primary {
     display: inline-flex;

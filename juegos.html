@@ -9,7 +9,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
-    <header class="navbar glass-panel"><!-- mismo header que index --></header>
+    <header class="navbar glass-panel" id="navbar">
+        <a href="index.html" class="logo">
+            <i class="fas fa-rocket"></i> Scikids
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
+            <li><a href="matematicas.html"><i class="fas fa-calculator"></i> Matemáticas</a></li>
+            <li><a href="español.html"><i class="fas fa-book-open"></i> Español</a></li>
+            <li><a href="ciencias.html"><i class="fas fa-leaf"></i> Ciencias</a></li>
+            <li><a href="juegos.html"><i class="fas fa-gamepad"></i> Juegos</a></li>
+        </ul>
+        <div class="search-container">
+            <i class="fas fa-search"></i>
+            <input type="text" id="searchInput" placeholder="Buscar...">
+        </div>
+        <div class="mobile-menu-btn"><i class="fas fa-bars"></i></div>
+    </header>
     <section class="hero" style="min-height: 40vh;"><h1>🎮 Todos los juegos</h1><p>Practica y gana puntos</p></section>
     <section id="juegosContainer">
         <div class="games-wrapper">

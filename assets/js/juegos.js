@@ -190,3 +190,173 @@ if (document.getElementById('mathQuizContainer')) startMathQuiz();
 if (document.getElementById('dragDropNumbers')) initDragDropNumbers();
 if (document.getElementById('sentenceDragArea')) initSentenceDragDrop();
 if (document.getElementById('animalClassify')) initAnimalClassification();
+
+// ========== COMPLETAR OPERACIONES ==========
+let currentCompleteQuestion = null;
+let completeScore = 0;
+let completeQuestions = [
+    { text: "3 + ___ = 7", answer: 4, hint: "¿Cuánto falta para llegar a 7?" },
+    { text: "___ + 5 = 9", answer: 4, hint: "9 menos 5 es..." },
+    { text: "8 - ___ = 3", answer: 5, hint: "8 menos ¿qué número da 3?" },
+    { text: "___ - 2 = 6", answer: 8, hint: "6 más 2 es..." },
+    { text: "4 × ___ = 12", answer: 3, hint: "¿4 por cuánto es 12?" },
+    { text: "___ × 5 = 20", answer: 4, hint: "¿Por cuánto multiplicas 5 para llegar a 20?" }
+];
+let completeCurrentIndex = 0;
+
+function initCompleteOperation() {
+    const container = document.getElementById('completeOperationContainer');
+    if (!container) return;
+    completeCurrentIndex = 0;
+    completeScore = 0;
+    showCompleteQuestion();
+}
+
+function showCompleteQuestion() {
+    const container = document.getElementById('completeOperationContainer');
+    if (!container) return;
+    
+    if (completeCurrentIndex >= completeQuestions.length) {
+        let pointsEarned = completeScore * 10;
+        container.innerHTML = `
+            <div class="game-feedback">
+                🎉 ¡Completaste todas las operaciones! 🎉<br>
+                Aciertos: ${completeScore}/${completeQuestions.length}<br>
+                Ganaste ${pointsEarned} puntos.
+            </div>
+            <button class="game-btn" onclick="initCompleteOperation()">Jugar de nuevo</button>
+        `;
+        if (completeScore > 0) {
+            addPoints(pointsEarned, `+${pointsEarned} puntos por las operaciones`);
+        }
+        return;
+    }
+    
+    currentCompleteQuestion = completeQuestions[completeCurrentIndex];
+    
+    container.innerHTML = `
+        <div class="math-problem">${currentCompleteQuestion.text}</div>
+        <div class="math-hint" style="color: #888; margin-bottom: 20px;">💡 Pista: ${currentCompleteQuestion.hint}</div>
+        <input type="number" id="completeInput" class="math-input" placeholder="?">
+        <button class="game-btn" onclick="checkCompleteAnswer()">Comprobar</button>
+        <div id="completeFeedback" class="game-feedback"></div>
+        <div style="margin-top: 20px;">Pregunta ${completeCurrentIndex + 1} de ${completeQuestions.length}</div>
+    `;
+    
+    const input = document.getElementById('completeInput');
+    if (input) input.focus();
+}
+
+function checkCompleteAnswer() {
+    const input = document.getElementById('completeInput');
+    const userAnswer = parseInt(input.value);
+    const feedback = document.getElementById('completeFeedback');
+    
+    if (isNaN(userAnswer)) {
+        feedback.innerHTML = '❌ Escribe un número en el espacio.';
+        feedback.style.color = 'red';
+        playSound('incorrecto');
+        return;
+    }
+    
+    if (userAnswer === currentCompleteQuestion.answer) {
+        completeScore++;
+        feedback.innerHTML = '✅ ¡Correcto! +10 puntos';
+        feedback.style.color = 'green';
+        playSound('correcto');
+        addPoints(10, `+10 puntos: ${currentCompleteQuestion.text} = ${userAnswer}`);
+        
+        setTimeout(() => {
+            completeCurrentIndex++;
+            showCompleteQuestion();
+        }, 1200);
+    } else {
+        feedback.innerHTML = `❌ Incorrecto. ${currentCompleteQuestion.text} era ${currentCompleteQuestion.answer}. ¡Sigue intentando!`;
+        feedback.style.color = 'red';
+        playSound('incorrecto');
+        completeCurrentIndex++;
+        setTimeout(() => showCompleteQuestion(), 2000);
+    }
+}
+
+// ========== JUEGO DE MULTIPLICACIÓN ==========
+let currentMultiplication = null;
+let multiScore = 0;
+let multiQuestions = [
+    { text: "2 × 3 = ?", answer: 6, options: [4, 5, 6, 7] },
+    { text: "2 × 5 = ?", answer: 10, options: [8, 9, 10, 12] },
+    { text: "3 × 3 = ?", answer: 9, options: [6, 7, 8, 9] },
+    { text: "4 × 2 = ?", answer: 8, options: [6, 7, 8, 10] },
+    { text: "5 × 2 = ?", answer: 10, options: [8, 9, 10, 12] },
+    { text: "3 × 4 = ?", answer: 12, options: [10, 11, 12, 14] },
+    { text: "2 × 8 = ?", answer: 16, options: [14, 15, 16, 18] },
+    { text: "4 × 4 = ?", answer: 16, options: [12, 14, 16, 18] }
+];
+let multiCurrentIndex = 0;
+
+function initMultiplicationGame() {
+    const container = document.getElementById('multiplicationGameContainer');
+    if (!container) return;
+    multiCurrentIndex = 0;
+    multiScore = 0;
+    showMultiplicationQuestion();
+}
+
+function showMultiplicationQuestion() {
+    const container = document.getElementById('multiplicationGameContainer');
+    if (!container) return;
+    
+    if (multiCurrentIndex >= multiQuestions.length) {
+        let pointsEarned = multiScore * 15;
+        container.innerHTML = `
+            <div class="game-feedback">
+                🎉 ¡Multiplicación completada! 🎉<br>
+                Aciertos: ${multiScore}/${multiQuestions.length}<br>
+                Ganaste ${pointsEarned} puntos.
+            </div>
+            <button class="game-btn" onclick="initMultiplicationGame()">Jugar de nuevo</button>
+        `;
+        if (multiScore > 0) {
+            addPoints(pointsEarned, `+${pointsEarned} puntos por multiplicar`);
+        }
+        return;
+    }
+    
+    currentMultiplication = multiQuestions[multiCurrentIndex];
+    
+    let optionsHtml = '<div class="quiz-options" style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin: 20px 0;">';
+    currentMultiplication.options.forEach((opt, idx) => {
+        optionsHtml += `<button class="quiz-option" style="font-size: 2rem; padding: 15px 30px; background: var(--color-1); color: white; border: none; border-radius: 20px; cursor: pointer;" onclick="checkMultiplicationAnswer(${opt})">${opt}</button>`;
+    });
+    optionsHtml += '</div>';
+    
+    container.innerHTML = `
+        <div class="math-problem" style="font-size: 4rem;">${currentMultiplication.text}</div>
+        ${optionsHtml}
+        <div id="multiFeedback" class="game-feedback"></div>
+        <div style="margin-top: 20px;">Pregunta ${multiCurrentIndex + 1} de ${multiQuestions.length}</div>
+    `;
+}
+
+function checkMultiplicationAnswer(selected) {
+    const feedback = document.getElementById('multiFeedback');
+    
+    if (selected === currentMultiplication.answer) {
+        multiScore++;
+        feedback.innerHTML = '✅ ¡Correcto! +15 puntos';
+        feedback.style.color = 'green';
+        playSound('correcto');
+        addPoints(15, `+15 puntos: ${currentMultiplication.text} = ${selected}`);
+        
+        setTimeout(() => {
+            multiCurrentIndex++;
+            showMultiplicationQuestion();
+        }, 1000);
+    } else {
+        feedback.innerHTML = `❌ Incorrecto. La respuesta correcta era ${currentMultiplication.answer}. ¡Sigue practicando!`;
+        feedback.style.color = 'red';
+        playSound('incorrecto');
+        multiCurrentIndex++;
+        setTimeout(() => showMultiplicationQuestion(), 2000);
+    }
+}
