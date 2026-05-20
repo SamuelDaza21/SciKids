@@ -314,7 +314,7 @@ header.navbar.scrolled {
 /* ==========================================================================
    SECCIONES GENERALES
    ========================================================================== */
-section { padding: 100px 5%; position: relative; }
+section { padding: 75px 5%; position: relative; }
 .section-header { text-align: center; margin-bottom: 60px; }
 .section-header h2 { font-size: 3rem; color: var(--color-1); display: inline-block; position: relative; }
 .section-header h2::after {

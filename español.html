@@ -35,9 +35,140 @@
                 <p>Lee, escribe y juega con el lenguaje. Descubre nuevas historias cada día.</p>
                 <a href="#cuento" class="btn-primary">Leer cuento <i class="fas fa-book"></i></a>
             </div>
-            <div class="hero-image"><img src="img/espanol/lectura.webp" alt="Niño leyendo" onerror="this.src='https://placehold.co/600x400?text=Lectura'"></div>
+            <div class="hero-image"><img src="img/español.png" alt="Niño leyendo" onerror="this.src='https://placehold.co/600x400?text=Lectura'"></div>
         </div>
     </section>
+
+    <!-- TEORÍA: EL ABECEDARIO -->
+    <section id="teoria-abecedario" class="fade-in-up">
+        <div class="section-header">
+            <h2>🔤 El abecedario mágico</h2>
+            <p>Las letras son los ladrillos de todas las palabras. ¡Conócelas!</p>
+        </div>
+        <div class="theory-grid">
+            <div class="theory-card">
+                <i class="fas fa-font" style="font-size: 3rem; color: var(--color-4);"></i>
+                <h3>Vocales</h3>
+                <p>Son la boca de las palabras. Sin ellas, no podemos pronunciar nada.</p>
+                <div class="example-box" style="text-align: center; font-size: 1.8rem;">
+                    A - E - I - O - U
+                </div>
+                <button class="btn-card" onclick="mostrarTipVocales()">🎲 ¿Sabías que...?</button>
+                <div id="tipVocales" style="display: none; margin-top: 10px;">💡 La "A" es la vocal más usada en español. ¡Aparece en casi todas las palabras!</div>
+            </div>
+            <div class="theory-card">
+                <i class="fas fa-font" style="font-size: 3rem; color: var(--color-4);"></i>
+                <h3>Consonantes</h3>
+                <p>Son las letras que acompañan a las vocales para formar sonidos.</p>
+                <div class="example-box" style="text-align: center; font-size: 1.2rem;">
+                    B, C, D, F, G, H, J, K, L, M, N, Ñ, P, Q, R, S, T, V, W, X, Y, Z
+                </div>
+            </div>
+            <div class="theory-card">
+                <i class="fas fa-sort-alpha-down" style="font-size: 3rem; color: var(--color-4);"></i>
+                <h3>Orden alfabético</h3>
+                <p>Las letras tienen un orden. ¡Así encontramos palabras en el diccionario!</p>
+                <div class="example-box" style="text-align: center;">
+                    🍎 <strong>manzana</strong> viene antes que 🍌 <strong>plátano</strong>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEORÍA: SÍLABAS -->
+    <section id="teoria-silabas" class="fade-in-up">
+        <div class="section-header">
+            <h2>🔊 Las sílabas: dividiendo palabras</h2>
+            <p>Las palabras se pueden partir en pedacitos. ¡Cada pedacito es una sílaba!</p>
+        </div>
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-hand-peace"></i></div>
+                <h3>1 sílaba</h3>
+                <p><strong>Sol, pan, flor, pez</strong></p>
+                <div class="example-box">👏 SOL (1 aplauso)</div>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-hand-peace"></i><i class="fas fa-hand-peace"></i></div>
+                <h3>2 sílabas</h3>
+                <p><strong>Ca-sa, pe-rro, ma-no</strong></p>
+                <div class="example-box">👏👏 CA-SA (2 aplausos)</div>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-hand-peace"></i><i class="fas fa-hand-peace"></i><i class="fas fa-hand-peace"></i></div>
+                <h3>4 sílabas</h3>
+                <p><strong>Ma-ri-po-sa, e-le-fan-te</strong></p>
+                <div class="example-box">👏👏👏 MA-RI-PO-SA (4 aplausos)</div>
+            </div>
+        </div>
+        <div class="mini-activity" style="margin-top: 20px;">
+            <h4>🎮 Practica: ¿Cuántas sílabas tiene?</h4>
+            <p id="palabraSilaba">🌸 <strong>Mariposa</strong></p>
+            <button class="btn-card" onclick="checkSilabas(4)">4 sílabas</button>
+            <button class="btn-card" onclick="checkSilabas(3)">3 sílabas</button>
+            <button class="btn-card" onclick="checkSilabas(5)">5 sílabas</button>
+            <div id="silabasFeedback" class="game-feedback"></div>
+            <button class="btn-card" onclick="nuevaPalabraSilabas()">🔄 Nueva palabra</button>
+        </div>
+    </section>
+
+    <!-- TEORÍA: ORTOGRAFÍA BÁSICA -->
+    <section id="teoria-ortografia" class="fade-in-up">
+        <div class="section-header">
+            <h2>✏️ Reglas básicas de ortografía</h2>
+            <p>Pequeñas reglas que nos ayudan a escribir sin errores.</p>
+        </div>
+        <div class="lab-container">
+            <div class="lab-content">
+                <ul class="lab-list">
+                    <li><i class="fas fa-check-circle" style="color: var(--color-4);"></i> <strong>Mayúscula inicial:</strong> Siempre empezamos con mayúscula después de un punto.</li>
+                    <li><i class="fas fa-check-circle" style="color: var(--color-4);"></i> <strong>Punto final:</strong> Separa las oraciones.</li>
+                    <li><i class="fas fa-check-circle" style="color: var(--color-4);"></i> <strong>Uso de la B:</strong> Antes de L y R se escribe B (bla, bre).</li>
+                    <li><i class="fas fa-check-circle" style="color: var(--color-4);"></i> <strong>Uso de la V:</strong> Después de N se escribe V (enviar, invitar).</li>
+                    <li><i class="fas fa-check-circle" style="color: var(--color-4);"></i> <strong>Signos de interrogación:</strong> ¿? al principio y al final de la pregunta.</li>
+                    <li><i class="fas fa-check-circle" style="color: var(--color-4);"></i> <strong>Signos de exclamación:</strong> ¡! para expresar emociones.</li>
+                </ul>
+            </div>
+            <div class="lab-image">
+                <img src="img/imagen ortografia.png" alt="Reglas de ortografía" onerror="this.src='https://placehold.co/400x300?text=Ortografía'">
+            </div>
+        </div>
+    </section>
+
+    <!-- TEORÍA: TIPOS DE PALABRAS -->
+    <section id="teoria-tipos-palabras" class="fade-in-up">
+        <div class="section-header">
+            <h2>📖 Tipos de palabras</h2>
+            <p>Las palabras tienen diferentes trabajos. ¡Aprende cuál es el de cada una!</p>
+        </div>
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-user"></i></div>
+                <h3>Sustantivos</h3>
+                <p>Nombran personas, animales, lugares o cosas.</p>
+                <div class="example-box">👧 niña, 🐶 perro, 🏠 casa, 📚 libro</div>
+                <button class="btn-card" onclick="checkEjemploSustantivo()">¿Es sustantivo?</button>
+                <div id="sustantivoFeedback" class="game-feedback"></div>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-paint-bucket"></i></div>
+                <h3>Adjetivos</h3>
+                <p>Describen cómo son las cosas.</p>
+                <div class="example-box">🟢 grande, 🔴 rojo, 😊 feliz, 🏃 rápido</div>
+                <button class="btn-card" onclick="checkEjemploAdjetivo()">¿Es adjetivo?</button>
+                <div id="adjetivoFeedback" class="game-feedback"></div>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-running"></i></div>
+                <h3>Verbos</h3>
+                <p>Indican acciones o estados.</p>
+                <div class="example-box">🏃 correr, 🍎 comer, 😴 dormir, 📖 leer</div>
+                <button class="btn-card" onclick="checkEjemploVerbo()">¿Es verbo?</button>
+                <div id="verboFeedback" class="game-feedback"></div>
+            </div>
+        </div>
+    </section>
+
 
     <!-- CUENTO ORIGINAL CON PREGUNTAS -->
     <section id="cuento" class="fade-in-up">
@@ -105,6 +236,28 @@
         </div>
     </section>
 
+
+    <!-- JUEGO DE CLASIFICACIÓN -->
+    <section id="juego-clasificar-palabras" class="fade-in-up">
+        <div class="section-header">
+            <h2>🎮 Clasifica la palabra</h2>
+            <p>¿Es un sustantivo, un adjetivo o un verbo? ¡Demuestra lo que aprendiste!</p>
+        </div>
+        <div class="games-wrapper">
+            <div style="text-align: center;">
+                <p style="font-size: 2rem; margin: 20px;" id="palabraClasificar">📦 <strong>caja</strong></p>
+                <div style="display: flex; gap: 20px; justify-content: center;">
+                    <button class="game-tab" onclick="clasificarPalabra('sustantivo')">📌 Sustantivo</button>
+                    <button class="game-tab" onclick="clasificarPalabra('adjetivo')">🎨 Adjetivo</button>
+                    <button class="game-tab" onclick="clasificarPalabra('verbo')">🏃 Verbo</button>
+                </div>
+                <div id="clasificarFeedback" class="game-feedback"></div>
+                <button class="btn-card" style="margin-top: 20px;" onclick="nuevaPalabraClasificar()">🔄 Siguiente palabra</button>
+                <div style="margin-top: 10px;">Puntaje: <span id="clasificarPuntaje">0</span> aciertos</div>
+            </div>
+        </div>
+    </section>
+
     <!-- JUEGO: ORDENAR LA HISTORIA -->
     <section id="ordenar-historia" class="fade-in-up">
         <div class="section-header">
@@ -152,7 +305,7 @@
                 <button class="btn-primary" onclick="enviarFinal()">Enviar y ganar puntos</button>
                 <div id="finalFeedback"></div>
             </div>
-            <div class="lab-image"><img src="img/espanol/escritura.webp" alt="Escribir cuento" onerror="this.src='https://placehold.co/400x300?text=Escritura'"></div>
+            <div class="lab-image"><img src="img/escritura.jpeg" alt="Escribir cuento" onerror="this.src='https://placehold.co/400x300?text=Escritura'"></div>
         </div>
     </section>
 
@@ -339,6 +492,138 @@
         if (document.getElementById('ordenar-historia')) {
             initOrdenarHistoria();
         }
+
+        // ========== TEORÍA: VOCALES ==========
+        function mostrarTipVocales() {
+            let tip = document.getElementById('tipVocales');
+            if (tip.style.display === 'none' || tip.style.display === '') {
+                tip.style.display = 'block';
+                setTimeout(() => { tip.style.display = 'none'; }, 3000);
+            }
+        }
+
+        // ========== PRÁCTICA DE SÍLABAS ==========
+        let palabrasSilabas = [
+            { palabra: "Mariposa", silabas: 4 },
+            { palabra: "Elefante", silabas: 4 },
+            { palabra: "Sol", silabas: 1 },
+            { palabra: "Casa", silabas: 2 },
+            { palabra: "Teléfono", silabas: 4 },
+            { palabra: "Árbol", silabas: 2 }
+        ];
+        let indiceSilabaActual = 0;
+
+        function mostrarPalabraSilabas() {
+            let palabraObj = palabrasSilabas[indiceSilabaActual % palabrasSilabas.length];
+            document.getElementById('palabraSilaba').innerHTML = `🌸 <strong>${palabraObj.palabra}</strong>`;
+            return palabraObj;
+        }
+
+        function checkSilabas(respuesta) {
+            let palabraObj = palabrasSilabas[indiceSilabaActual % palabrasSilabas.length];
+            let fb = document.getElementById('silabasFeedback');
+            if (respuesta === palabraObj.silabas) {
+                fb.innerHTML = '✅ ¡Correcto! +10 puntos';
+                fb.style.color = 'green';
+                addPoints(10);
+                playSound('correcto');
+                indiceSilabaActual++;
+                mostrarPalabraSilabas();
+            } else {
+                fb.innerHTML = `❌ Incorrecto. "${palabraObj.palabra}" tiene ${palabraObj.silabas} sílabas.`;
+                fb.style.color = 'red';
+                playSound('incorrecto');
+                indiceSilabaActual++;
+                mostrarPalabraSilabas();
+            }
+        }
+
+        function nuevaPalabraSilabas() {
+            indiceSilabaActual++;
+            mostrarPalabraSilabas();
+            document.getElementById('silabasFeedback').innerHTML = '';
+        }
+
+        // ========== EJEMPLOS DE TIPOS DE PALABRAS ==========
+        function checkEjemploSustantivo() {
+            let fb = document.getElementById('sustantivoFeedback');
+            fb.innerHTML = '✅ ¡Correcto! "Casa", "perro" y "libro" son sustantivos. +5 puntos';
+            fb.style.color = 'green';
+            addPoints(5);
+            playSound('correcto');
+            setTimeout(() => { fb.innerHTML = ''; }, 2000);
+        }
+
+        function checkEjemploAdjetivo() {
+            let fb = document.getElementById('adjetivoFeedback');
+            fb.innerHTML = '✅ ¡Correcto! "Grande", "rojo" y "feliz" son adjetivos. +5 puntos';
+            fb.style.color = 'green';
+            addPoints(5);
+            playSound('correcto');
+            setTimeout(() => { fb.innerHTML = ''; }, 2000);
+        }
+
+        function checkEjemploVerbo() {
+            let fb = document.getElementById('verboFeedback');
+            fb.innerHTML = '✅ ¡Correcto! "Correr", "comer" y "leer" son verbos. +5 puntos';
+            fb.style.color = 'green';
+            addPoints(5);
+            playSound('correcto');
+            setTimeout(() => { fb.innerHTML = ''; }, 2000);
+        }
+
+        // ========== JUEGO CLASIFICAR PALABRAS ==========
+        let palabrasClasificar = [
+            { palabra: "caja", tipo: "sustantivo" },
+            { palabra: "feliz", tipo: "adjetivo" },
+            { palabra: "correr", tipo: "verbo" },
+            { palabra: "perro", tipo: "sustantivo" },
+            { palabra: "grande", tipo: "adjetivo" },
+            { palabra: "saltar", tipo: "verbo" },
+            { palabra: "manzana", tipo: "sustantivo" },
+            { palabra: "azul", tipo: "adjetivo" },
+            { palabra: "dormir", tipo: "verbo" }
+        ];
+        let indiceClasificarActual = 0;
+        let puntajeClasificar = 0;
+
+        function mostrarPalabraClasificar() {
+            let palabraObj = palabrasClasificar[indiceClasificarActual % palabrasClasificar.length];
+            document.getElementById('palabraClasificar').innerHTML = `📦 <strong>${palabraObj.palabra}</strong>`;
+            return palabraObj;
+        }
+
+        function clasificarPalabra(tipoElegido) {
+            let palabraObj = palabrasClasificar[indiceClasificarActual % palabrasClasificar.length];
+            let fb = document.getElementById('clasificarFeedback');
+            
+            if (tipoElegido === palabraObj.tipo) {
+                puntajeClasificar++;
+                document.getElementById('clasificarPuntaje').innerText = puntajeClasificar;
+                fb.innerHTML = '✅ ¡Correcto! +10 puntos';
+                fb.style.color = 'green';
+                addPoints(10);
+                playSound('correcto');
+                indiceClasificarActual++;
+                mostrarPalabraClasificar();
+            } else {
+                fb.innerHTML = `❌ Incorrecto. "${palabraObj.palabra}" es un ${palabraObj.tipo}.`;
+                fb.style.color = 'red';
+                playSound('incorrecto');
+                indiceClasificarActual++;
+                mostrarPalabraClasificar();
+            }
+        }
+
+        function nuevaPalabraClasificar() {
+            indiceClasificarActual++;
+            mostrarPalabraClasificar();
+            document.getElementById('clasificarFeedback').innerHTML = '';
+        }
+
+        // Inicializar juegos al cargar
+        mostrarPalabraSilabas();
+        mostrarPalabraClasificar();
         window.onload = () => { if(typeof initSentenceDragDrop === 'function') initSentenceDragDrop(); };
     </script>
 </body>

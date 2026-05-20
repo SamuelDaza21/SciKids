@@ -41,7 +41,7 @@
                 <a href="#contenido-mate" class="btn-primary">Explorar <i class="fas fa-arrow-right"></i></a>
             </div>
             <div class="hero-image fade-in-up">
-                <img src="img/matematicas/numeros.webp" alt="Números divertidos" onerror="this.src='https://placehold.co/600x400?text=Matematicas'">
+                <img src="img/matematicas.png" alt="Números divertidos" onerror="this.src='https://placehold.co/600x400?text=Matematicas'">
             </div>
         </div>
     </section>
@@ -97,6 +97,92 @@
         </div>
     </section>
 
+    <section id="teoria-numeros" class="fade-in-up">
+        <div class="section-header">
+            <h2>🔢 Descubre el mundo de los números</h2>
+            <p>Los números tienen secretos divertidos. ¡Aprende a descubrirlos!</p>
+        </div>
+        <div class="theory-grid">
+            <!-- Tarjeta 1: Valor posicional -->
+            <div class="theory-card">
+                <i class="fas fa-chalkboard" style="font-size: 3rem; color: var(--color-4);"></i>
+                <h3>📊 Valor posicional</h3>
+                <p>Cada número tiene su lugar: <strong>unidades, decenas y centenas</strong>.</p>
+                <div class="example-box" style="margin-top: 10px; text-align: center;">
+                    <span style="font-size: 2rem;">2️⃣3️⃣4️⃣</span><br>
+                    <span style="color: green;">200</span> + <span style="color: blue;">30</span> + <span style="color: red;">4</span>
+                </div>
+                <p style="font-size: 0.9rem; margin-top: 10px;">💡 El 2 vale 200 (centenas), el 3 vale 30 (decenas), el 4 vale 4 (unidades).</p>
+            </div>
+
+            <!-- Tarjeta 2: Pares e impares -->
+            <div class="theory-card">
+                <i class="fas fa-sort-numeric-up-alt" style="font-size: 3rem; color: var(--color-4);"></i>
+                <h3>🔴 Pares e impares 🟢</h3>
+                <p>Los números tienen amigos y otros están solitos.</p>
+                <div class="example-box" style="margin-top: 10px; text-align: center;">
+                    <span style="color: green;">Pares: 2, 4, 6, 8, 10</span><br>
+                    <span style="color: orange;">Impares: 1, 3, 5, 7, 9</span>
+                </div>
+                <button class="btn-card" style="margin-top: 10px;" onclick="mostrarTipParImpar()">🎲 ¿Sabías que...?</button>
+                <div id="tipParImpar" style="margin-top: 10px; font-size: 0.85rem; display: none;">💡 Los números pares se pueden dividir en dos grupos iguales. ¡Los impares no!</div>
+            </div>
+
+            <!-- Tarjeta 3: Comparar números -->
+            <div class="theory-card">
+                <i class="fas fa-greater-than" style="font-size: 3rem; color: var(--color-4);"></i>
+                <h3>⚖️ Mayor que, menor que, igual</h3>
+                <p>Los cocodrilos comen el número más grande 🐊</p>
+                <div class="example-box" style="margin-top: 10px; text-align: center; font-size: 1.5rem;">
+                    8 🐊 3<br>
+                    5 = 5<br>
+                    2 🐊 7
+                </div>
+                <button class="btn-card" style="margin-top: 10px;" onclick="mostrarTipComparar()">🎲 ¿Cómo se leen?</button>
+                <div id="tipComparar" style="margin-top: 10px; font-size: 0.85rem; display: none;">💡 8 es MAYOR QUE 3, 5 es IGUAL QUE 5, 2 es MENOR QUE 7.</div>
+            </div>
+
+            <!-- Tarjeta 4: Fracciones básicas -->
+            <div class="theory-card">
+                <i class="fas fa-pizza-slice" style="font-size: 3rem; color: var(--color-4);"></i>
+                <h3>🍕 Mitades y cuartos</h3>
+                <p>Cuando partimos algo en partes iguales, ¡estamos usando fracciones!</p>
+                <div class="example-box" style="margin-top: 10px; text-align: center;">
+                    🍕 = 1 pizza entera<br>
+                    🍕🍕 = 2 mitades = ½ + ½<br>
+                    🍕🍕🍕🍕 = 4 cuartos = ¼ + ¼ + ¼ + ¼
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="problemas-diarios" class="fade-in-up">
+        <div class="section-header">
+            <h2>🧠 Más problemas!</h2>
+            <p>Las matemáticas nos ayudan a resolver situaciones cotidianas.</p>
+        </div>
+        <div class="content-expansion">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap: 20px;">
+                <div style="background: var(--color-8); padding: 20px; border-radius: 20px;">
+                    <h3>🛒 En el supermercado</h3>
+                    <p>Una manzana cuesta $500. Si compras 4 manzanas, ¿cuánto pagas?</p>
+                    <button class="btn-card" onclick="checkProblema('super', 2000)">$2000</button>
+                    <button class="btn-card" onclick="checkProblema('super', 1500)">$1500</button>
+                    <button class="btn-card" onclick="checkProblema('super', 2500)">$2500</button>
+                    <div id="problemaSuperFeedback" class="game-feedback"></div>
+                </div>
+                <div style="background: var(--color-8); padding: 20px; border-radius: 20px;">
+                    <h3>🍕 Repartir pizza</h3>
+                    <p>Hay 12 rebanadas de pizza y 4 niños. ¿Cuántas rebanadas le tocan a cada uno?</p>
+                    <button class="btn-card" onclick="checkProblema('pizza', 3)">3 rebanadas</button>
+                    <button class="btn-card" onclick="checkProblema('pizza', 4)">4 rebanadas</button>
+                    <button class="btn-card" onclick="checkProblema('pizza', 2)">2 rebanadas</button>
+                    <div id="problemaPizzaFeedback" class="game-feedback"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ZONA DE JUEGOS (IDS EXACTOS) -->
     <section id="juegos-mate" class="fade-in-up">
         <div class="section-header">
@@ -143,7 +229,7 @@
                 </div>
             </div>
             <div class="lab-image">
-                <img src="img/matematicas/contador.webp" alt="Manzanas contando" onerror="this.src='https://placehold.co/400x300?text=Conteo'">
+                <img src="img/conteo.jpeg" alt="Manzanas contando" onerror="this.src='https://placehold.co/400x300?text=Conteo'">
             </div>
         </div>
     </section>
@@ -171,7 +257,7 @@
                 </div>
             </div>
             <div class="lab-image">
-                <img src="img/matematicas/fichas.webp" alt="Fichas de conteo" onerror="this.src='https://placehold.co/400x300?text=Retos+con+Fichas'">
+                <img src="img/reto_fichas.jpeg" alt="Fichas de conteo" onerror="this.src='https://placehold.co/400x300?text=Retos+con+Fichas'">
                 <div style="margin-top: 15px; text-align: center;">
                     <p>💡 <strong>Consejo:</strong> Usa los botones para sumar o restar fichas hasta alcanzar el número del desafío.</p>
                 </div>
@@ -331,12 +417,49 @@
             document.getElementById('fichasFeedback').style.color = '#4a7d35';
             playSound('correcto');
         }
+
+        // Funciones para mostrar tips emergentes
+        function mostrarTipParImpar() {
+            let tip = document.getElementById('tipParImpar');
+            if (tip.style.display === 'none' || tip.style.display === '') {
+                tip.style.display = 'block';
+                setTimeout(() => { tip.style.display = 'none'; }, 3000);
+            }
+        }
+
+        function mostrarTipComparar() {
+            let tip = document.getElementById('tipComparar');
+            if (tip.style.display === 'none' || tip.style.display === '') {
+                tip.style.display = 'block';
+                setTimeout(() => { tip.style.display = 'none'; }, 4000);
+            }
+        }
         window.onload = () => {
             if(typeof startMathQuiz === 'function') startMathQuiz();
             if(typeof initDragDropNumbers === 'function') initDragDropNumbers();
             if(typeof initCompleteOperation === 'function') initCompleteOperation();
             if(typeof initMultiplicationGame === 'function') initMultiplicationGame();
         };
+
+        function checkProblema(tipo, respuesta) {
+            let fb;
+            let correcto = false;
+            if (tipo === 'super' && respuesta === 2000) correcto = true;
+            if (tipo === 'pizza' && respuesta === 3) correcto = true;
+            
+            fb = document.getElementById(`problema${tipo === 'super' ? 'Super' : 'Pizza'}Feedback`);
+            
+            if (correcto) {
+                fb.innerHTML = '✅ ¡Correcto! +15 puntos 🎉';
+                fb.style.color = 'green';
+                addPoints(15);
+                playSound('correcto');
+            } else {
+                fb.innerHTML = '❌ Intenta de nuevo. Revisa la operación.';
+                fb.style.color = 'red';
+                playSound('incorrecto');
+            }
+        }
     </script>
 </body>
 </html>

@@ -26,33 +26,331 @@
         </div>
         <div class="mobile-menu-btn"><i class="fas fa-bars"></i></div>
     </header>
-    <section class="hero" style="min-height: 40vh;"><h1>🎮 Todos los juegos</h1><p>Practica y gana puntos</p></section>
+
+    <section class="hero" style="min-height: 40vh;">
+        <h1>🎮 Todos los juegos</h1>
+        <p>Practica y gana puntos mientras te diviertes</p>
+    </section>
+
     <section id="juegosContainer">
         <div class="games-wrapper">
             <div class="games-nav">
-                <button class="game-tab active" onclick="showGame('mathQuiz')">Quiz Matemático</button>
-                <button class="game-tab" onclick="showGame('dragDropNumbers')">Suma con arrastre</button>
-                <button class="game-tab" onclick="showGame('sentenceDrag')">Forma oraciones</button>
-                <button class="game-tab" onclick="showGame('classifyAnimals')">Clasifica animales</button>
+                <button class="game-tab active" onclick="showGame('mathQuiz')">📐 Quiz Matemático</button>
+                <button class="game-tab" onclick="showGame('dragDropNumbers')">🔢 Suma con arrastre</button>
+                <button class="game-tab" onclick="showGame('memoryGame')">🧠 Memoria</button>
+                <button class="game-tab" onclick="showGame('sentenceDrag')">📝 Forma oraciones</button>
+                <button class="game-tab" onclick="showGame('classifyAnimals')">🐘 Clasifica animales</button>
+                <button class="game-tab" onclick="showGame('wordSearch')">🔍 Sopa de letras</button>
+                <button class="game-tab" onclick="showGame('hangman')">🪢 Ahorcado</button>
+                <button class="game-tab" onclick="showGame('scienceQuiz')">🔬 Quiz de ciencias</button>
             </div>
-            <div id="mathQuiz" class="game-area active"><div id="mathQuizContainer"></div></div>
-            <div id="dragDropNumbers" class="game-area"><div id="dragDropNumbers"></div></div>
-            <div id="sentenceDrag" class="game-area"><div id="sentenceDragArea"></div></div>
-            <div id="classifyAnimals" class="game-area"><div id="animalClassify"></div></div>
+
+            <!-- Juego 1: Quiz Matemático -->
+            <div id="mathQuiz" class="game-area active">
+                <div id="mathQuizContainer"></div>
+            </div>
+
+            <!-- Juego 2: Suma con arrastre -->
+            <div id="dragDropNumbers" class="game-area">
+                <div id="dragDropNumbers"></div>
+            </div>
+
+            <!-- Juego 3: Memoria (Parejas) -->
+            <div id="memoryGame" class="game-area">
+                <div id="memoryGameContainer"></div>
+            </div>
+
+            <!-- Juego 4: Forma oraciones -->
+            <div id="sentenceDrag" class="game-area">
+                <div id="sentenceDragArea"></div>
+            </div>
+
+            <!-- Juego 5: Clasifica animales -->
+            <div id="classifyAnimals" class="game-area">
+                <div id="animalClassify"></div>
+            </div>
+
+            <!-- Juego 6: Sopa de letras -->
+            <div id="wordSearch" class="game-area">
+                <div id="wordSearchContainer"></div>
+            </div>
+
+            <!-- Juego 7: Ahorcado -->
+            <div id="hangman" class="game-area">
+                <div id="hangmanContainer"></div>
+            </div>
+
+            <!-- Juego 8: Quiz de ciencias -->
+            <div id="scienceQuiz" class="game-area">
+                <div id="scienceQuizContainer"></div>
+            </div>
         </div>
     </section>
+
     <script src="assets/js/main.js"></script>
     <script src="assets/js/juegos.js"></script>
     <script>
+        // Funciones de navegación
         function showGame(id) {
             document.querySelectorAll('.game-area').forEach(area => area.classList.remove('active'));
             document.getElementById(id).classList.add('active');
+            
             if(id === 'mathQuiz') startMathQuiz();
             if(id === 'dragDropNumbers') initDragDropNumbers();
+            if(id === 'memoryGame') initMemoryGame();
             if(id === 'sentenceDrag') initSentenceDragDrop();
             if(id === 'classifyAnimals') initAnimalClassification();
+            if(id === 'wordSearch') initWordSearch();
+            if(id === 'hangman') initHangman();
+            if(id === 'scienceQuiz') startScienceQuiz();
         }
-        window.onload = () => { startMathQuiz(); };
+
+        // ==================== JUEGO DE MEMORIA ====================
+        let memoryCards = [];
+        let memoryFlipped = [];
+        let memoryLocked = false;
+        let memoryMatched = 0;
+        let memoryPoints = 0;
+
+        function initMemoryGame() {
+            const container = document.getElementById('memoryGameContainer');
+            if (!container) return;
+            
+            // Reiniciar juego
+            memoryFlipped = [];
+            memoryLocked = false;
+            memoryMatched = 0;
+            memoryPoints = 0;
+            
+            const emojis = ['🐶', '🐱', '🐭', '🐹', '🐰', '🦊', '🐻', '🐼'];
+            let cards = [...emojis, ...emojis];
+            cards.sort(() => Math.random() - 0.5);
+            
+            container.innerHTML = `
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; max-width: 500px; margin: 0 auto;">
+                    ${cards.map((emoji, idx) => `
+                        <div class="memory-card" data-index="${idx}" data-emoji="${emoji}" 
+                             style="background: var(--color-1); color: white; font-size: 2.5rem; padding: 40px 20px; text-align: center; border-radius: 15px; cursor: pointer; transition: all 0.3s;">
+                            ❓
+                        </div>
+                    `).join('')}
+                </div>
+                <div id="memoryFeedback" class="game-feedback" style="margin-top: 20px;"></div>
+                <div style="margin-top: 10px;">Parejas encontradas: <span id="memoryMatchedCount">0</span>/8</div>
+            `;
+            
+            document.querySelectorAll('.memory-card').forEach(card => {
+                card.addEventListener('click', () => handleMemoryClick(card));
+            });
+        }
+
+        function handleMemoryClick(card) {
+            if (memoryLocked) return;
+            const index = parseInt(card.dataset.index);
+            if (memoryFlipped.includes(index)) return;
+            if (memoryFlipped.length === 2) return;
+            
+            const emoji = card.dataset.emoji;
+            card.innerHTML = emoji;
+            card.style.background = 'var(--color-5)';
+            memoryFlipped.push(index);
+            
+            if (memoryFlipped.length === 2) {
+                memoryLocked = true;
+                const card1 = document.querySelector(`.memory-card[data-index="${memoryFlipped[0]}"]`);
+                const card2 = document.querySelector(`.memory-card[data-index="${memoryFlipped[1]}"]`);
+                
+                if (card1.dataset.emoji === card2.dataset.emoji) {
+                    memoryMatched++;
+                    memoryPoints += 10;
+                    document.getElementById('memoryMatchedCount').innerText = memoryMatched;
+                    document.getElementById('memoryFeedback').innerHTML = '✅ ¡Correcto! +10 puntos';
+                    document.getElementById('memoryFeedback').style.color = 'green';
+                    addPoints(10);
+                    playSound('correcto');
+                    memoryFlipped = [];
+                    memoryLocked = false;
+                    
+                    if (memoryMatched === 8) {
+                        document.getElementById('memoryFeedback').innerHTML = '🎉 ¡Completaste el juego! +50 puntos extra 🎉';
+                        addPoints(50);
+                        setTimeout(() => initMemoryGame(), 2000);
+                    }
+                } else {
+                    document.getElementById('memoryFeedback').innerHTML = '❌ No coinciden. ¡Sigue intentando!';
+                    document.getElementById('memoryFeedback').style.color = 'red';
+                    playSound('incorrecto');
+                    setTimeout(() => {
+                        card1.innerHTML = '❓';
+                        card1.style.background = 'var(--color-1)';
+                        card2.innerHTML = '❓';
+                        card2.style.background = 'var(--color-1)';
+                        memoryFlipped = [];
+                        memoryLocked = false;
+                    }, 1000);
+                }
+            }
+        }
+
+        // ==================== SOPA DE LETRAS ====================
+        let wordSearchWords = ['SOL', 'LUNA', 'CIELO', 'AGUA', 'FLOR'];
+        
+        function initWordSearch() {
+            const container = document.getElementById('wordSearchContainer');
+            if (!container) return;
+            
+            container.innerHTML = `
+                <div style="text-align: center;">
+                    <p>Encuentra las palabras en la sopa de letras:</p>
+                    <p><strong>${wordSearchWords.join(' - ')}</strong></p>
+                    <div style="display: grid; grid-template-columns: repeat(8, 45px); gap: 3px; justify-content: center; margin: 20px auto;">
+                        ${generateWordSearchGrid().map(row => 
+                            row.map(cell => `<div style="background: var(--color-2); padding: 10px; text-align: center; border-radius: 8px; font-weight: bold;">${cell}</div>`).join('')
+                        ).join('')}
+                    </div>
+                    <div id="wordSearchFeedback" class="game-feedback"></div>
+                    <button class="btn-card" onclick="mostrarSolucionWordSearch()">💡 Ver palabras</button>
+                </div>
+            `;
+        }
+
+        function generateWordSearchGrid() {
+            let grid = Array(8).fill().map(() => Array(8).fill('').map(() => String.fromCharCode(65 + Math.floor(Math.random() * 26))));
+            let words = ['SOL', 'LUNA', 'AGUA'];
+            words.forEach((word, idx) => {
+                for (let i = 0; i < word.length && i < 8; i++) {
+                    grid[2 + idx][i] = word[i];
+                }
+            });
+            return grid;
+        }
+
+        function mostrarSolucionWordSearch() {
+            document.getElementById('wordSearchFeedback').innerHTML = `🔍 Palabras a buscar: ${wordSearchWords.join(', ')}. ¡Búscalas en la sopa de letras! +10 puntos`;
+            addPoints(10);
+            playSound('correcto');
+        }
+
+        // ==================== AHORCADO ====================
+        let hangmanWord = '';
+        let hangmanGuessed = [];
+        let hangmanAttempts = 6;
+        let hangmanWords = ['PERRO', 'GATO', 'ELEFANTE', 'JIRAFA', 'MARIPOSA', 'SOL', 'LUNA', 'ESTRELLA'];
+
+        function initHangman() {
+            const container = document.getElementById('hangmanContainer');
+            if (!container) return;
+            
+            hangmanWord = hangmanWords[Math.floor(Math.random() * hangmanWords.length)];
+            hangmanGuessed = [];
+            hangmanAttempts = 6;
+            
+            updateHangmanDisplay();
+        }
+
+        function updateHangmanDisplay() {
+            const container = document.getElementById('hangmanContainer');
+            let displayWord = hangmanWord.split('').map(letter => hangmanGuessed.includes(letter) ? letter : '_').join(' ');
+            
+            container.innerHTML = `
+                <div style="text-align: center;">
+                    <p style="font-size: 1.5rem;">Intentos restantes: ${hangmanAttempts}</p>
+                    <p style="font-size: 2rem; letter-spacing: 10px;">${displayWord}</p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin: 20px;">
+                        ${'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map(letter => `
+                            <button class="btn-card" onclick="guessLetter('${letter}')" ${hangmanGuessed.includes(letter) || hangmanAttempts === 0 || displayWord.indexOf('_') === -1 ? 'disabled' : ''}>${letter}</button>
+                        `).join('')}
+                    </div>
+                    <div id="hangmanFeedback" class="game-feedback"></div>
+                    <button class="btn-card" onclick="initHangman()">🔄 Nueva palabra</button>
+                </div>
+            `;
+        }
+
+        function guessLetter(letter) {
+            if (hangmanGuessed.includes(letter)) return;
+            hangmanGuessed.push(letter);
+            
+            if (hangmanWord.includes(letter)) {
+                document.getElementById('hangmanFeedback').innerHTML = `✅ ¡Bien! La letra "${letter}" está en la palabra. +10 puntos`;
+                addPoints(10);
+                playSound('correcto');
+            } else {
+                hangmanAttempts--;
+                document.getElementById('hangmanFeedback').innerHTML = `❌ La letra "${letter}" no está. Te quedan ${hangmanAttempts} intentos.`;
+                playSound('incorrecto');
+            }
+            
+            let displayWord = hangmanWord.split('').map(letter => hangmanGuessed.includes(letter) ? letter : '_').join(' ');
+            if (displayWord.indexOf('_') === -1) {
+                document.getElementById('hangmanFeedback').innerHTML = `🎉 ¡Ganaste! La palabra era ${hangmanWord}. +50 puntos 🎉`;
+                addPoints(50);
+                playSound('correcto');
+            } else if (hangmanAttempts === 0) {
+                document.getElementById('hangmanFeedback').innerHTML = `💀 Perdiste. La palabra era ${hangmanWord}.`;
+                playSound('incorrecto');
+            }
+            updateHangmanDisplay();
+        }
+
+        // ==================== QUIZ DE CIENCIAS ====================
+        let scienceScore = 0;
+        let scienceCurrent = 0;
+        let scienceQuestions = [
+            { text: "¿Qué planeta es conocido como el planeta azul?", options: ["Marte", "Júpiter", "Tierra", "Saturno"], correct: 2 },
+            { text: "¿Qué parte de la planta absorbe agua y nutrientes?", options: ["Hoja", "Tallo", "Raíz", "Flor"], correct: 2 },
+            { text: "¿Cuántos huesos tiene el cuerpo humano?", options: ["106", "206", "306", "150"], correct: 1 },
+            { text: "¿Qué gas necesitan las plantas para hacer la fotosíntesis?", options: ["Oxígeno", "Nitrógeno", "Dióxido de carbono", "Hidrógeno"], correct: 2 },
+            { text: "¿Cuál es el animal más grande del océano?", options: ["Tiburón blanco", "Orca", "Ballena azul", "Calamar gigante"], correct: 2 }
+        ];
+
+        function startScienceQuiz() {
+            scienceScore = 0;
+            scienceCurrent = 0;
+            showScienceQuestion();
+        }
+
+        function showScienceQuestion() {
+            const container = document.getElementById('scienceQuizContainer');
+            if (!container) return;
+            if (scienceCurrent >= scienceQuestions.length) {
+                container.innerHTML = `<div class="game-feedback">🎉 ¡Terminaste! Puntaje: ${scienceScore}/${scienceQuestions.length} 🎉</div>`;
+                if (scienceScore > 0) addPoints(scienceScore * 15);
+                return;
+            }
+            
+            let q = scienceQuestions[scienceCurrent];
+            container.innerHTML = `
+                <div class="quiz-question">${q.text}</div>
+                <div class="quiz-options" style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin: 20px;">
+                    ${q.options.map((opt, idx) => `<button class="quiz-option" onclick="checkScienceAnswer(${idx})">${opt}</button>`).join('')}
+                </div>
+                <div id="scienceFeedback" class="game-feedback"></div>
+                <div>Pregunta ${scienceCurrent + 1} de ${scienceQuestions.length}</div>
+            `;
+        }
+
+        function checkScienceAnswer(selected) {
+            if (selected === scienceQuestions[scienceCurrent].correct) {
+                scienceScore++;
+                document.getElementById('scienceFeedback').innerHTML = '✅ ¡Correcto! +15 puntos';
+                addPoints(15);
+                playSound('correcto');
+            } else {
+                document.getElementById('scienceFeedback').innerHTML = `❌ Incorrecto. La respuesta correcta era ${scienceQuestions[scienceCurrent].options[scienceQuestions[scienceCurrent].correct]}.`;
+                playSound('incorrecto');
+            }
+            scienceCurrent++;
+            setTimeout(() => showScienceQuestion(), 1500);
+        }
+
+        window.onload = () => { 
+            startMathQuiz();
+            initMemoryGame();
+            initWordSearch();
+            initHangman();
+            startScienceQuiz();
+        };
     </script>
 </body>
-</html>
+</html> 

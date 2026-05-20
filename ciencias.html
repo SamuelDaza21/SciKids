@@ -33,26 +33,177 @@
             <div class="hero-content fade-in-up">
                 <h1>Explora el <span>Mundo</span> Natural</h1>
                 <p>Animales, plantas, el agua y el planeta. ¡Conviértete en un pequeño científico!</p>
-                <a href="#ecosistemas" class="btn-primary">Descubrir <i class="fas fa-leaf"></i></a>
+                <a href="#cuerpo-humano" class="btn-primary">Descubrir <i class="fas fa-leaf"></i></a>
             </div>
-            <div class="hero-image"><img src="img/ciencias/planeta.webp" alt="Planeta Tierra" onerror="this.src='https://placehold.co/600x400?text=Ciencias'"></div>
+            <div class="hero-image"><img src="img/ciencias.png" alt="Planeta Tierra" onerror="this.src='https://placehold.co/600x400?text=Ciencias'"></div>
         </div>
     </section>
 
-    <!-- CONTENIDO EDUCATIVO -->
+    <!-- ==================== TEORÍA 1: EL CUERPO HUMANO ==================== -->
+    <section id="cuerpo-humano" class="fade-in-up">
+        <div class="section-header">
+            <h2>🧠 El cuerpo humano</h2>
+            <p>Somos máquinas increíbles. ¡Aprende cómo funcionamos por dentro!</p>
+        </div>
+        <div class="theory-grid">
+            <div class="theory-card">
+                <i class="fas fa-brain" style="font-size: 3rem; color: var(--color-4);"></i>
+                <h3>🧠 Cerebro</h3>
+                <p>Es el director de orquesta. Controla todo lo que haces: pensar, moverte, sentir.</p>
+            </div>
+            <div class="theory-card">
+                <i class="fas fa-heartbeat" style="font-size: 3rem; color: var(--color-4);"></i>
+                <h3>❤️ Corazón</h3>
+                <p>Bomba que impulsa la sangre. ¡Late más de 100,000 veces al día!</p>
+            </div>
+            <div class="theory-card">
+                <i class="fas fa-lungs" style="font-size: 3rem; color: var(--color-4);"></i>
+                <h3>🫁 Pulmones</h3>
+                <p>Respiran por ti. Toman oxígeno del aire y eliminan dióxido de carbono.</p>
+            </div>
+            <div class="theory-card">
+                <i class="fas fa-bone" style="font-size: 3rem; color: var(--color-4);"></i>
+                <h3>🦴 Esqueleto</h3>
+                <p>206 huesos te dan forma y te protegen. ¡Como una armadura!</p>
+            </div>
+        </div>
+        <div class="mini-activity">
+            <h4>🧠 Dato curioso</h4>
+            <p>El corazón del tamaño de un puño. ¡Late más de 100,000 veces al día!</p>
+            <button class="btn-card" onclick="mostrarDatoCuerpo()">📖 Sabías que...</button>
+            <div id="datoCuerpo" style="display: none; margin-top: 10px;">💡 El cerebro humano tiene aproximadamente 86,000 millones de neuronas. ¡Más que estrellas en la Vía Láctea!</div>
+        </div>
+    </section>
+
+    <!-- ==================== TEORÍA 2: LAS PLANTAS ==================== -->
+    <section id="plantas" class="fade-in-up">
+        <div class="section-header">
+            <h2>🌻 Las plantas: los pulmones del planeta</h2>
+            <p>Las plantas nos dan oxígeno, comida y medicina. ¡Son súper importantes!</p>
+        </div>
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-seedling"></i></div>
+                <h3>🌱 Partes de una planta</h3>
+                <p><strong>Raíz:</strong> absorbe agua y nutrientes.<br>
+                <strong>Tallo:</strong> transporta la savia.<br>
+                <strong>Hoja:</strong> hace la fotosíntesis.<br>
+                <strong>Flor:</strong> produce frutos y semillas.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-sun"></i></div>
+                <h3>☀️ Fotosíntesis</h3>
+                <p>Las plantas usan la luz del sol, agua y aire para fabricar su alimento. ¡Y liberan oxígeno!</p>
+                <div class="example-box">🌞 + 💧 + 🌬️ = 🍃🌿 + 😮💨 (oxígeno)</div>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-apple-alt"></i></div>
+                <h3>🍎 Frutos y semillas</h3>
+                <p>Las flores se convierten en frutos. Dentro de ellos están las semillas, que dan vida a nuevas plantas.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TEORÍA 3: ANIMALES Y HÁBITATS (MEJORADO) ==================== -->
     <section id="ecosistemas" class="fade-in-up">
         <div class="section-header">
             <h2>🦁 Animales y sus hábitats</h2>
             <p>Cada animal vive donde mejor se adapta. ¡Conócelos!</p>
         </div>
         <div class="theory-grid">
-            <div class="theory-card"><img src="img/ciencias/selva.webp" alt="Selva" onerror="this.src='https://placehold.co/300x200?text=Selva'"><h4>Selva</h4><p>Jaguares, monos, guacamayas.</p></div>
-            <div class="theory-card"><img src="img/ciencias/desierto.webp" alt="Desierto" onerror="this.src='https://placehold.co/300x200?text=Desierto'"><h4>Desierto</h4><p>Camellos, serpientes, escorpiones.</p></div>
-            <div class="theory-card"><img src="img/ciencias/oceano.webp" alt="Océano" onerror="this.src='https://placehold.co/300x200?text=Oceano'"><h4>Océano</h4><p>Ballenas, tiburones, peces de colores.</p></div>
+            <div class="theory-card"><img src="img/selva.jpg" alt="Selva" onerror="this.src='https://placehold.co/300x200?text=Selva'"><h4>🌳 Selva</h4><p>Jaguares, monos, guacamayas, perezosos.</p></div>
+            <div class="theory-card"><img src="img/desierto.jpeg" alt="Desierto" onerror="this.src='https://placehold.co/300x200?text=Desierto'"><h4>🏜️ Desierto</h4><p>Camellos, serpientes, escorpiones, zorros.</p></div>
+            <div class="theory-card"><img src="img/oceano.jpeg" alt="Océano" onerror="this.src='https://placehold.co/300x200?text=Oceano'"><h4>🌊 Océano</h4><p>Ballenas, tiburones, peces de colores, delfines.</p></div>
+            <div class="theory-card"><img src="img/polo.jpeg" alt="Polo" onerror="this.src='https://placehold.co/300x200?text=Polo'"><h4>❄️ Polo</h4><p>Osos polares, pingüinos, focas, morsas.</p></div>
         </div>
     </section>
 
-    <!-- JUEGO DE CLASIFICACIÓN (ID EXACTO) -->
+    <!-- ==================== TEORÍA 4: EL CICLO DEL AGUA ==================== -->
+    <section id="ciclo-agua" class="fade-in-up">
+        <div class="section-header">
+            <h2>💧 El ciclo del agua</h2>
+            <p>El agua viaja sin parar por el planeta. ¡Sigue su recorrido!</p>
+        </div>
+        <div class="lab-container">
+            <div class="lab-content">
+                <ul class="lab-list">
+                    <li><i class="fas fa-sun" style="color: var(--color-4);"></i> <strong>Evaporación:</strong> El sol calienta el agua y sube como vapor.</li>
+                    <li><i class="fas fa-cloud" style="color: var(--color-4);"></i> <strong>Condensación:</strong> El vapor se enfría y forma nubes.</li>
+                    <li><i class="fas fa-cloud-rain" style="color: var(--color-4);"></i> <strong>Precipitación:</strong> El agua cae como lluvia, nieve o granizo.</li>
+                    <li><i class="fas fa-water" style="color: var(--color-4);"></i> <strong>Recolección:</strong> El agua vuelve a ríos, lagos y océanos. ¡Y el ciclo vuelve a empezar!</li>
+                </ul>
+            </div>
+            <div class="lab-image">
+                <img src="img/ciclodelagua.jpg" alt="Ciclo del agua" onerror="this.src='https://placehold.co/400x300?text=Ciclo+del+Agua'">
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TEORÍA 5: EL SISTEMA SOLAR ==================== -->
+    <section id="sistema-solar" class="fade-in-up">
+        <div class="section-header">
+            <h2>🪐 El sistema solar</h2>
+            <p>Vivimos en un planeta llamado Tierra. ¿Conoces a sus vecinos?</p>
+        </div>
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-sun"></i></div>
+                <h3>☀️ El Sol</h3>
+                <p>Es una estrella. Nos da luz y calor. ¡Es enorme!</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-globe-americas"></i></div>
+                <h3>🌍 La Tierra</h3>
+                <p>Nuestro hogar. Tiene agua, aire y vida. ¡El único planeta con vida que conocemos!</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-moon"></i></div>
+                <h3>🌙 La Luna</h3>
+                <p>Es el satélite de la Tierra. Brilla de noche porque refleja la luz del Sol.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-planet-ringed"></i></div>
+                <h3>🪐 Los planetas</h3>
+                <p>Mercurio, Venus, Tierra, Marte, Júpiter, Saturno, Urano y Neptuno. ¡Cada uno es único!</p>
+                <button class="btn-card" onclick="mostrarPlanetas()">🎲 Ver planetas</button>
+                <div id="planetasInfo" style="display: none; margin-top: 10px;">💡 Júpiter es el más grande. Mercurio es el más cercano al Sol. ¡Saturno tiene anillos!</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TEORÍA 6: RECICLAJE Y CUIDADO DEL PLANETA ==================== -->
+    <section id="reciclaje" class="fade-in-up">
+        <div class="section-header">
+            <h2>♻️ Reciclaje y cuidado del planeta</h2>
+            <p>Pequeñas acciones pueden salvar el mundo. ¡Tú puedes ayudar!</p>
+        </div>
+        <div class="lab-container">
+            <div class="lab-content">
+                <ul class="lab-list">
+                    <li><i class="fas fa-trash-alt" style="color: green;"></i> <strong>Orgánico:</strong> Restos de comida, cáscaras de frutas.</li>
+                    <li><i class="fas fa-box" style="color: blue;"></i> <strong>Plástico:</strong> Botellas, bolsas, envases.</li>
+                    <li><i class="fas fa-newspaper" style="color: orange;"></i> <strong>Papel y cartón:</strong> Cajas, hojas, periódicos.</li>
+                    <li><i class="fas fa-wine-bottle" style="color: green;"></i> <strong>Vidrio:</strong> Botellas, frascos.</li>
+                </ul>
+            </div>
+            <div class="lab-image">
+                <img src="img/reciclaje.png" alt="Reciclaje" onerror="this.src='https://placehold.co/400x300?text=Reciclaje'">
+                <div class="mini-activity" style="margin-top: 15px;">
+                    <h4>♻️ Mini juego: ¿Dónde va cada residuo?</h4>
+                    <p id="residuoActual">🍎 Cáscara de manzana</p>
+                    <button class="btn-card" onclick="reciclar('organico')">Orgánico</button>
+                    <button class="btn-card" onclick="reciclar('plastico')">Plástico</button>
+                    <button class="btn-card" onclick="reciclar('papel')">Papel</button>
+                    <button class="btn-card" onclick="reciclar('vidrio')">Vidrio</button>
+                    <div id="reciclajeFeedback" class="game-feedback"></div>
+                    <button class="btn-card" onclick="nuevoResiduo()">🔄 Nueva basura</button>
+                    <div>Puntaje: <span id="reciclajePuntaje">0</span> aciertos</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== JUEGO DE CLASIFICACIÓN (EXISTENTE) ==================== -->
     <section id="juego-ciencias" class="fade-in-up">
         <div class="section-header">
             <h2>🐘 Clasifica los animales</h2>
@@ -61,7 +212,7 @@
         <div id="animalClassify"></div>
     </section>
 
-    <!-- LABORATORIOS: GERMINACIÓN Y AGUA -->
+    <!-- ==================== LABORATORIOS ==================== -->
     <section id="laboratorios" class="fade-in-up">
         <div class="section-header">
             <h2>🧪 Laboratorios científicos</h2>
@@ -75,6 +226,22 @@
             <div class="lab-content">
                 <h3>💧 Estados del agua</h3>
                 <div id="waterLab"></div>
+            </div>
+        </div>
+        <div class="lab-container" style="margin-top: 30px;">
+            <div class="lab-content">
+                <h3>🔬 La lupa mágica</h3>
+                <p>¿Qué ves cuando observas una hoja de cerca?</p>
+                <textarea id="lupaObservacion" rows="3" placeholder="Escribe lo que crees que verías..." style="width:100%; border-radius:20px; padding:10px;"></textarea>
+                <button class="btn-primary" onclick="enviarObservacion()">Enviar y ganar puntos</button>
+                <div id="lupaFeedback"></div>
+            </div>
+            <div class="lab-content">
+                <h3>🦋 Observa insectos</h3>
+                <p>¿Qué insecto te gustaría ver con una lupa?</p>
+                <input type="text" id="insectoInput" placeholder="Ejemplo: mariquita, hormiga..." style="width:100%; padding:10px; border-radius:20px;">
+                <button class="btn-primary" onclick="enviarInsecto()">Enviar y ganar puntos</button>
+                <div id="insectoFeedback"></div>
             </div>
         </div>
     </section>
@@ -94,6 +261,102 @@
     <script src="assets/js/juegos.js"></script>
     <script src="assets/js/laboratorio.js"></script>
     <script>
+        // ========== DATO CUERPO HUMANO ==========
+        function mostrarDatoCuerpo() {
+            let tip = document.getElementById('datoCuerpo');
+            if (tip.style.display === 'none' || tip.style.display === '') {
+                tip.style.display = 'block';
+                setTimeout(() => { tip.style.display = 'none'; }, 4000);
+            }
+        }
+
+        // ========== MOSTRAR PLANETAS ==========
+        function mostrarPlanetas() {
+            let info = document.getElementById('planetasInfo');
+            if (info.style.display === 'none' || info.style.display === '') {
+                info.style.display = 'block';
+                setTimeout(() => { info.style.display = 'none'; }, 5000);
+            }
+        }
+
+        // ========== JUEGO DE RECICLAJE ==========
+        let residuos = [
+            { nombre: "🍎 Cáscara de manzana", tipo: "organico" },
+            { nombre: "🥤 Botella de plástico", tipo: "plastico" },
+            { nombre: "📦 Caja de cartón", tipo: "papel" },
+            { nombre: "🍌 Cáscara de plátano", tipo: "organico" },
+            { nombre: "🫙 Frasco de vidrio", tipo: "vidrio" },
+            { nombre: "🥫 Lata de refresco", tipo: "plastico" },
+            { nombre: "📰 Periódico viejo", tipo: "papel" }
+        ];
+        let indiceResiduoActual = 0;
+        let puntajeReciclaje = 0;
+
+        function mostrarResiduo() {
+            let residuo = residuos[indiceResiduoActual % residuos.length];
+            document.getElementById('residuoActual').innerHTML = residuo.nombre;
+            return residuo;
+        }
+
+        function reciclar(tipoElegido) {
+            let residuo = residuos[indiceResiduoActual % residuos.length];
+            let fb = document.getElementById('reciclajeFeedback');
+            if (tipoElegido === residuo.tipo) {
+                puntajeReciclaje++;
+                document.getElementById('reciclajePuntaje').innerText = puntajeReciclaje;
+                fb.innerHTML = '✅ ¡Correcto! +10 puntos';
+                fb.style.color = 'green';
+                addPoints(10);
+                playSound('correcto');
+                indiceResiduoActual++;
+                mostrarResiduo();
+            } else {
+                fb.innerHTML = `❌ Incorrecto. "${residuo.nombre}" va al contenedor de ${residuo.tipo}.`;
+                fb.style.color = 'red';
+                playSound('incorrecto');
+                indiceResiduoActual++;
+                mostrarResiduo();
+            }
+        }
+
+        function nuevoResiduo() {
+            indiceResiduoActual++;
+            mostrarResiduo();
+            document.getElementById('reciclajeFeedback').innerHTML = '';
+        }
+
+        // ========== LABORATORIO DE OBSERVACIÓN ==========
+        function enviarObservacion() {
+            let texto = document.getElementById('lupaObservacion').value.trim();
+            if (texto.length > 5) {
+                document.getElementById('lupaFeedback').innerHTML = '🔬 ¡Excelente observación científica! +15 puntos';
+                addPoints(15);
+                playSound('correcto');
+                document.getElementById('lupaObservacion').value = '';
+                setTimeout(() => { document.getElementById('lupaFeedback').innerHTML = ''; }, 2000);
+            } else {
+                document.getElementById('lupaFeedback').innerHTML = 'Escribe una observación más detallada.';
+                playSound('incorrecto');
+            }
+        }
+
+        function enviarInsecto() {
+            let insecto = document.getElementById('insectoInput').value.trim();
+            if (insecto.length > 2) {
+                document.getElementById('insectoFeedback').innerHTML = `🦋 ¡Buena elección! Las ${insecto} son insectos fascinantes. +10 puntos`;
+                addPoints(10);
+                playSound('correcto');
+                document.getElementById('insectoInput').value = '';
+                setTimeout(() => { document.getElementById('insectoFeedback').innerHTML = ''; }, 3000);
+            } else {
+                document.getElementById('insectoFeedback').innerHTML = 'Escribe el nombre de un insecto.';
+                playSound('incorrecto');
+            }
+        }
+
+        // Inicializar juegos
+        mostrarResiduo();
+
         window.onload = () => {
             if(typeof initAnimalClassification === 'function') initAnimalClassification();
             if(typeof initGerminationLab === 'function') initGerminationLab();
