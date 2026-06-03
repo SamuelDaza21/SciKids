@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experimentos con Agua - Scikids</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        .water-exp { max-width: 800px; margin: 120px auto; background: white; border-radius: 30px; padding: 30px; text-align: center; }
+        .state-card { display: inline-block; margin: 20px; padding: 15px; background: #e3f2fd; border-radius: 20px; width: 150px; cursor: pointer; }
+        .temp-slider { margin: 20px; }
+    </style>
+</head>
+<body>
+    <header class="navbar glass-panel"><a href="../index.html" class="logo"><i class="fas fa-rocket"></i> Scikids</a>
+        <ul class="nav-links"><li><a href="../ciencias.html">Ciencias</a></li></ul>
+    </header>
+    <div class="water-exp">
+        <h2>💧 Estados del agua</h2>
+        <p>Mueve el termómetro y observa cómo cambia el agua.</p>
+        <div class="temp-slider">
+            <label>Temperatura (°C): <span id="tempValue">20</span></label>
+            <input type="range" id="tempSlider" min="-10" max="120" value="20" step="1">
+        </div>
+        <div id="stateDisplay" style="font-size: 3rem; margin: 30px;">💧 Agua líquida</div>
+        <div class="info-box">
+            <strong>🔬 Explicación:</strong> El agua sólida (hielo) aparece bajo 0°C, líquida entre 0 y 100°C, y gaseosa (vapor) sobre 100°C.
+        </div>
+        <button onclick="startWaterQuiz()" class="btn-primary">Cuestionario del agua</button>
+    </div>
+    <script>
+        const slider = document.getElementById('tempSlider');
+        const display = document.getElementById('stateDisplay');
+        const tempSpan = document.getElementById('tempValue');
+        slider.addEventListener('input', function() {
+            let temp = this.value;
+            tempSpan.innerText = temp;
+            if(temp < 0) display.innerHTML = '❄️ Hielo (sólido)';
+            else if(temp >= 0 && temp < 100) display.innerHTML = '💧 Agua líquida';
+            else display.innerHTML = '💨 Vapor de agua (gas)';
+        });
+        function startWaterQuiz() {
+            let correct = 0;
+            if(prompt("¿A qué temperatura hierve el agua? (0°C, 100°C, -10°C)") === "100°C") correct++;
+            if(prompt("¿Qué proceso convierte el agua líquida en vapor?") .toLowerCase() === "evaporación") correct++;
+            alert(`Respuestas correctas: ${correct}/2. ¡Sigue experimentando!`);
+        }
+    </script>
+    <footer><div class="footer-bottom"><p>© 2026 Scikids</p></div></footer>
+</body>
+</html>

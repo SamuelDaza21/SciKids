@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorio de Insectos - Scikids</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        body { background-image: url('img/f1.jpg'); }
+        .lab-container { max-width: 800px; margin: 120px auto; background: white; border-radius: 30px; padding: 30px; text-align: center; }
+        .insect-card { display: inline-block; margin: 20px; cursor: pointer; transition: transform 0.3s; }
+        .insect-card img { width: 100px; height: 100px; border-radius: 20px; }
+        .insect-card:hover { transform: scale(1.05); }
+        .info { background: #e8f5e9; padding: 15px; border-radius: 20px; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <header class="navbar glass-panel"><a href="../index.html" class="logo"><i class="fas fa-rocket"></i> Scikids</a>
+        <ul class="nav-links"><li><a href="../ciencias.html">Ciencias</a></li></ul>
+    </header>
+    <div class="lab-container">
+        <h1>🐞 Observación de insectos</h1>
+        <p>Haz clic en cada insecto para aprender sobre él.</p>
+        <div>
+            <div class="insect-card" onclick="showInfo('mariposa')"><img src="https://placehold.co/100x100?text=🦋" alt="mariposa"><p>Mariposa</p></div>
+            <div class="insect-card" onclick="showInfo('hormiga')"><img src="https://placehold.co/100x100?text=🐜" alt="hormiga"><p>Hormiga</p></div>
+            <div class="insect-card" onclick="showInfo('libelula')"><img src="https://placehold.co/100x100?text=🐉" alt="libelula"><p>Libélula</p></div>
+        </div>
+        <div id="insectInfo" class="info">Selecciona un insecto para conocerlo.</div>
+        <button onclick="startQuizInsectos()" class="btn-primary" style="margin-top:20px">Cuestionario de insectos</button>
+    </div>
+    <script>
+        function showInfo(insect) {
+            let texts = { mariposa: "🦋 Las mariposas pasan por metamorfosis: huevo, oruga, crisálida y adulto. Ayudan a polinizar las flores.", hormiga: "🐜 Las hormigas viven en colonias organizadas, con reinas, obreras y soldados. Son muy fuertes para su tamaño.", libelula: "🐉 Las libélulas son excelentes voladoras y cazan mosquitos. Viven cerca del agua." };
+            document.getElementById('insectInfo').innerHTML = `<strong>${insect}</strong><br>${texts[insect]}`;
+        }
+        function startQuizInsectos() {
+            let score = 0;
+            if(prompt("¿Qué insecto sufre metamorfosis completa? (mariposa/hormiga)").toLowerCase()==='mariposa') score++;
+            if(prompt("¿Cuál es el insecto que vive en colonias?") .toLowerCase()==='hormiga') score++;
+            alert(`Obtuviste ${score}/2. ¡Sigue explorando!`);
+            if(score>0) alert("+10 puntos por aprender");
+        }
+    </script>
+    <footer><div class="footer-bottom"><p>© 2026 Scikids</p></div></footer>
+</body>
+</html>

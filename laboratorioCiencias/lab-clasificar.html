@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clasificación de Animales - Scikids</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <header class="navbar glass-panel"><a href="../index.html" class="logo"><i class="fas fa-rocket"></i> Scikids</a>
+        <ul class="nav-links"><li><a href="../ciencias.html">Ciencias</a></li></ul>
+    </header>
+    <div style="max-width: 1000px; margin: 120px auto; background: white; border-radius: 30px; padding: 30px;">
+        <h2>🐘 Clasificación de animales</h2>
+        <p>Arrastra cada animal a su grupo correcto (Mamífero, Ave, Reptil, Anfibio, Pez).</p>
+        <div class="drag-container" id="animalList">
+            <div class="drag-item" draggable="true" data-animal="leon">🦁 León</div>
+            <div class="drag-item" draggable="true" data-animal="aguila">🦅 Águila</div>
+            <div class="drag-item" draggable="true" data-animal="serpiente">🐍 Serpiente</div>
+            <div class="drag-item" draggable="true" data-animal="rana">🐸 Rana</div>
+            <div class="drag-item" draggable="true" data-animal="tiburon">🦈 Tiburón</div>
+        </div>
+        <div style="display:flex; flex-wrap:wrap; gap:20px; justify-content:center; margin-top:30px;">
+            <div class="drop-zone" data-group="mamifero">Mamíferos</div>
+            <div class="drop-zone" data-group="ave">Aves</div>
+            <div class="drop-zone" data-group="reptil">Reptiles</div>
+            <div class="drop-zone" data-group="anfibio">Anfibios</div>
+            <div class="drop-zone" data-group="pez">Peces</div>
+        </div>
+        <div id="result" style="text-align:center; margin-top:20px;"></div>
+        <p><strong>Datos:</strong> Los mamíferos tienen pelo y maman, las aves tienen plumas, los reptiles escamas, los anfibios piel húmeda y los peces branquias.</p>
+    </div>
+    <script>
+        let correct = 0;
+        const correctMap = { leon: "mamifero", aguila: "ave", serpiente: "reptil", rana: "anfibio", tiburon: "pez" };
+        document.querySelectorAll('.drag-item').forEach(d => {
+            d.addEventListener('dragstart', e => e.dataTransfer.setData('text/plain', d.getAttribute('data-animal')));
+        });
+        document.querySelectorAll('.drop-zone').forEach(zone => {
+            zone.addEventListener('dragover', e => e.preventDefault());
+            zone.addEventListener('drop', e => {
+                e.preventDefault();
+                let animal = e.dataTransfer.getData('text/plain');
+                let group = zone.getAttribute('data-group');
+                if (correctMap[animal] === group) {
+                    zone.style.background = '#c8e6c9';
+                    correct++;
+                    document.getElementById('result').innerHTML = `✅ Correcto! ${correct}/5`;
+                    if(correct===5) alert('¡Excelente! Has clasificado todos. +25 puntos');
+                } else {
+                    zone.style.background = '#ffcdd2';
+                    document.getElementById('result').innerHTML = '❌ Intenta de nuevo.';
+                }
+                setTimeout(()=> zone.style.background = '', 800);
+            });
+        });
+    </script>
+    <footer><div class="footer-bottom"><p>© 2026 Scikids</p></div></footer>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorio de Germinación - Scikids</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        body { background-image: url('img/f1.jpg'); background-size: cover; }
+        .lab-container {
+            max-width: 800px;
+            margin: 120px auto 60px;
+            background: rgba(255,255,255,0.9);
+            border-radius: 30px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+        }
+        .seed-pot {
+            width: 200px;
+            height: 180px;
+            background: #8B4513;
+            border-radius: 50% 50% 30% 30%;
+            margin: 20px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .plant {
+            width: 10px;
+            height: 0px;
+            background: green;
+            position: absolute;
+            bottom: 30px;
+            left: 95px;
+            transition: height 0.5s;
+            border-radius: 5px;
+        }
+        .leaf { width: 20px; height: 20px; background: #4caf50; position: absolute; border-radius: 50%; display: none; }
+        .controls { display: flex; justify-content: center; gap: 20px; margin: 20px 0; }
+        button { background: var(--color-1); color: white; border: none; padding: 10px 20px; border-radius: 30px; cursor: pointer; }
+        .day-counter { font-size: 2rem; text-align: center; }
+    </style>
+</head>
+<body>
+    <header class="navbar glass-panel"><a href="../index.html" class="logo"><i class="fas fa-rocket"></i> Scikids</a>
+        <ul class="nav-links"><li><a href="../index.html">Inicio</a></li><li><a href="../ciencias.html">Ciencias</a></li></ul>
+    </header>
+    <div class="lab-container">
+        <h1>🌱 Germinación de una planta</h1>
+        <p>Cuida tu semilla: riega y dale luz. ¡Observa cómo crece día a día!</p>
+        <div class="seed-pot">
+            <div id="plant" class="plant"></div>
+            <div id="leaf1" class="leaf" style="top: 0; left: 80px;"></div>
+            <div id="leaf2" class="leaf" style="top: 0; left: 110px;"></div>
+        </div>
+        <div class="day-counter">Día <span id="day">0</span></div>
+        <div class="controls">
+            <button onclick="water()"><i class="fas fa-tint"></i> Regar</button>
+            <button onclick="sunlight()"><i class="fas fa-sun"></i> Dar luz</button>
+            <button onclick="nextDay()"><i class="fas fa-calendar-day"></i> Siguiente día</button>
+        </div>
+        <div id="message" style="margin-top:20px; text-align:center;"></div>
+        <p><strong>Explicación:</strong> La semilla necesita agua, oxígeno y temperatura adecuada para germinar. La raíz emerge primero, luego el tallo y las hojas. ¡La luz solar activa la fotosíntesis!</p>
+    </div>
+    <footer style="margin-top: 60px;"><div class="footer-bottom"><p>© 2026 Scikids</p></div></footer>
+    <script>
+        let day = 0, waterLevel = 0, lightLevel = 0;
+        function updatePlant() {
+            let height = Math.min(100, (waterLevel + lightLevel) * 3);
+            document.getElementById('plant').style.height = height + 'px';
+            if(height > 20) { document.getElementById('leaf1').style.display = 'block'; document.getElementById('leaf2').style.display = 'block'; }
+            if(height > 50) document.getElementById('leaf1').style.backgroundColor = '#2e7d32';
+            if(height >= 100) document.getElementById('message').innerHTML = '🎉 ¡Tu planta ha crecido completamente! +30 puntos';
+        }
+        function water() { waterLevel += 10; if(waterLevel>100) waterLevel=100; updatePlant(); }
+        function sunlight() { lightLevel += 10; if(lightLevel>100) lightLevel=100; updatePlant(); }
+        function nextDay() { day++; document.getElementById('day').innerText = day; waterLevel = Math.max(0, waterLevel-5); lightLevel = Math.max(0, lightLevel-5); updatePlant(); if(day===5) addPoints(30, 'Completaste el día 5'); }
+        window.addPoints = (p, msg) => alert(msg);
+    </script>
+</body>
+</html>
